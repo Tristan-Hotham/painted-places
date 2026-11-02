@@ -1,0 +1,218 @@
+period,country,paintings,share_pct
+before 1600,Belgium,9.0,23.68
+before 1600,Italy,9.0,23.68
+before 1600,Netherlands,6.0,15.79
+before 1600,Germany,5.0,13.16
+before 1600,United Kingdom,2.0,5.26
+before 1600,China,2.0,5.26
+before 1600,Austria,1.0,2.63
+before 1600,Greece,1.0,2.63
+before 1600,Mexico,1.0,2.63
+before 1600,Israel,1.0,2.63
+before 1600,Portugal,0.5,1.32
+before 1600,Spain,0.5,1.32
+1600s,Netherlands,581.67,62.41
+1600s,Italy,82.0,8.8
+1600s,Germany,65.67,7.05
+1600s,Belgium,50.5,5.42
+1600s,France,44.5,4.77
+1600s,United Kingdom,29.5,3.17
+1600s,Brazil,16.0,1.72
+1600s,Switzerland,12.17,1.31
+1600s,Norway,9.0,0.97
+1600s,at sea,8.0,0.86
+1600s,Indonesia,6.0,0.64
+1600s,Spain,6.0,0.64
+1600s,China,2.0,0.21
+1600s,Denmark,2.0,0.21
+1600s,Syria,2.0,0.21
+1600s,Greece,2.0,0.21
+1600s,Morocco,2.0,0.21
+1600s,Mexico,2.0,0.21
+1600s,Turkey,1.5,0.16
+1600s,Tunisia,1.5,0.16
+1600s,Gibraltar,1.0,0.11
+1600s,Japan,1.0,0.11
+1600s,Pakistan,1.0,0.11
+1600s,Libya,1.0,0.11
+1600s,Palestine,1.0,0.11
+1600s,South Africa,1.0,0.11
+1700s,Italy,223.0,37.23
+1700s,United Kingdom,138.0,23.04
+1700s,France,61.5,10.27
+1700s,Netherlands,60.0,10.02
+1700s,Germany,26.83,4.48
+1700s,Belgium,14.0,2.34
+1700s,Switzerland,12.5,2.09
+1700s,Sweden,7.0,1.17
+1700s,at sea,7.0,1.17
+1700s,Poland,6.0,1.0
+1700s,Norway,5.0,0.83
+1700s,Denmark,4.0,0.67
+1700s,United States,4.0,0.67
+1700s,India,4.0,0.67
+1700s,Czech Republic,3.67,0.61
+1700s,Finland,3.0,0.5
+1700s,Cuba,3.0,0.5
+1700s,Spain,2.5,0.42
+1700s,Gibraltar,2.0,0.33
+1700s,French Polynesia,2.0,0.33
+1700s,Israel,2.0,0.33
+1700s,Turkey,2.0,0.33
+1700s,Austria,1.0,0.17
+1700s,Canada,1.0,0.17
+1700s,Peru,1.0,0.17
+1700s,Malta,1.0,0.17
+1700s,Suriname,1.0,0.17
+1700s,Russia,1.0,0.17
+1800s,France,1155.38,27.26
+1800s,United States,575.0,13.57
+1800s,United Kingdom,441.83,10.43
+1800s,Italy,342.17,8.07
+1800s,Norway,248.67,5.87
+1800s,Denmark,147.83,3.49
+1800s,Germany,140.47,3.31
+1800s,Netherlands,138.83,3.28
+1800s,Sweden,114.17,2.69
+1800s,Brazil,111.5,2.63
+1800s,Belgium,87.0,2.05
+1800s,Switzerland,76.5,1.81
+1800s,Spain,62.5,1.47
+1800s,at sea,59.78,1.41
+1800s,Canada,44.5,1.05
+1800s,India,38.0,0.9
+1800s,Russia,34.5,0.81
+1800s,Austria,29.2,0.69
+1800s,Poland,27.0,0.64
+1800s,Algeria,24.5,0.58
+1800s,Czech Republic,24.0,0.57
+1800s,Portugal,21.0,0.5
+1800s,Australia,19.0,0.45
+1800s,Turkey,18.0,0.42
+1800s,Greece,18.0,0.42
+1800s,Finland,17.0,0.4
+1800s,Ecuador,16.5,0.39
+1800s,Mexico,15.0,0.35
+1800s,Indonesia,14.0,0.33
+1800s,New Zealand,11.0,0.26
+1800s,Slovakia,10.0,0.24
+1800s,Egypt,9.75,0.23
+1800s,Chile,8.0,0.19
+1800s,Jamaica,7.0,0.17
+1800s,The Bahamas,7.0,0.17
+1800s,Belarus,6.0,0.14
+1800s,Malaysia,6.0,0.14
+1800s,Seychelles,6.0,0.14
+1800s,South Africa,5.67,0.13
+1800s,Guernsey,5.0,0.12
+1800s,Japan,5.0,0.12
+1800s,Sri Lanka,4.0,0.09
+1800s,Lithuania,4.0,0.09
+1800s,China,4.0,0.09
+1800s,French Polynesia,4.0,0.09
+1800s,Sudan,3.25,0.08
+1800s,Colombia,3.0,0.07
+1800s,Gibraltar,3.0,0.07
+1800s,Venezuela,3.0,0.07
+1800s,Morocco,3.0,0.07
+1800s,Congo,3.0,0.07
+1800s,Armenia,3.0,0.07
+1800s,Israel,3.0,0.07
+1800s,Greenland,3.0,0.07
+1800s,Iran,3.0,0.07
+1800s,Ireland,2.0,0.05
+1800s,Montenegro,2.0,0.05
+1800s,Macau,2.0,0.05
+1800s,Palestine,2.0,0.05
+1800s,Ukraine,2.0,0.05
+1800s,Peru,2.0,0.05
+1800s,Puerto Rico,2.0,0.05
+1800s,Vietnam,2.0,0.05
+1800s,Nepal,2.0,0.05
+1800s,Singapore,2.0,0.05
+1800s,Georgia,2.0,0.05
+1800s,Iceland,1.5,0.04
+1800s,Cuba,1.0,0.02
+1800s,Bulgaria,1.0,0.02
+1800s,Antarctica,1.0,0.02
+1800s,Hungary,1.0,0.02
+1800s,New Caledonia,1.0,0.02
+1800s,Mozambique,1.0,0.02
+1800s,Monaco,1.0,0.02
+1800s,Luxembourg,1.0,0.02
+1800s,Lebanon,1.0,0.02
+1800s,Latvia,1.0,0.02
+1800s,Jersey,1.0,0.02
+1800s,Hong Kong,1.0,0.02
+1800s,Slovenia,1.0,0.02
+1800s,Saint Pierre and Miquelon,1.0,0.02
+1800s,Niger,1.0,0.02
+1800s,Panama,1.0,0.02
+1800s,Nicaragua,1.0,0.02
+1800s,Syria,1.0,0.02
+1800s,Tunisia,1.0,0.02
+1800s,Åland,1.0,0.02
+1900 and later,France,695.58,32.29
+1900 and later,United States,277.5,12.88
+1900 and later,Norway,191.0,8.87
+1900 and later,United Kingdom,185.0,8.59
+1900 and later,Italy,118.2,5.49
+1900 and later,Germany,98.17,4.56
+1900 and later,Netherlands,87.0,4.04
+1900 and later,Spain,52.0,2.41
+1900 and later,Sweden,49.0,2.27
+1900 and later,Denmark,43.0,2.0
+1900 and later,Russia,32.0,1.49
+1900 and later,Portugal,27.5,1.28
+1900 and later,Belgium,27.5,1.28
+1900 and later,Algeria,20.5,0.95
+1900 and later,Poland,19.0,0.88
+1900 and later,Switzerland,17.83,0.83
+1900 and later,Armenia,15.0,0.7
+1900 and later,Canada,14.0,0.65
+1900 and later,at sea,13.42,0.62
+1900 and later,Morocco,12.5,0.58
+1900 and later,Austria,11.5,0.53
+1900 and later,Finland,11.0,0.51
+1900 and later,Turkey,8.0,0.37
+1900 and later,Tunisia,8.0,0.37
+1900 and later,Japan,8.0,0.37
+1900 and later,Israel,7.0,0.32
+1900 and later,Kenya,7.0,0.32
+1900 and later,New Zealand,7.0,0.32
+1900 and later,Slovakia,6.0,0.28
+1900 and later,Greece,6.0,0.28
+1900 and later,Estonia,6.0,0.28
+1900 and later,Czech Republic,6.0,0.28
+1900 and later,Ukraine,5.0,0.23
+1900 and later,Macau,5.0,0.23
+1900 and later,Belarus,5.0,0.23
+1900 and later,Georgia,5.0,0.23
+1900 and later,Brazil,4.8,0.22
+1900 and later,Taiwan,4.0,0.19
+1900 and later,India,3.0,0.14
+1900 and later,Ireland,3.0,0.14
+1900 and later,Croatia,3.0,0.14
+1900 and later,Australia,2.0,0.09
+1900 and later,Bulgaria,2.0,0.09
+1900 and later,United States Minor Outlying Islands,2.0,0.09
+1900 and later,Palestine,2.0,0.09
+1900 and later,Lebanon,2.0,0.09
+1900 and later,Democratic Republic of the Congo,2.0,0.09
+1900 and later,China,1.0,0.05
+1900 and later,Iran,1.0,0.05
+1900 and later,Iceland,1.0,0.05
+1900 and later,Iraq,1.0,0.05
+1900 and later,Gibraltar,1.0,0.05
+1900 and later,Egypt,1.0,0.05
+1900 and later,Chile,1.0,0.05
+1900 and later,Lithuania,1.0,0.05
+1900 and later,Mexico,1.0,0.05
+1900 and later,Romania,1.0,0.05
+1900 and later,Niger,1.0,0.05
+1900 and later,North Macedonia,1.0,0.05
+1900 and later,Serbia,1.0,0.05
+1900 and later,Tanzania,1.0,0.05
+1900 and later,Sudan,1.0,0.05
+1900 and later,Venezuela,1.0,0.05
+1900 and later,Vietnam,1.0,0.05

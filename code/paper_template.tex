@@ -1,0 +1,112 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\newfontfamily\headfont{Inter}[UprightFont=*-ExtraBold,BoldFont=*-ExtraBold,Extension=.otf,Path=/usr/share/fonts/opentype/inter/]
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{graphicx,booktabs,float,caption,array,xcolor,longtable}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage[round]{natbib}
+\usepackage{setspace}
+\setstretch{1.05}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\titleformat{\section}{\headfont\Large}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\headfont\large}{\thesubsection}{0.8em}{}
+\captionsetup{font=small,labelfont=bf}
+\urlstyle{same}
+\hypersetup{pdftitle={Painted Places},pdfauthor={Tristan Hotham}}
+
+\begin{document}
+\begin{center}
+{\Large\bfseries Painted Places\par}
+\vspace{0.4em}
+{\large Where catalogued landscape, marine and city paintings look, and how far painters went from home:\\{{source.n|int}} paintings and {{source.places|int}} depicted places in Wikidata\par}
+\vspace{1.2em}
+{\large Tristan Hotham\par}
+\vspace{0.3em}
+{\small Independent researcher\\
+ORCID: 0000-0003-4931-9349\\
+DOI: \href{https://doi.org/{{meta.doi}}}{https://doi.org/{{meta.doi}}}\par}
+\vspace{0.8em}
+2026
+\end{center}
+
+\begin{center}\textbf{Abstract}\end{center}
+I map every painting in Wikidata that is classed as a landscape, marine painting or cityscape and that depicts an item with coordinates, after removing depicted items that are not places on the Earth (events such as sea battles, ships, and the Moon, whose coordinates lie on the lunar globe). The result is {{source.n|int}} paintings by {{source.painters|int}} named painters showing {{source.places|int}} places in {{source.countries|int}} countries. The most painted place is the Seine ({{places.Q1471.n|int}} paintings by {{seine.painters|int}} painters), followed by Paris, Lofoten, Venice and Nordland. Linking painters' birthplaces gives a distance for {{dist.n|int}} paintings: the median is {{dist.median|int}} km, {{dist.within50_pct|int}}\% lie within 50 km of the birthplace and {{dist.over1000_pct|int}}\% more than 1,000 km away. Distances rise from a median of {{dist_cent.1.median|int}} km in the 1600s to {{dist_cent.3.median|int}} km in the 1800s, and the geography shifts from the Netherlands ({{cents.1.Netherlands|int}}\% of 1600s paintings) to Italy ({{cents.2.Italy|int}}\% in the 1700s) to France ({{cents.3.France|int}}\% in the 1800s). Coverage is uneven: the largest collection holds {{coll.top1_pct|f1}}\% of the paintings, {{colls.0.top_painter_pct|int}}\% of them by a single painter, the ten largest {{coll.top10_pct|int}}\%, and {{continent.Europe|int}}\% of paintings show places in Europe. The map describes what has been catalogued as much as where painters went.
+
+\textbf{Keywords:} landscape painting; Wikidata; cultural heritage data; art geography; painters' travel; museum collections; open data
+
+\section{Introduction}
+Landscape painting is about places, and many of its places are famous in their own right: Monet's Seine, Canaletto's Venice and London, the Hudson River School's Catskills. Art historians have studied painters' travels one artist or one school at a time. Linked open data now make it possible to look at many painters at once. Wikidata records, for hundreds of thousands of paintings, a creator, a date, a collection, a genre and, increasingly, what the painting depicts. When the depicted item is a river, a town or a mountain it carries coordinates. This paper uses those statements to map where catalogued landscape, marine and city paintings look, which places painters returned to, how far from their birthplaces they painted, and how the geography changed over four centuries. Because the source is a catalogue assembled by museums, projects and volunteers, the paper also measures how far a few contributors shape the result.
+
+\section{Data}
+I queried Wikidata \citep{wikidata} through the QLever SPARQL endpoint \citep{qlever} on {{source.query_date|raw}} for items that are instances of painting, have a genre of landscape art, marine art or cityscape (or of three related genres, religious art, genre painting and animal painting) and depict an item with coordinates, together with the creator, inception date, image, collection and number of Wikipedia articles. The query returned {{source.rows|int}} rows for {{source.paintings_all|int}} paintings. A second query returned each creator's country of citizenship and the coordinates of the place of birth, and a third the {{source.depcoord_n|int}} paintings with a separate ``coordinates of depicted place'' statement. Natural Earth \citep{naturalearth} provides countries (today's borders), first level regions and continents.
+
+\section{Methods}
+\subsection{Paintings and places}
+I keep the {{source.core|int}} paintings with at least one of the three landscape genres and set aside {{source.set_aside|int}} that entered only through a related genre. The ``depicts'' property catches anything with coordinates, so I remove depicted items that are not places. The rule, applied in order, is: the coordinate must be a point on the Earth (this removes {{source.drop_globe|int}} items, chiefly the Moon, which appears in {{source.moon|int}} paintings); the coordinates must be in range and not 0,0; and the item must not be an event ({{source.drop_event|int}} items, mostly naval battles), a vessel ({{source.drop_vessel|int}}) or another non-place ({{source.drop_other|int}}). The non-places are listed by identifier in the code after reading every depicted item with two or more paintings and a keyword scan of all labels; the build fails if the scan finds an unlisted event or ship. {{source.no_place|int}} paintings lose all their places and are dropped, leaving {{source.n|int}} paintings, {{source.places|int}} places and {{source.pairs|int}} painting and place pairs. Table~\ref{tab:excluded} lists the most frequent exclusions.
+
+{{TABLE_EXCLUDED}}
+
+\subsection{Distances, periods and kinds of place}
+For each painting with a painter whose birthplace has coordinates, I compute the great circle distance from the birthplace to each depicted place and take the median across places. Broad areas (countries, first level regions, seas and oceans; {{source.places_broad|int}} places) are excluded from distances when a painting also names a finer place, and paintings that name only broad areas are left out. Rivers are single points in Wikidata, so distances to rivers are approximate. Periods group inception years by hundreds (the 1800s are 1800 to 1899); paintings before 1600 are grouped together and the few after 1999 join the 1900s. Country shares split a painting equally between its places. The 100 most painted places were assigned by hand to six kinds (rivers and canals; cities, towns and villages; coasts, seas and islands; mountains, valleys and forests; buildings, bridges and squares; regions and countries).
+
+\section{Results}
+\subsection{The most painted places}
+Figure~\ref{fig:map} maps all places and Figure~\ref{fig:europe} shows western Europe. The Seine is the most painted place, with {{places.Q1471.n|int}} paintings by {{seine.painters|int}} painters; Monet ({{seine.monet|int}}), Sisley ({{seine.sisley|int}}) and Pissarro ({{seine.pissarro|int}}) together account for {{seine.impr_pct|int}}\% (Figure~\ref{fig:top}, Table~\ref{tab:places}). Among the 100 most painted places, {{kinds_top.city.places|int}} are cities, towns or villages, {{kinds_top.building.places|int}} buildings, bridges or squares, {{kinds_top.river.places|int}} rivers or canals, {{kinds_top.coast.places|int}} coasts, seas or islands, {{kinds_top.mountain.places|int}} mountains, valleys or forests and {{kinds_top.region.places|int}} regions or countries; {{top25_water|int}} of the top 25 are rivers, coasts or seas. The distribution has a long tail: {{single.places_1_pct|int}}\% of places appear in only one painting and {{single.places_10|int}} in ten or more.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_map.png}\caption{All {{source.places|int}} depicted places, sized by the number of paintings and coloured by the dominant genre.}\label{fig:map}\end{figure}
+\begin{figure}[tbp]\centering\includegraphics[width=.92\textwidth]{f_europe.png}\caption{Western Europe in detail (European equal area projection).}\label{fig:europe}\end{figure}
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_top.png}\caption{The 20 most painted places, coloured by kind, with the painter who painted each most often.}\label{fig:top}\end{figure}
+
+{{TABLE_PLACES}}
+
+\subsection{Painters and their places}
+Many painters concentrate on a home ground (Figure~\ref{fig:painters}). The Seine accounts for {{fav.monet_seine.n|int}} of Monet's {{fav.monet.n|int}} paintings, the Montagne Sainte-Victoire for {{fav.cezanne.top_n|int}} of Cézanne's {{fav.cezanne.n|int}}, and Dordrecht for {{fav.goyen.top_n|int}} of Jan van Goyen's {{fav.goyen.n|int}}. Turner is the exception, with {{fav.turner.places|int}} places among {{fav.turner.n|int}} paintings; Venice ({{fav.turner_venice.n|int}} within 8 km of its centre) outnumbers the Thames. Of Canaletto's {{fav.canaletto.n|int}} catalogued paintings, {{fav.canaletto_london.n|int}} show London and {{fav.canaletto_venice.n|int}} Venice, while {{fav.guardi_venice.n|int}} of Francesco Guardi's {{fav.guardi_venice.of|int}} show Venice. The three painters with the most mapped paintings are Anna Boberg ({{fav.boberg.n|int}}), Albert Bierstadt ({{fav.bierstadt.n|int}}) and Grandma Moses ({{fav.moses.n|int}}); the ten most mapped painters account for {{painters_top10_pct|int}}\% of all paintings.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_painters.png}\caption{Share of each painter's catalogued paintings showing their three most painted places.}\label{fig:painters}\end{figure}
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_journeys.png}\caption{Lines from the birthplace to every painted place for six painters.}\label{fig:journeys}\end{figure}
+
+\subsection{Distance from home}
+Distances are available for {{dist.n|int}} paintings ({{dist.pct_of_mapped|int}}\%) by {{dist.painters|int}} painters. The median is {{dist.median|int}} km; {{dist.within10_pct|int}}\% are within 10 km of the birthplace, {{dist.within50_pct|int}}\% within 50 km, {{dist.over1000_pct|int}}\% beyond 1,000 km and {{dist.over5000_pct|int}}\% beyond 5,000 km (Figure~\ref{fig:distance}). The 1600s are the most local period (median {{dist_cent.1.median|int}} km, {{dist_cent.1.within50_pct|int}}\% within 50 km); the median rises to {{dist_cent.2.median|int}} km in the 1700s and {{dist_cent.3.median|int}} km in the 1800s, when {{dist_cent.3.over1000_pct|int}}\% of paintings lie more than 1,000 km from the birthplace, and falls to {{dist_cent.4.median|int}} km after 1900. By country of birth (Table~\ref{tab:countries}), painters born in the Netherlands are the most local (median {{dist_country_nl.median|int}} km) and painters born in the United Kingdom ({{dist_country_uk.median|int}} km) and Germany ({{dist_country_de.median|int}} km) the most distant among the large groups; British born painters' distant paintings most often show the United States and Italy. Among painters with at least {{travellers_min|int}} measurable paintings, the largest medians belong to painters who worked at the antipodes of their birthplace, and to Marianne North ({{trav.north.n|int}} paintings, median {{trav.north.median|int}} km, {{north_countries.n|int}} countries). Some long distances record emigration rather than travel: Bierstadt ({{trav.bierstadt.median|int}} km) and Pissarro ({{trav.pissarro.median|int}} km) were born in Germany and on St Thomas.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_distance.png}\caption{Distance from the painter's birthplace to the place painted, by period.}\label{fig:distance}\end{figure}
+
+{{TABLE_COUNTRIES}}
+
+\subsection{Through the centuries}
+The country of the depicted places shifts over time (Figure~\ref{fig:periods}). The Netherlands account for {{cents.1.Netherlands|int}}\% of 1600s paintings and {{cents.3.Netherlands|int}}\% of 1800s ones; Italy for {{cents.2.Italy|int}}\% of 1700s paintings, with the United Kingdom second at {{cents.2.United Kingdom|int}}\%; France for {{cents.3.France|int}}\% of 1800s and {{cents.4.France|int}}\% of later paintings, and the United States for {{cents.3.United States|int}}\% of 1800s paintings. Norway rises from about 1\% before 1800 to {{cents.4.Norway|int}}\% after 1900, or {{cents.4.Norway_wo_boberg|int}}\% without Anna Boberg.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_periods.png}\caption{Share of each period's paintings by the country of the depicted place.}\label{fig:periods}\end{figure}
+
+\subsection{Coverage}
+The paintings are linked to {{coll.n|int}} collections; {{coll.none_pct|int}}\% have none recorded. The largest, Sweden's Nationalmuseum, holds {{colls.0.n|int}} ({{coll.top1_pct|f1}}\%), {{boberg.nm|int}} of them by Anna Boberg, which places Lofoten and Nordland third and fifth among all places. The ten largest collections hold {{coll.top10_pct|int}}\% of paintings and half of all collection links point to {{coll.half_k|int}} collections ({{coll.half_k_pct|f1}}\%); {{coll.one_painting|int}} collections have one painting (Figure~\ref{fig:collections}, Table~\ref{tab:colls}). Of the 20 most painted places, {{bias_top.one_painter_half|int}} owe half or more of their paintings to one painter and {{bias_top.one_coll_half|int}} to one collection. Only {{source.wiki_pct|int}}\% of paintings have a Wikipedia article, {{source.img_pct|int}}\% have an image, and {{continent.Europe|int}}\% show places in Europe, {{continent.North_America|int}}\% in North America and {{continent.rest|int}}\% elsewhere.
+
+\begin{figure}[tbp]\centering\includegraphics[width=\textwidth]{f_collections.png}\caption{The 12 collections with the most mapped paintings; dark segments are the collection's leading painter.}\label{fig:collections}\end{figure}
+
+{{TABLE_COLLS}}
+
+\section{Limitations}
+First, the data are a catalogue, not a sample: a painting appears only if someone recorded its genre and the specific place it depicts, and a few institutions and painters dominate. Second, Wikidata statements can be wrong or loose (a painting tagged with a whole state or county, a river given as a single point), and I have removed only what is clearly not a place. Third, ``depicts'' does not prove the painter visited the place, and the birthplace is a crude proxy for home: emigrants appear as long distance travellers. Fourth, country assignments use today's borders. Fifth, the hand classification of the 100 most painted places by kind is my judgement. Sixth, only one painting in the set carries a separate ``coordinates of depicted place'' statement (Vermeer's View of Delft, within {{source.depcoord_max_km|f1}} km of its depicted places), so place coordinates cannot be validated at scale.
+
+\section{Conclusion}
+In the part of Wikidata that records what landscape paintings show, painters returned again and again to rivers, cities and coasts: the Seine above all, Paris, Venice, the Thames, the Hudson and the Dutch river towns. The catalogue captures a clear historical arc, from the painted home towns of the Dutch seventeenth century through the Italian views of the eighteenth to the French rivers and long journeys of the nineteenth. It also captures, just as clearly, the choices of those who built it: one Swedish museum's catalogue of one painter puts the north of Norway near the top of the world's painted places. Read with that in mind, open catalogue data are a promising and transparent way to study the geography of art.
+
+\section*{Data and code availability}
+The interactive map is at \url{{{meta.page}}}. Data and code are at \url{{{meta.repo}}} and archived with this paper at \url{https://doi.org/{{meta.doi}}}. Wikidata content is CC0. Images are not redistributed; the map links to Wikimedia Commons, where each image keeps its own licence. Derived data and text are released under CC BY 4.0 and code under the MIT licence.
+
+\section*{AI statement}
+I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.
+
+\begin{thebibliography}{9}
+\bibitem[Bast and Buchhold(2017)]{qlever} Bast, H. and Buchhold, B. (2017) QLever: a query engine for efficient SPARQL+text search. In Proceedings of the 2017 ACM Conference on Information and Knowledge Management, 647 to 656.
+\bibitem[Natural Earth(2026)]{naturalearth} Natural Earth (2026) Admin 0 countries, admin 1 states and provinces, land, 1:10m and 1:50m. Public domain. \url{https://www.naturalearthdata.com/}
+\bibitem[Vrandečić and Krötzsch(2014)]{wikidata} Vrandečić, D. and Krötzsch, M. (2014) Wikidata: a free collaborative knowledgebase. Communications of the ACM 57(10), 78 to 85.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,113 @@
+<!-- wp:paragraph -->
+<p><em>Where do landscape paintings look? I mapped {{source.n|int}} landscape, marine and city paintings catalogued in Wikidata, and the {{source.places|int}} real places they show: the rivers and towns painters returned to, and how far from home they went.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/painted-places/">Explore the interactive map</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.23873007">Read the paper</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph -->
+<p>Wikidata, the free knowledge base behind Wikipedia, has records for an enormous number of paintings, many added by museums from their own catalogues. Some of those records say what a painting shows, and when that is a real river, town or mountain, it comes with a position on the map. I took every painting Wikidata calls a landscape, a marine (sea) painting or a cityscape that depicts such a place. After weeding out the things that have coordinates but are not places (more on that below), that leaves {{source.n|int}} paintings by {{source.painters|int}} named painters, showing {{source.places|int}} places in {{source.countries|int}} countries.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_map.png|World map with small dots for painted places, dense across western Europe, the eastern United States and California, with scattered dots in Brazil, North Africa, India, Indonesia, Australia and New Zealand. Labels mark the Seine (228 paintings), Lofoten (97), Venice (95), the Hudson River (56), California (43), Rio de Janeiro (64) and the Atlantic Ocean (55). Dots are green for mostly landscapes, blue for mostly marine paintings and orange for mostly cityscapes|Every painted place in the catalogue. Circle area shows the number of paintings; colour shows the genre that dominates there.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The most painted place is a river</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Top of the list is the Seine, with {{places.Q1471.n|int}} paintings by {{seine.painters|int}} painters. Three Impressionists account for over a third of them: Claude Monet ({{seine.monet|int}}), Alfred Sisley ({{seine.sisley|int}}) and Camille Pissarro ({{seine.pissarro|int}}). Then come Paris ({{places.Q90.n|int}}), Lofoten in arctic Norway ({{places.Q186822.n|int}}), Venice ({{places.Q641.n|int}}) and Nordland, the Norwegian county around Lofoten ({{places.Q50630.n|int}}). Water runs through the whole list: {{top25_water|int}} of the 25 most painted places are rivers, coasts or seas, from the Thames and the Hudson to the cliffs of Étretat.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_top.png|Horizontal bar chart of the 20 most painted places coloured by kind of place: the Seine 228, Paris 120, Lofoten 97, Venice 95, Nordland 89, the Grote Kerk in Haarlem 67, Rio de Janeiro 64, the English Channel 59, the Thames 58, the Hudson River and Windsor Castle 56 each, then the Atlantic, Dordrecht, the Mediterranean, the Catskills, Vesuvius, California, Tivoli, Étretat and the Grote Markt in Haarlem. Each bar names the painter with the most paintings of it|The 20 most painted places, with the painter who painted each one most often.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Home ground</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Many painters had one place they kept coming back to. The Seine is in {{fav.monet_seine.n|int}} of Monet's {{fav.monet.n|int}} catalogued paintings, the Montagne Sainte-Victoire in {{fav.cezanne.top_n|int}} of Cézanne's {{fav.cezanne.n|int}}, and Dordrecht in {{fav.goyen.top_n|int}} of Jan van Goyen's {{fav.goyen.n|int}}. Turner is the opposite: {{fav.turner.places|int}} different places in {{fav.turner.n|int}} paintings, with Venice ahead of the Thames. And Canaletto, the great painter of Venice, is in the catalogue almost as much for London: {{fav.canaletto_london.n|int}} of his {{fav.canaletto.n|int}} paintings here show London and the Thames, {{fav.canaletto_venice.n|int}} show Venice.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_painters.png|Stacked bars for 14 painters showing the share of their paintings in their three favourite places. Anna Boberg's bar is mostly Lofoten 93 and Nordland 88; Monet's starts with the Seine 38; Cézanne's with the Montagne Sainte-Victoire; Berckheyde's with the Grote Kerk 28 and Grote Markt 23; Canaletto's with London 11 and the Thames 7; Guardi's with Venice. Turner's and Utrillo's favourite places take small shares|How much of each painter's catalogued work shows their three favourite places.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How far from home?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Wikidata also records where most painters were born, so I measured the distance from each painter's birthplace to the places they painted. For {{dist.n|int}} paintings the median is {{dist.median|int}} km. A quarter ({{dist.within50_pct|int}}%) show somewhere within 50 km of the painter's birthplace, and another quarter ({{dist.over1000_pct|int}}%) somewhere more than 1,000 km away.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The 1600s were the century of the painted home town: half of the paintings show a place within 50 km of where the painter was born, and the median distance is just {{dist_cent.1.median|int}} km. That is the Dutch golden age, painters painting their own towns, churches and rivers. By the 1800s the median is {{dist_cent.3.median|int}} km and {{dist_cent.3.over1000_pct|int}}% of paintings show places more than 1,000 km from the painter's birthplace. Marianne North, the English botanical painter, has a median of {{trav.north.median|int}} km across {{north_countries.n|int}} countries. Not every long distance is a journey, though: Albert Bierstadt was born in Germany and made his career painting the American West, and Pissarro was born in the Caribbean.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_distance.png|Stacked horizontal bars of the distance from the painter's birthplace to the place painted, for all periods and for each period. In the 1600s about half the bar is under 50 km and the median is 48 km; in the 1800s the bars shift towards longer distances, with a median of 331 km and 18% over 5,000 km|Distance from the painter's birthplace to the place painted, by period.}}
+
+{{IMG|b_journeys.png|Two maps. On the left, Europe, with lines from the birthplaces of Monet in Paris, Turner in London, Canaletto in Venice and Anna Boberg in Stockholm to the places they painted, Boberg's reaching north to Lofoten. On the right, a world map with red lines from Bierstadt's birthplace in Germany to the American West and purple lines from Marianne North's in England to South America, South Africa, India, Southeast Asia and Australia|Painters' journeys: from the birthplace to every place painted.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">From Dutch towns to French rivers</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The places change with the centuries. In the 1600s, {{cents.1.Netherlands|int}}% of the paintings show what is now the Netherlands. In the 1700s Italy leads with {{cents.2.Italy|int}}%, the Venice of Canaletto and Guardi and the Rome and Tivoli of the Grand Tour, with Britain second. In the 1800s France takes over ({{cents.3.France|int}}%) and the United States appears ({{cents.3.United States|int}}%). Norway grows from about 1% before 1800 to {{cents.4.Norway|int}}% after 1900.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_periods.png|Stacked bar chart of the share of each period's paintings by the country of the place shown. The 1600s bar is 62% Netherlands in gold; the 1700s bar is 37% Italy in teal and 23% United Kingdom in red; the 1800s and 1900s bars are led by France in blue at 27% and 32%, with the United States in purple at 14% and 13% and a growing green slice for Norway|Where the painted places are, by period.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">A map of catalogues</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Why are Lofoten and Nordland in the top five? Because Sweden's Nationalmuseum has catalogued {{boberg.nm|int}} paintings by one painter, Anna Boberg, who went north to paint them again and again. That one collection holds {{coll.top1_pct|f1}}% of every mapped painting. The same thing happens elsewhere: Windsor Castle's paintings are mostly in the National Trust, every painting of the state of Rio de Janeiro comes from one Brazilian image library, and Grandma Moses's {{fav.moses.n|int}} paintings put the small town of Cambridge, New York, in the top 30. The ten biggest collections hold {{coll.top10_pct|int}}% of the paintings, and {{continent.Europe|int}}% of all paintings show places in Europe. So this is a map of what museums and volunteers have described in detail, as much as of where painters went.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_collections.png|Horizontal bar chart of the 12 collections with the most mapped paintings: Nationalmuseum 566, with a dark segment of 222 by Anna Boberg, Musée d'Orsay 429, National Trust 355, the National Library of Wales, Musée Carnavalet, the National Museum in Oslo, the Rijksmuseum, Brasiliana Iconográfica, the Louvre, Statens Museum for Kunst and the National Museum in Warsaw|The 12 collections behind the map; the dark part of each bar is its single most represented painter.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How I did this</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>I queried Wikidata on {{source.query_date|raw}} for paintings with a landscape, marine or cityscape genre that depict something with coordinates. "Depicts" catches more than places, so I removed {{source.items_dropped|int}} depicted items that are not places on the Earth: the Moon (which has its coordinates on the lunar globe and appears in {{source.moon|int}} moonlit scenes), {{source.drop_event|int}} events such as sea battles and fires, and {{source.drop_vessel|int}} ships. Distances run from the painter's birthplace to each place, leaving out paintings that name only a country, region or sea. Countries are today's. The full method, the list of exclusions and the caveats are in the paper and the code.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/painted-places/">Explore the interactive map</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.23873007">Read the paper</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://github.com/Tristan-Hotham/painted-places">Data and code</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Notes and sources</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><a href="https://www.wikidata.org/">Wikidata</a>, queried through QLever on {{source.query_date|raw}}. CC0.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>The interactive map shows thumbnails from <a href="https://commons.wikimedia.org/">Wikimedia Commons</a>, each under its own licence. The images in this post are my own charts and maps.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="https://www.naturalearthdata.com/">Natural Earth</a> country outlines (public domain).</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->

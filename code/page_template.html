@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Painted Places</title>
+<meta name="description" content="An interactive map of {{source.n|int}} landscape, marine and city paintings catalogued in Wikidata and the {{source.places|int}} real places they depict: the rivers, cities and coasts painters returned to, who painted where, and how far from home they went.">
+<meta property="og:title" content="Painted places: where the world's catalogued landscape paintings were painted">
+<meta property="og:description" content="{{source.n|int}} landscape, marine and city paintings, {{source.places|int}} places. The Seine is the most painted, {{places.Q1471.n|int}} times. Half of all paintings were made more than {{dist.median|int}} km from the painter's birthplace.">
+<meta property="og:image" content="https://maps.tristanhotham.com/painted-places/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/painted-places/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+/* Paint box: warm paper, sap green for landscapes, Prussian blue for the sea, burnt sienna for towns, a gold frame. */
+:root{
+  --bg:#F7F4EE; --panel:#ECE7DD; --fg:#211E1A; --muted:#675F55; --rule:#DED7CA; --card:#FFFDF8; --border:#CDC4B4;
+  --hot:#C2582B; --cool:#2F6DA8; --green:#5E8C3A; --gold:#B8862B; --ink:#2A3550; --land:#E9E3D6; --sea:#EEF1F1; --line:#7A4E9E;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15130F; --panel:#211E19; --fg:#EFEAE1; --muted:#ADA493; --rule:#35302A; --card:#1B1915; --border:#4B443A;
+  --hot:#F08A5B; --cool:#7DB0E6; --green:#9CC874; --gold:#E2B55C; --ink:#B9C3DE; --land:#2A2620; --sea:#181A1C; --line:#C59BE8; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15130F; --panel:#211E19; --fg:#EFEAE1; --muted:#ADA493; --rule:#35302A; --card:#1B1915; --border:#4B443A;
+  --hot:#F08A5B; --cool:#7DB0E6; --green:#9CC874; --gold:#E2B55C; --ink:#B9C3DE; --land:#2A2620; --sea:#181A1C; --line:#C59BE8; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:700px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1180px,calc(100vw - 32px));margin-left:calc((100% - min(1180px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--ink);color:#fff;padding:5px 8px;font-weight:500}
+:root[data-theme="dark"] .kicker b{color:#15130F}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(44px,11vw,94px)/.9 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 .a{color:var(--hot)} h1 .b{color:var(--cool)}
+.mark{width:clamp(78px,16vw,128px);height:auto;display:block;color:var(--fg)}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:56ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(22px,4.4vw,32px)/1 var(--display);letter-spacing:-.01em}
+.stats b.h{color:var(--hot)} .stats b.c{color:var(--cool)} .stats b.g{color:var(--green)} .stats b.p{color:var(--ink)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:300px;z-index:100001;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.controls{display:flex;gap:8px;align-items:center;margin:0 0 10px;flex-wrap:wrap}
+.scrollrow{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:2px;max-width:100%}
+.scrollrow .btn{flex:0 0 auto;white-space:nowrap}
+.ctl-l{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px;flex:0 0 auto;align-self:center}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:1px solid rgba(0,0,0,.2)}
+.btn:focus-visible,input:focus-visible,summary:focus-visible,select:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.searchbox{position:relative;flex:1 1 260px;min-width:0}
+input[type=search]{font:400 15px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 11px;min-height:40px;width:100%}
+.suggest{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:var(--card);border:1px solid var(--border);z-index:1001;font:400 13px/1.3 var(--mono);display:none;max-height:340px;overflow:auto}
+.suggest li{padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--rule)}
+.suggest li span{color:var(--muted)}
+.suggest li[aria-selected="true"],.suggest li:hover{background:var(--panel)}
+.chip{display:inline-flex;align-items:center;gap:8px;font:500 12px/1 var(--mono);background:var(--panel);border:1px solid var(--border);border-radius:3px;padding:6px 8px}
+.chip button{font:600 13px/1 var(--mono);background:none;border:0;color:var(--muted);cursor:pointer;padding:0 2px}
+.chip:empty{display:none}
+#mapbox{position:relative;background:var(--bg)}
+#mapbox>.controls:first-child{padding-right:46px}
+#mapbox:fullscreen,#mapbox.mfs-fake{padding:10px 12px;overflow:auto;background:var(--bg)}
+#mapbox:fullscreen .lmap,#mapbox.mfs-fake .lmap{height:calc(100vh - 190px);height:calc(100dvh - 190px)}
+#mapbox:fullscreen .side,#mapbox.mfs-fake .side{max-height:calc(100dvh - 190px)}
+@media (max-width:900px){#mapbox:fullscreen .side,#mapbox.mfs-fake .side{display:none}#mapbox:fullscreen .lmap,#mapbox.mfs-fake .lmap{height:calc(100dvh - 250px)}}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;align-items:start}
+@media (max-width:900px){.mapgrid{grid-template-columns:1fr}}
+.side{background:var(--card);border:1px solid var(--border);padding:12px 12px 10px;font:400 13px/1.45 var(--mono);max-height:660px;overflow:auto}
+@media (max-width:900px){.side{max-height:none}}
+.side h4{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.side h4:first-child{margin-top:2px}
+.side .big{font:800 26px/1.1 var(--display);margin:2px 0 4px}
+.side .sub{color:var(--muted);font-size:12px;margin:0 0 8px}
+.side ol,.side ul{margin:4px 0 8px;padding-left:20px}
+.side li{margin:3px 0}
+.side li small,.side td small{color:var(--muted)}
+.side table{width:100%;border-collapse:collapse;margin:4px 0 6px}
+.side td{padding:4px 4px 4px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.side td.num{text-align:right;white-space:nowrap}
+.side svg{display:block;width:100%;height:auto}
+.back{font:400 12px var(--mono);background:none;border:0;color:var(--muted);padding:0;cursor:pointer;text-decoration:underline;margin-bottom:6px}
+.go{cursor:pointer;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:3px}
+.lmap{height:640px;border:1px solid var(--border);background:var(--sea);border-radius:2px}
+@media (max-width:600px){.lmap{height:min(64vh,480px)}}
+.loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:500 13px var(--mono);color:var(--muted);pointer-events:none;z-index:1}
+.maplibregl-map{font:400 12px/1.4 var(--mono)}
+.maplibregl-popup-content{background:var(--card);color:var(--fg);font:400 12.5px/1.45 var(--mono);padding:10px 12px;border-radius:3px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.maplibregl-popup-content b.t{font:700 16px/1.2 var(--display);display:block;margin-bottom:2px}
+.maplibregl-popup-content small{color:var(--muted)}
+.maplibregl-popup-tip{border-top-color:var(--card)!important;border-bottom-color:var(--card)!important}
+.maplibregl-popup-close-button{color:var(--fg);font-size:18px;padding:0 6px}
+.maplibregl-ctrl-attrib{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted)}
+.maplibregl-ctrl-attrib a{color:var(--fg)}
+.maplibregl-ctrl-group{background:var(--card)}
+.gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:min(40vh,360px);overflow:auto;margin-top:8px;padding-right:2px}
+@media (max-width:600px){.gal{max-height:min(28vh,230px)}}
+.gal figure{margin:0;font:400 11px/1.35 var(--mono)}
+.gal .th{display:block;aspect-ratio:4/3;background:var(--panel);border:1px solid var(--rule);overflow:hidden;position:relative}
+.gal .th img{width:100%;height:100%;object-fit:cover;display:block}
+.gal .th.noimg::after{content:attr(data-msg);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:6px;color:var(--muted);font:400 10.5px/1.3 var(--mono)}
+.gal figcaption{margin-top:3px}
+.gal figcaption a{text-decoration:none}
+.gal figcaption b{font-weight:500}
+.gal figcaption small{color:var(--muted)}
+.more{font:500 12px var(--mono);background:var(--panel);border:1px solid var(--border);border-radius:3px;padding:6px 8px;cursor:pointer;margin-top:8px;color:var(--fg);width:100%}
+.credit{font:400 10.5px/1.35 var(--mono);color:var(--muted);margin-top:6px}
+.lyrWrap{position:absolute;top:10px;left:10px;z-index:3}
+.lyrBtn{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;font:600 12px/1 var(--mono);padding:9px 10px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.lyrBtn[aria-expanded="true"]{background:var(--fg);color:var(--bg)}
+.lyrPanel{background:var(--card,var(--bg));color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:10px 12px 8px;margin-top:6px;width:255px;box-shadow:0 2px 10px rgba(0,0,0,.15);font:400 12px/1.3 var(--mono);max-height:min(70vh,520px);overflow:auto}
+.lyrPanel[hidden]{display:none}
+.lyrPanel .row{margin:0 0 9px}
+.lyrPanel label{display:flex;gap:6px;align-items:center;cursor:pointer;font-weight:600}
+.lyrPanel input[type=range]{width:100%;accent-color:var(--fg)}
+.lyrPanel select{font:400 12px var(--mono);background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:2px;padding:2px 4px;width:100%;min-height:0}
+.lyrPanel .sub{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:11px;margin-top:3px}
+.lyrPanel .sub span{flex:0 0 58px}
+.lyrPanel .hd{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 7px;border-top:1px solid var(--rule);padding-top:9px}
+.lyrPanel .reset{font:400 11px var(--mono);color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.plabels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.plL{position:absolute;font:600 11.5px/1.15 var(--mono);color:var(--fg);white-space:nowrap;text-shadow:0 0 3px var(--bg),0 0 3px var(--bg),0 0 3px var(--bg)}
+.plL small{font-weight:400;color:var(--muted)}
+.plL.bp{font-weight:500;color:var(--line);background:var(--card);border:1px solid var(--line);border-radius:2px;padding:1px 4px}
+.mapnote{position:absolute;left:10px;bottom:28px;z-index:2;background:color-mix(in srgb,var(--card) 92%,transparent);border:1px solid var(--border);border-radius:3px;padding:6px 9px;font:400 12px/1.35 var(--mono);max-width:min(320px,70%);box-shadow:0 1px 4px rgba(0,0,0,.12);pointer-events:none}
+.mapnote b{font-weight:600}
+.mapnote:empty{display:none}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px;align-items:center}
+.legend span{display:inline-flex;align-items:center}
+.legend i{display:inline-block;width:13px;height:13px;margin-right:6px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.legend i.sq{border-radius:2px}
+.legend i.ln{border-radius:0;height:3px;border:0}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--hot);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+table.tbl{width:100%;border-collapse:collapse;font:400 13px/1.4 var(--mono)}
+table.tbl th{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 6px 6px 0;border-bottom:2px solid var(--fg)}
+table.tbl td{padding:6px 6px 6px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+table.tbl td.r,table.tbl th.r{text-align:right;white-space:nowrap}
+table.tbl tr[data-i]{cursor:pointer}
+table.tbl tr[data-i]:hover td{background:var(--panel)}
+.tablebox{max-height:460px;overflow:auto;border:1px solid var(--border);background:var(--card);padding:0 10px}
+details{margin:14px 0}
+summary{font:500 13px/1.4 var(--mono);cursor:pointer;color:var(--fg);padding:8px 0}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1002}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>Art and places</span><span>World, {{source.year_min|raw}} to {{source.year_max|raw}}</span></div>
+<header class="hero">
+  <h1><span class="a">Painted</span> <span class="b">places</span></h1>
+  <svg class="mark" viewBox="0 0 120 120" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">{{source.n|int}} landscape, marine and city paintings catalogued in Wikidata, and the {{source.places|int}} real places they show. The rivers, cities and coasts painters kept going back to, who painted where, and how far from home they went to do it.</p>
+</header>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Data: Wikidata (CC0); images: Wikimedia Commons; outlines: Natural Earth</div>
+
+<div class="stats">
+  <div><b class="p">{{source.n|int}}</b><span>paintings mapped to {{source.places|int}} places in {{source.countries|int}} countries</span></div>
+  <div><b class="c">{{places.Q1471.n|int}}</b><span>show the Seine, the most painted place, by {{seine.painters|int}} painters</span></div>
+  <div><b class="g">{{dist.median|int}} km</b><span>the median distance from the painter's birthplace to the place painted</span></div>
+  <div><b class="h">{{dist_cent.1.within50_pct|int}}%</b><span>of measurable 1600s paintings show a place within 50 km of the painter's birthplace</span></div>
+</div>
+
+<p class="lede">Wikidata, the free knowledge base behind Wikipedia, holds records for hundreds of thousands of paintings. For some of them, volunteers and museums have recorded what the picture shows, and when that is a real river, town or mountain it comes with coordinates. I took every painting that Wikidata calls a landscape, a marine (sea) painting or a cityscape and that depicts a place with a position on the map: {{source.n|int}} paintings by {{source.painters|int}} named painters, from a Chinese scroll of {{source.year_min|raw}} to the twenty first century.</p>
+<p>The map below shows where they look. Each circle is a place, sized by how many catalogued paintings show it and coloured by the genre that dominates there. Click one to see the pictures, with thumbnails from Wikimedia Commons. Switch to "Painters' journeys" to draw a line from each painter's birthplace to the places they painted. Then scroll on for the rivers, the favourite haunts of Monet, Turner and Canaletto, the long trips and the stay at home painters, and a warning about what a catalogue like this can and cannot tell us.</p>
+
+<h2><span class="n">01 · The map</span>{{source.places|int}} painted places</h2>
+<div class="bleed" id="atlas">
+<div id="mapbox" data-fullscreen-map>
+<div class="controls">
+  <div class="scrollrow" id="modeRow"><span class="ctl-l">Show</span><button class="btn" data-m="places" aria-pressed="true">Painted places</button><button class="btn" data-m="journeys" aria-pressed="false">Painters' journeys</button></div>
+  <div class="scrollrow" id="genreRow"><span class="ctl-l">Genre</span></div>
+</div>
+<div class="controls"><div class="scrollrow" id="centRow"><span class="ctl-l">Painted</span></div></div>
+<div class="controls">
+  <div class="searchbox"><input type="search" id="q" placeholder="Search a painter or a place (Monet, Turner, Seine, Venice...)" aria-label="Search a painter or a place" autocomplete="off"><ul class="suggest" id="sug" role="listbox"></ul></div>
+  <span class="chip" id="chip"></span>
+</div>
+<div class="controls"><div class="scrollrow" id="focusRow"><span class="ctl-l">Zoom to</span></div></div>
+<div class="mapgrid">
+  <div><div style="position:relative"><div id="map" class="lmap" role="application" aria-label="World map of the places shown in catalogued landscape, marine and city paintings"></div><div class="plabels" id="plabels"></div><div class="loading" id="loading">Loading {{source.n|int}} paintings...</div><div class="mapnote" id="mapnote"></div></div>
+    <div class="legend" id="legend"></div></div>
+  <div class="side" id="side" aria-live="polite"></div>
+</div>
+</div>
+<p class="src">Circles: each depicted place, with area proportional to the paintings in the chosen genres and years that show it, coloured by the genre most of them belong to. A painting that shows several places counts at each. Lines (Painters' journeys): from each painter's place of birth to every place they painted, along the shortest route over the globe. Thumbnails are loaded from Wikimedia Commons as you open a place; each image keeps its own licence on Commons. Source: Wikidata, queried {{source.query_date|raw}} (CC0). Outlines: Natural Earth. Hillshade and relief © Esri; place names © OpenFreeMap, OpenMapTiles and OpenStreetMap contributors.</p>
+</div>
+
+<h2><span class="n">02 · The most painted places</span>Rivers, cities, coasts and mountains</h2>
+<p>The single most painted place in the catalogue is a river. {{places.Q1471.n|int}} paintings show the Seine, by {{seine.painters|int}} different painters, from {{seine.first|raw}} onwards. Three Impressionists account for {{seine.impr_pct|int}}% of them: Claude Monet ({{seine.monet|int}}), Alfred Sisley ({{seine.sisley|int}}) and Camille Pissarro ({{seine.pissarro|int}}). Paris itself comes second with {{places.Q90.n|int}}, then two places in the north of Norway, Lofoten ({{places.Q186822.n|int}}) and the county of Nordland ({{places.Q50630.n|int}}), and Venice ({{places.Q641.n|int}}).</p>
+<div class="figure"><p class="fig-h">The 25 most painted places</p><p class="fig-sub">Paintings that show each place, coloured by the kind of place. Hover for the painter and the collection with the most; click a bar to open the place on the map.</p><div class="chart" id="topChart"></div><div class="legend" id="kindLegend"></div></div>
+<p>Further down the list come the Thames ({{places.Q19686.n|int}}) and the Hudson ({{places.Q3140.n|int}}), Dordrecht on the Dutch rivers ({{places.Q26421.n|int}}), the Catskill Mountains ({{places.Q630566.n|int}}), Vesuvius ({{places.Q524.n|int}}) and the white cliffs of Étretat ({{places.Q290936.n|int}}). Water runs through the top of the list: {{top25_water|int}} of the 25 most painted places are rivers, coasts or seas. Among the 100 most painted places, {{kinds_top.city.places|int}} are cities, towns or villages, {{kinds_top.building.places|int}} are single buildings, bridges or squares, {{kinds_top.river.places|int}} are rivers or canals, {{kinds_top.coast.places|int}} are coasts, seas or islands and {{kinds_top.mountain.places|int}} are mountains, valleys or forests. The rest are whole regions, painted loosely enough that the catalogue names only a county, a state or a country.</p>
+<div class="figure"><p class="fig-h">What the 100 most painted places are</p><p class="fig-sub">The 100 places with the most paintings, by kind (my classification, from their Wikidata descriptions), and the paintings that show them.</p><div class="chart" id="kindChart"></div></div>
+<p>Most places are painted only once. {{single.places_1|int}} of the {{source.places|int}} places ({{single.places_1_pct|int}}%) appear in a single painting, and only {{single.places_10|int}} appear in ten or more. The famous views pile up at the top of a very long tail.</p>
+
+<h2><span class="n">03 · Painters and their places</span>Monet's Seine, Canaletto's London</h2>
+<p>Many painters had a home ground. Of Monet's {{fav.monet.n|int}} paintings in the catalogue, {{fav.monet_seine.n|int}} show the Seine, {{fav.monet.top2_n|int}} the English Channel and {{fav.monet.top3_n|int}} Étretat on the Normandy coast. Sisley's favourite was also the Seine ({{fav.sisley.top_n|int}} of {{fav.sisley.n|int}}), followed by its tributary the Loing. Pissarro painted Pontoise {{fav.pissarro.top_n|int}} times and Paris in {{fav.pissarro_paris.n|int}} of his {{fav.pissarro.n|int}}, {{fav.pissarro.top3_n|int}} of them views of the boulevard Montmartre. Cézanne returned to the Montagne Sainte-Victoire {{fav.cezanne.top_n|int}} times, Jan van Goyen to Dordrecht {{fav.goyen.top_n|int}} times.</p>
+<div class="figure"><p class="fig-h">Painters' favourite places</p><p class="fig-sub">For each painter, the share of their catalogued paintings that show their three most painted places (dark to light) and everywhere else (grey). Click a row to see that painter's places on the map.</p><div class="chart" id="favChart"></div></div>
+<p>J. M. W. Turner is the great exception, a painter of everywhere: his {{fav.turner.n|int}} paintings here show {{fav.turner.places|int}} different places, and Venice, with {{fav.turner_venice.n|int}}, appears more often than the Thames. Canaletto, the Venetian view painter, is in the catalogue as much for London as for his home city: {{fav.canaletto_london.n|int}} of his {{fav.canaletto.n|int}} paintings here show London and the Thames, {{fav.canaletto_venice.n|int}} show Venice. His follower Francesco Guardi stayed put: {{fav.guardi_venice.n|int}} of his {{fav.guardi_venice.of|int}} show Venice. Three painters dominate the counts in a way no art historian would expect. Anna Boberg, a Swedish painter of the Lofoten Islands, has {{fav.boberg.n|int}} paintings, more than anyone. Albert Bierstadt, painter of the American West, has {{fav.bierstadt.n|int}}, and Grandma Moses, the American folk painter, {{fav.moses.n|int}}. Section 06 explains why.</p>
+
+<h2><span class="n">04 · How far from home</span>From the town next door to the far side of the world</h2>
+<p>Where was each painter born, and how far is that from what they painted? For {{dist.n|int}} paintings ({{dist.pct_of_mapped|int}}% of the total) Wikidata gives both the painter's birthplace and a depicted place precise enough to measure. Half were painted more than {{dist.median|int}} km from the painter's birthplace. {{dist.within50_pct|int}}% show somewhere within 50 km of it; {{dist.over1000_pct|int}}% show somewhere more than 1,000 km away, and {{dist.over5000_pct|int}}% more than 5,000 km.</p>
+<div class="figure"><p class="fig-h">Distance from the painter's birthplace, by period</p><p class="fig-sub">Share of paintings in each distance band. A painting that shows several places takes the median distance. Paintings that name only a country, a region or a sea are left out. Hover a block.</p><div class="chart" id="distChart"></div><div class="legend" id="distLegend"></div></div>
+<p>The 1600s were the age of the painted home town. Half of the paintings from that century ({{dist_cent.1.within50_pct|int}}%) show a place within 50 km of the painter's birthplace, and the median distance is just {{dist_cent.1.median|int}} km: Dutch painters painting Dutch towns, rivers and churches. In the 1700s the median rises to {{dist_cent.2.median|int}} km, and in the 1800s, the century of railways, steamships and empires, to {{dist_cent.3.median|int}} km, with {{dist_cent.3.over1000_pct|int}}% of paintings made more than 1,000 km from home. After 1900 the median falls back to {{dist_cent.4.median|int}} km.</p>
+<div class="figure"><p class="fig-h">Median distance from birthplace, by country of birth</p><p class="fig-sub">Countries of birth (today's borders) with at least 80 paintings and 20 painters. Bars: median distance (log scale). Hover for the share painted more than 1,000 km away.</p><div class="chart" id="natChart"></div></div>
+<p>Painters born in the Netherlands stayed closest: median {{dist_country_nl.median|int}} km, with {{dist_country_nl.within50_pct|int}}% of their paintings within 50 km of their birthplace. Painters born in France: {{dist_country_fr.median|int}} km. Painters born in the United Kingdom went much further, median {{dist_country_uk.median|int}} km, with {{dist_country_uk.over1000_pct|int}}% of their paintings more than 1,000 km away, most often in the United States and Italy. German born painters went further still ({{dist_country_de.median|int}} km), and the Swedish median ({{dist_country_se.median|int}} km) is pulled up by Anna Boberg's trips north to Lofoten.</p>
+<div class="figure"><p class="fig-h">Furthest from home</p><p class="fig-sub">Painters with at least {{travellers_min|int}} measurable paintings, by median distance from their birthplace. Click a row to draw their journeys.</p><div class="tablebox"><table class="tbl" id="travTable"></table></div></div>
+<p>The longest distances belong to painters of Australia and New Zealand born in Britain, and to Australians who painted in Britain: the antipodes are about as far from home as it is possible to be. Marianne North, the English botanical painter, is the great traveller of the catalogue: {{trav.north.n|int}} measurable paintings with a median of {{trav.north.median|int}} km from her birthplace, in {{north_countries.n|int}} countries from Brazil and Chile to India, Japan and Australia. Distance is not always travel, though. Albert Bierstadt (median {{trav.bierstadt.median|int}} km) was born in Germany and made his career in the United States; Camille Pissarro ({{trav.pissarro.median|int}} km) was born on St Thomas in the Caribbean and painted mostly around Paris. At the other extreme, Maurice Utrillo, born in Paris, painted Montmartre: his median distance is {{trav.utrillo.median|int}} km.</p>
+
+<h2><span class="n">05 · Through the centuries</span>From Dutch towns and Italian views to French rivers</h2>
+<p>Where painters looked changed over time. In the 1600s, {{cents.1.Netherlands|int}}% of the catalogued paintings show a place in what is now the Netherlands: the golden age of Dutch landscape, from Dordrecht and Haarlem to the dunes and rivers. In the 1700s the centre moved south: {{cents.2.Italy|int}}% of paintings show Italy, the Venice of Canaletto and Guardi and the Rome and Tivoli of the Grand Tour, and {{cents.2.United Kingdom|int}}% show Britain. In the 1800s France takes over with {{cents.3.France|int}}%, led by the Seine, Paris and the Channel coast, and the United States rises to {{cents.3.United States|int}}%, with the Hudson River School and the American West.</p>
+<div class="figure"><p class="fig-h">Where the painted places are, by period</p><p class="fig-sub">Share of each period's paintings by the country (today's borders) of the place they show. A painting of several places is split between them. Undated paintings ({{undated|int}}) are left out. Hover a block.</p><div class="chart" id="centChart"></div><div class="legend" id="centLegend"></div></div>
+<p>Italy's share falls from {{cents.2.Italy|int}}% in the 1700s to {{cents.3.Italy|int}}% in the 1800s, the Netherlands' from {{cents.1.Netherlands|int}}% in the 1600s to {{cents.3.Netherlands|int}}%. Norway climbs from about 1% before 1800 to {{cents.3.Norway|int}}% in the 1800s and {{cents.4.Norway|int}}% after 1900, its fjords and northern coasts painted by Norwegian Romantics and by visitors. Part of that rise is one painter: without Anna Boberg, Norway's share after 1900 is {{cents.4.Norway_wo_boberg|int}}%.</p>
+
+<h2><span class="n">06 · Who catalogued them</span>A map of museums as much as of painters</h2>
+<p>This is a map of what has been catalogued in Wikidata, not of everything ever painted, and the catalogue is uneven. The {{source.n|int}} paintings are linked to {{coll.n|int}} collections, but a few institutions dominate. The biggest, Sweden's Nationalmuseum, accounts for {{coll.top1_pct|f1}}% of all mapped paintings, and {{boberg.nm|int}} of its {{colls.0.n|int}} are by Anna Boberg: that single catalogue is why Lofoten and Nordland rank third and fifth in the world. The ten biggest collections hold {{coll.top10_pct|int}}% of the paintings; half of all the links to collections point to just {{coll.half_k|int}} of them ({{coll.half_k_pct|f1}}%), while {{coll.one_painting|int}} collections are represented by a single painting.</p>
+<div class="figure"><p class="fig-h">The collections behind the map</p><p class="fig-sub">The 15 collections with the most mapped paintings. Dark part of each bar: the paintings by its single most represented painter. Hover a bar.</p><div class="chart" id="collChart"></div></div>
+<p>The same pattern runs through the top of the place list. Of the 20 most painted places, {{bias_top.one_painter_half|int}} owe at least half their paintings to a single painter and {{bias_top.one_coll_half|int}} to a single collection. Windsor Castle's {{windsor.n|int}} paintings are mostly in the National Trust ({{windsor.nt|int}}), and {{windsor.anon|int}} of them have no named painter. Every one of the {{places.Q41428.n|int}} paintings recorded as showing the state of Rio de Janeiro comes from one Brazilian image library, the Brasiliana Iconográfica. Grandma Moses's {{moses.n|int}} paintings put a small town in upstate New York, Cambridge ({{moses.cambridge|int}}), among the 30 most painted places in the world.</p>
+<div class="figure"><p class="fig-h">One painter, one collection</p><p class="fig-sub">For the 20 most painted places: the share of paintings by the leading painter (left) and held by the leading collection (right). Hover a row.</p><div class="chart" id="biasChart"></div></div>
+<p>Other gaps are quieter. Only {{source.wiki_pct|int}}% of the mapped paintings have a Wikipedia article of their own, so most are ordinary museum records rather than famous works. {{coll.none_pct|int}}% have no collection recorded. And a painting reaches this map only if someone has recorded which real place it shows; a landscape described only as showing "a river" or "trees" is invisible here. Geography is lopsided too: {{continent.Europe|int}}% of the paintings show places in Europe and {{continent.North_America|int}}% in North America, leaving {{continent.rest|int}}% for the rest of the world. Where a museum has described its landscapes in detail, the map fills in; where none has, it stays empty. The map says as much about who has catalogued as about where painters went.</p>
+
+<h2><span class="n">07 · How I did this</span>Methods and caveats</h2>
+<p><b>Data.</b> I queried Wikidata through the QLever endpoint on {{source.query_date|raw}} for every painting (instance of "painting") with a genre of landscape, marine art or cityscape, or one of three related genres (religious art, genre painting, animal painting), and a "depicts" statement pointing to something with coordinates. That gave {{source.rows|int}} rows for {{source.paintings_all|int}} paintings. I kept the {{source.core|int}} paintings with at least one of the three landscape genres and set aside {{source.set_aside|int}} that came in only through a related genre, most of them religious scenes ({{source.set_aside_religious|int}}) and genre paintings ({{source.set_aside_genre|int}}).</p>
+<p><b>Which "places" are places.</b> "Depicts" catches anything with coordinates, not just places. I dropped {{source.items_dropped|int}} of the {{source.items_core|int}} depicted items: {{source.drop_globe|int}} with no point on the Earth (Wikidata's Moon has its coordinates on the lunar globe and appears in {{source.moon|int}} moonlit seascapes and nocturnes), {{source.drop_event|int}} events with a location (sea battles such as the Four Days' Battle and Trafalgar, fires, floods, world's fairs and, among the few religious landscapes, the crucifixion), {{source.drop_vessel|int}} ships and {{source.drop_other|int}} others (a statue held in a museum and a yacht club). The rule and the full list are in the code, and the build fails if a keyword scan of the labels finds an event or a ship that is not on the list. {{source.no_place|int}} paintings had no place left and are not mapped. The rest, {{source.n|int}} paintings, show {{source.places|int}} places, {{source.pairs|int}} painting and place pairs in all.</p>
+<p><b>Distances and periods.</b> Distances are great circle distances from the painter's place of birth to each depicted place; a painting that shows several places takes the median. Countries, first level regions, seas and oceans ({{source.places_broad|int}} places) are kept on the map but left out of the distances, because one point cannot stand for them. A river is a single point in Wikidata, usually its mouth or a point along it, so distances to rivers are rough. Countries are today's, from Natural Earth. Dates are Wikidata's inception year, known for {{source.year_pct|int}}% of paintings. Only {{source.depcoord_n|int}} paintings in the query carry Wikidata's separate "coordinates of depicted place". The one in this set, Vermeer's View of Delft, has that point within {{source.depcoord_max_km|f1}} km of each place it is said to depict, which is reassuring but proves little.</p>
+<p><b>What this is not.</b> It is not a sample of the world's paintings, nor of any painter's work. It is the part of Wikidata that has been described in enough detail to map, and it inherits the choices of the museums, projects and volunteers who described it. Section 06 shows how much a few of them matter. Wikidata's records can be wrong; I have not corrected them, only removed what is clearly not a place.</p>
+<details><summary>Sources and licences</summary>
+<ul>
+<li>Wikidata, queried through QLever (qlever.cs.uni-freiburg.de) on {{source.query_date|raw}}. CC0.</li>
+<li>Images: Wikimedia Commons, shown as thumbnails through Special:FilePath and linked to their Commons pages. Each image is under its own licence or in the public domain; none is copied into this study's files.</li>
+<li>Natural Earth country outlines and first level regions (public domain).</li>
+<li>Base map: hillshade, relief and imagery © Esri; place names © OpenFreeMap, © OpenMapTiles, © OpenStreetMap contributors.</li>
+</ul></details>
+
+<div class="cta"><a class="p" href="https://doi.org/10.5281/zenodo.23873007">Read the paper</a><a href="https://github.com/Tristan-Hotham/painted-places">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/painted-places/">Blog post</a></div>
+
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) Painted places: where catalogued landscape, marine and city paintings look, and how far painters went from home. Zenodo. <a href="https://doi.org/10.5281/zenodo.23873007">https://doi.org/10.5281/zenodo.23873007</a></p>
+<p>Data: Wikidata (CC0). Images: Wikimedia Commons, each under its own licence. Licence: derived data and text CC BY 4.0, code MIT.</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+const R = /*RESULTS*/;
+const SITE = /*SITE*/;
+const fmt = n => n == null || n === "" ? "n/a" : Math.round(n).toLocaleString("en-GB");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+document.addEventListener("click", hideTip);
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const redraws = [];
+function resp(box, render) { let last = 0; const go = force => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); go(); redraws.push(() => go(true)); }
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const small = () => innerWidth < 900;
+const PLACES = SITE.places;     // [label, lat, lon, n, country, kind, broad, qid]
+const PAINTERS = SITE.painters; // [name, birth lat, birth lon, n, birth country, qid]
+const GEN = SITE.genres, KINDS = SITE.kinds, CENTS = SITE.cents, CTRY = SITE.countries, COLLS = SITE.colls;
+const GCOL = () => isDark() ? ["#9CC874", "#7DB0E6", "#F08A5B"] : GEN.map(g => g[1]);
+const KCOL = KINDS.map(k => k[2]);
+const COMMONS = "https://commons.wikimedia.org/wiki/";
+const centOf = y => !y ? -1 : y < 1600 ? 0 : y < 1700 ? 1 : y < 1800 ? 2 : y < 1900 ? 3 : 4;
+const DB = [[0, 200, "under 200 km"], [200, 1000, "200 to 1,000 km"], [1000, 5000, "1,000 to 5,000 km"], [5000, 1e9, "over 5,000 km"]];
+const DBC = () => isDark() ? ["#E6D3F5", "#C59BE8", "#A26BD6", "#8A4FCB"] : ["#CDB6E0", "#A27CC4", "#7A4E9E", "#4B2A6B"];
+const dbin = km => DB.findIndex(b => km >= b[0] && km < b[1]);
+
+/* hero mark: a framed view of a river between hills */
+(function () {
+  const g = document.getElementById("heroMark");
+  el("rect", { x: 8, y: 14, width: 104, height: 92, fill: "none", stroke: "#B8862B", "stroke-width": 6 }, g);
+  el("rect", { x: 14, y: 20, width: 92, height: 80, fill: "none", stroke: "currentColor", "stroke-width": 1.4 }, g);
+  el("circle", { cx: 82, cy: 40, r: 7, fill: "#C2582B" }, g);
+  el("path", { d: "M14 74 Q34 52 52 66 Q70 48 106 64 L106 100 L14 100 Z", fill: "#5E8C3A", opacity: .85 }, g);
+  el("path", { d: "M40 100 C50 86 70 84 64 74 C60 68 76 66 86 66", stroke: "#2F6DA8", "stroke-width": 7, fill: "none", "stroke-linecap": "round" }, g);
+})();
+
+/* ---------- state ---------- */
+const S = { mode: "places", g: 7, c: new Set([0, 1, 2, 3, 4]), p: null, sel: null };
+const allCents = () => S.c.size === CENTS.length;
+let PT = null, CNT = null, CG = null, PASS = [], BYPL = null;
+function passes(r) {
+  if (!(r[4] & S.g)) return false;
+  if (!allCents()) { const c = centOf(r[3]); if (c < 0 || !S.c.has(c)) return false; }
+  if (S.p != null && r[2] !== S.p) return false;
+  return true;
+}
+function compute() {
+  if (!PT) return;
+  CNT = new Int32Array(PLACES.length); CG = new Int32Array(PLACES.length * 3); PASS = [];
+  PT.rows.forEach((r, k) => { if (!passes(r)) return; PASS.push(k); for (const pi of r[7]) { CNT[pi]++; for (let b = 0; b < 3; b++) if (r[4] & (1 << b) & S.g) CG[pi * 3 + b]++; } });
+}
+function domG(pi) { let best = 0, bv = -1; for (let b = 0; b < 3; b++) if (CG[pi * 3 + b] > bv) { bv = CG[pi * 3 + b]; best = b; } return best; }
+
+/* ---------- map ---------- */
+const OFM = "https://tiles.openfreemap.org";
+const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+const LYDEF = { base: "plain", hills: true, hillK: 35, names: false, cnames: true, borders: true, dots: true, size: 3, plabels: true, lines: true, births: true };
+const LY = { ...LYDEF };
+try { Object.assign(LY, JSON.parse(localStorage.getItem("pp_layers") || "{}")); } catch (e) {}
+const saveLY = () => { try { localStorage.setItem("pp_layers", JSON.stringify(LY)); } catch (e) {} };
+const HOME = () => small() ? { center: [5, 38], zoom: 0.55 } : { center: [-10, 38], zoom: 1.35 };
+let map = null, ready = false;
+function colours() { return { sea: css("--sea"), land: css("--land"), border: css("--border"), fg: css("--fg"), bg: css("--bg"), line: css("--line") }; }
+function radiusExpr(add = 0) { const s = LY.size / 3, r = k => ["+", add, ["max", 1.8 * s, ["*", k * s, ["sqrt", ["get", "n"]]]]]; return ["interpolate", ["linear"], ["zoom"], 0, r(.9), 3, r(1.5), 6, r(2.6), 10, r(4)]; }
+function colExpr() { const c = GCOL(); return ["match", ["get", "c"], 0, c[0], 1, c[1], 2, c[2], c[0]]; }
+function lineColExpr() { const c = DBC(); return ["match", ["get", "b"], 0, c[0], 1, c[1], 2, c[2], 3, c[3], c[1]]; }
+function baseStyle() {
+  const c = colours(), empty = { type: "geojson", data: { type: "FeatureCollection", features: [] } };
+  return {
+    version: 8, glyphs: OFM + "/fonts/{fontstack}/{range}.pbf",
+    sources: {
+      world: empty, pl: JSON.parse(JSON.stringify(empty)), jl: JSON.parse(JSON.stringify(empty)), bp: JSON.parse(JSON.stringify(empty)),
+      hills: { type: "raster", tiles: [ESRI + "Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}"], tileSize: 256, maxzoom: 16, attribution: "Hillshade: Esri, USGS, NASA, CGIAR" },
+      relief: { type: "raster", tiles: [ESRI + "World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}"], tileSize: 256, maxzoom: 13, attribution: "Relief: Esri" },
+      sat: { type: "raster", tiles: [ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}"], tileSize: 256, maxzoom: 18, attribution: "Imagery: Esri, Maxar, Earthstar Geographics" }
+    },
+    layers: [
+      { id: "bg", type: "background", paint: { "background-color": c.sea } },
+      { id: "relief", type: "raster", source: "relief", layout: { visibility: "none" }, paint: { "raster-opacity": .85 } },
+      { id: "sat", type: "raster", source: "sat", layout: { visibility: "none" } },
+      { id: "land", type: "fill", source: "world", paint: { "fill-color": c.land, "fill-opacity": 1 } },
+      { id: "hills", type: "raster", source: "hills", paint: { "raster-opacity": .35 } },
+      { id: "borders", type: "line", source: "world", paint: { "line-color": c.border, "line-width": .6 } },
+      { id: "lines", type: "line", source: "jl", layout: { "line-cap": "round" }, paint: { "line-color": lineColExpr(), "line-width": ["interpolate", ["linear"], ["zoom"], 0, ["case", ["==", ["get", "one"], 1], 1.6, .5], 5, ["case", ["==", ["get", "one"], 1], 2.4, 1]], "line-opacity": ["case", ["==", ["get", "one"], 1], .85, .32] } },
+      { id: "dots", type: "circle", source: "pl", paint: { "circle-radius": radiusExpr(), "circle-color": colExpr(), "circle-opacity": .82, "circle-stroke-color": isDark() ? "rgba(0,0,0,.6)" : "rgba(255,255,255,.9)", "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 0, .4, 5, 1] } },
+      { id: "sel", type: "circle", source: "pl", filter: ["==", ["get", "i"], -1], paint: { "circle-radius": radiusExpr(5), "circle-color": "rgba(0,0,0,0)", "circle-stroke-color": c.fg, "circle-stroke-width": 2.2 } },
+      { id: "births", type: "circle", source: "bp", paint: { "circle-radius": ["case", ["==", ["get", "one"], 1], 6, 2.6], "circle-color": c.line, "circle-stroke-color": "#fff", "circle-stroke-width": ["case", ["==", ["get", "one"], 1], 2, .6] } }
+    ]
+  };
+}
+function labelLayers() {
+  const c = colours();
+  return [
+    { id: "names", type: "symbol", source: "ofm", "source-layer": "place", minzoom: 3, filter: ["in", ["get", "class"], ["literal", ["city", "town"]]], layout: { "text-field": ["coalesce", ["get", "name:en"], ["get", "name"]], "text-font": ["Noto Sans Regular"], "text-size": ["interpolate", ["linear"], ["zoom"], 3, 10, 8, 13], "symbol-sort-key": ["get", "rank"] }, paint: { "text-color": c.fg, "text-halo-color": c.bg, "text-halo-width": 1.4, "text-opacity": .8 } },
+    { id: "cnames", type: "symbol", source: "ofm", "source-layer": "place", maxzoom: 7, filter: ["==", ["get", "class"], "country"], layout: { "text-field": ["coalesce", ["get", "name:en"], ["get", "name"]], "text-font": ["Noto Sans Bold"], "text-size": ["interpolate", ["linear"], ["zoom"], 1, 9, 5, 12], "text-transform": "uppercase", "text-letter-spacing": .08, "text-max-width": 7 }, paint: { "text-color": c.fg, "text-opacity": .45, "text-halo-color": c.bg, "text-halo-width": 1.2 } }
+  ];
+}
+function addLabels() {
+  try {
+    map.addSource("ofm", { type: "vector", url: OFM + "/planet", attribution: '<a href="https://openfreemap.org">OpenFreeMap</a> © <a href="https://www.openmaptiles.org/">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' });
+    labelLayers().forEach(l => map.addLayer(l, "lines"));
+  } catch (e) { console.warn("labels unavailable", e); }
+}
+function placeFeats() {
+  const f = [];
+  for (let i = 0; i < PLACES.length; i++) { if (!CNT[i]) continue; const p = PLACES[i]; f.push({ type: "Feature", geometry: { type: "Point", coordinates: [p[2], p[1]] }, properties: { i, n: CNT[i], c: domG(i) } }); }
+  f.sort((a, b) => b.properties.n - a.properties.n);
+  return { type: "FeatureCollection", features: f };
+}
+function gcLine(a, b) {   // great circle from [lon, lat] a to b, unwrapped so that it does not jump at the antimeridian
+  const r = Math.PI / 180, [l1, p1] = [a[0] * r, a[1] * r], [l2, p2] = [b[0] * r, b[1] * r];
+  const d = 2 * Math.asin(Math.sqrt(Math.sin((p2 - p1) / 2) ** 2 + Math.cos(p1) * Math.cos(p2) * Math.sin((l2 - l1) / 2) ** 2));
+  if (d < 1e-6) return [a, b];
+  const n = Math.max(2, Math.min(64, Math.ceil(d / r / 2))), out = [];
+  for (let k = 0; k <= n; k++) { const f = k / n, A = Math.sin((1 - f) * d) / Math.sin(d), B = Math.sin(f * d) / Math.sin(d);
+    const x = A * Math.cos(p1) * Math.cos(l1) + B * Math.cos(p2) * Math.cos(l2), y = A * Math.cos(p1) * Math.sin(l1) + B * Math.cos(p2) * Math.sin(l2), z = A * Math.sin(p1) + B * Math.sin(p2);
+    let lon = Math.atan2(y, x) / r; const lat = Math.atan2(z, Math.sqrt(x * x + y * y)) / r;
+    if (out.length) { const pl = out[out.length - 1][0]; while (lon - pl > 180) lon -= 360; while (lon - pl < -180) lon += 360; }
+    out.push([lon, lat]); }
+  return out;
+}
+function hav(a, b) { const r = Math.PI / 180, dp = (b[1] - a[1]) * r, dl = (b[0] - a[0]) * r; return 12742 * Math.asin(Math.sqrt(Math.sin(dp / 2) ** 2 + Math.cos(a[1] * r) * Math.cos(b[1] * r) * Math.sin(dl / 2) ** 2)); }
+let JSTAT = { pairs: 0, painters: 0 };
+function journeyFeats() {
+  const L = [], B = new Map(), seen = new Set(), one = S.p != null ? 1 : 0;
+  if (S.mode !== "journeys") { JSTAT = { pairs: 0, painters: 0 }; return [{ type: "FeatureCollection", features: [] }, { type: "FeatureCollection", features: [] }]; }
+  for (const k of PASS) { const r = PT.rows[k], pa = PAINTERS[r[2]]; if (!pa || pa[1] == null) continue;
+    for (const pi of r[7]) { const key = r[2] * 100000 + pi; if (seen.has(key)) continue; seen.add(key); const p = PLACES[pi]; if (p[6]) continue;
+      const a = [pa[2], pa[1]], b = [p[2], p[1]], km = hav(a, b); if (km < 15) continue;
+      L.push({ type: "Feature", geometry: { type: "LineString", coordinates: gcLine(a, b) }, properties: { b: dbin(km), one, km } }); }
+    if (!B.has(r[2])) B.set(r[2], { type: "Feature", geometry: { type: "Point", coordinates: [pa[2], pa[1]] }, properties: { j: r[2], one } }); }
+  L.sort((x, y) => x.properties.km - y.properties.km);
+  JSTAT = { pairs: L.length, painters: B.size };
+  return [{ type: "FeatureCollection", features: L }, { type: "FeatureCollection", features: [...B.values()] }];
+}
+function applyLayers() {
+  if (!ready) return;
+  const c = colours(), vis = (id, on) => { if (map.getLayer(id)) map.setLayoutProperty(id, "visibility", on ? "visible" : "none"); };
+  vis("relief", LY.base === "relief"); vis("sat", LY.base === "satellite"); vis("land", LY.base === "plain");
+  vis("hills", LY.hills); map.setPaintProperty("hills", "raster-opacity", Math.min(1, LY.hillK / 100));
+  vis("borders", LY.borders); vis("names", LY.names); vis("cnames", LY.cnames);
+  vis("dots", LY.dots); vis("sel", LY.dots); vis("lines", LY.lines && S.mode === "journeys"); vis("births", LY.births && S.mode === "journeys");
+  map.setPaintProperty("bg", "background-color", c.sea); map.setPaintProperty("land", "fill-color", c.land); map.setPaintProperty("borders", "line-color", c.border);
+  ["names", "cnames"].filter(id => map.getLayer(id)).forEach(id => { map.setPaintProperty(id, "text-color", LY.base === "satellite" ? "#fff" : c.fg); map.setPaintProperty(id, "text-halo-color", LY.base === "satellite" ? "rgba(0,0,0,.7)" : c.bg); });
+  map.setPaintProperty("dots", "circle-radius", radiusExpr()); map.setPaintProperty("sel", "circle-radius", radiusExpr(5));
+  map.setPaintProperty("dots", "circle-color", colExpr()); map.setPaintProperty("dots", "circle-stroke-color", isDark() ? "rgba(0,0,0,.6)" : "rgba(255,255,255,.9)");
+  map.setPaintProperty("dots", "circle-opacity", S.mode === "journeys" ? .55 : .82);
+  map.setPaintProperty("sel", "circle-stroke-color", LY.base === "satellite" ? "#fff" : c.fg);
+  map.setPaintProperty("lines", "line-color", lineColExpr()); map.setPaintProperty("births", "circle-color", c.line);
+  map.setFilter("sel", ["==", ["get", "i"], S.sel == null ? -1 : S.sel]);
+  plabels();
+}
+function update() {
+  compute();
+  if (ready) { map.getSource("pl").setData(placeFeats()); const [l, b] = journeyFeats(); map.getSource("jl").setData(l); map.getSource("bp").setData(b); applyLayers(); }
+  legend(); side(); chip();
+}
+
+/* our own labels for the most painted places in view (work without any tile server) */
+function plabels() {
+  const box = document.getElementById("plabels"); box.innerHTML = ""; if (!ready || !LY.plabels || !CNT) return;
+  const W = map.getContainer().clientWidth, H = map.getContainer().clientHeight, z = map.getZoom(), bxs = [];
+  const rad = n => { const s = LY.size / 3, k = z < 3 ? .9 + .2 * z : z < 6 ? 1.5 + (z - 3) * .37 : 2.6; return Math.max(1.8 * s, k * s * Math.sqrt(n)); };
+  const ov = b => bxs.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+  let k = 0; const max = z < 2 ? (small() ? 7 : 12) : z < 4 ? 18 : 30;
+  const add = (x, y, html, w, cls) => { const d = document.createElement("div"); d.className = "plL" + (cls || ""); d.style.left = x + "px"; d.style.top = y + "px"; d.innerHTML = html; box.appendChild(d); };
+  if (S.mode === "journeys" && S.p != null) { const pa = PAINTERS[S.p]; if (pa[1] != null) { const pt = map.project([pa[2], pa[1]]); const s = "born here"; const bx = [pt.x + 9, pt.y - 7, pt.x + 9 + s.length * 7, pt.y + 8]; bxs.push(bx); add(bx[0], bx[1], s, 0, " bp"); } }
+  const order = []; for (let i = 0; i < PLACES.length; i++) if (CNT[i]) order.push(i); order.sort((a, b) => CNT[b] - CNT[a]);
+  for (const i of order) { if (k >= max) break; const p = PLACES[i], pt = map.project([p[2], p[1]]); if (pt.x < 0 || pt.y < 0 || pt.x > W || pt.y > H) continue;
+    if (z < 3 && CNT[i] < (S.p != null ? 1 : 8)) break;
+    bxs.push([pt.x - rad(CNT[i]), pt.y - rad(CNT[i]), pt.x + rad(CNT[i]), pt.y + rad(CNT[i])]); }
+  for (const i of order) { if (k >= max) break; const p = PLACES[i], pt = map.project([p[2], p[1]]); if (pt.x < 0 || pt.y < 0 || pt.x > W - 40 || pt.y > H) continue;
+    if (z < 3 && CNT[i] < (S.p != null ? 1 : 8)) break;
+    const r = rad(CNT[i]), nm = p[0].length > 26 ? p[0].slice(0, 25) + "…" : p[0], w = 7 * Math.max(nm.length, 4) + 4;
+    let placed = false;
+    for (const [dx, dy] of [[r + 4, -8], [-r - 4 - w, -8], [-w / 2, -r - 26], [-w / 2, r + 2]]) { const bx = [pt.x + dx, pt.y + dy, pt.x + dx + w, pt.y + dy + 26]; if (bx[0] < 2 || bx[2] > W - 2 || bx[1] < 2 || bx[3] > H - 2) continue;
+      const self = bxs.findIndex(o => Math.abs((o[0] + o[2]) / 2 - pt.x) < .5 && Math.abs((o[1] + o[3]) / 2 - pt.y) < .5);
+      const others = bxs.filter((o, j) => j !== self); if (others.some(o => bx[0] < o[2] && bx[2] > o[0] && bx[1] < o[3] && bx[3] > o[1])) continue;
+      bxs.push(bx); add(bx[0], bx[1], `${esc(nm)}<br><small>${fmt(CNT[i])}</small>`, w); placed = true; break; }
+    if (placed) k++; }
+}
+
+/* ---------- popup gallery ---------- */
+let popup = null;
+function thumb(img) { return img ? COMMONS + "Special:FilePath/" + img + "?width=240" : ""; }
+function figHTML(k) {
+  const r = PT.rows[k], pa = PAINTERS[r[2]], cl = r[5].map(c => COLLS[c]).slice(0, 2).join("; ");
+  const th = r[6] ? `<a class="th" href="${COMMONS}File:${r[6]}" target="_blank" rel="noopener" data-msg="Image on Commons, not loaded here"><img loading="lazy" src="${thumb(r[6])}" alt="${esc(r[1])}" onerror="this.parentNode.classList.add('noimg');this.remove()"></a>` : `<span class="th noimg" data-msg="No image on Commons"></span>`;
+  return `<figure>${th}<figcaption><a href="https://www.wikidata.org/wiki/${r[0]}" target="_blank" rel="noopener"><b>${esc(r[1])}</b></a><br>${esc(pa ? pa[0] : "Unknown painter")}${r[3] ? ", " + r[3] : ""}${cl ? `<br><small>${esc(cl)}</small>` : ""}</figcaption></figure>`;
+}
+function atPlace(pi) { return PASS.filter(k => PT.rows[k][7].includes(pi)).sort((a, b) => (PT.rows[a][3] || 9999) - (PT.rows[b][3] || 9999)); }
+function openPlace(pi, fly) {
+  if (!ready) return; S.sel = pi; const p = PLACES[pi], ks = atPlace(pi);
+  if (fly && !small()) map.flyTo({ center: [p[2], p[1]], zoom: Math.max(map.getZoom(), 6), speed: 1.6 });
+  if (popup) popup.remove();
+  const step = 24; let shown = Math.min(step, ks.length);
+  const head = `<b class="t">${esc(p[0])}</b><small>${esc(CTRY[p[4]] || "at sea")}${p[6] ? ", a broad area" : ""}</small><br>${fmt(ks.length)} painting${ks.length === 1 ? "" : "s"} in your selection${S.p != null ? " by " + esc(PAINTERS[S.p][0]) : ""}`;
+  const html = `<div class="pop">${head}<div class="gal">${ks.slice(0, shown).map(figHTML).join("")}</div>${ks.length > shown ? `<button class="more">Show ${fmt(Math.min(step, ks.length - shown))} more of ${fmt(ks.length - shown)}</button>` : ""}<div class="credit">Images: Wikimedia Commons, each under its own licence (click a picture for its page). Titles link to Wikidata.</div></div>`;
+  popup = new maplibregl.Popup({ maxWidth: small() ? "300px" : "360px", offset: 10, anchor: small() ? "top" : undefined }).setLngLat([p[2], p[1]]).setHTML(html).addTo(map);
+  if (small()) map.easeTo({ center: [p[2], p[1]], zoom: fly ? Math.max(map.getZoom(), 6) : map.getZoom(), offset: [0, -map.getContainer().clientHeight * .36], duration: 600 });
+  const root = popup.getElement();
+  const more = () => { const b = root.querySelector(".more"); if (!b) return; b.onclick = e => { e.stopPropagation(); const g = root.querySelector(".gal"); const nx = Math.min(ks.length, shown + step); g.insertAdjacentHTML("beforeend", ks.slice(shown, nx).map(figHTML).join("")); shown = nx; if (shown >= ks.length) b.remove(); else b.textContent = `Show ${fmt(Math.min(step, ks.length - shown))} more of ${fmt(ks.length - shown)}`; }; };
+  more();
+  popup.on("close", () => { if (S.sel === pi) { S.sel = null; applyLayers(); side(); } });
+  applyLayers(); side();
+}
+function toMap() { if (small()) document.getElementById("mapbox").scrollIntoView({ behavior: "smooth", block: "start" }); }
+
+/* ---------- layers panel ---------- */
+let syncLayers = () => {};
+function layerPanel() {
+  const box = document.createElement("div"); box.className = "lyrWrap";
+  box.innerHTML = `<button class="lyrBtn" aria-expanded="false">Map layers</button>
+<div class="lyrPanel" hidden>
+ <div class="row"><label style="font-weight:600">Base map</label><div class="sub"><select data-k="base" aria-label="Base map"><option value="plain">Plain paper</option><option value="relief">Shaded relief</option><option value="satellite">Satellite</option></select></div></div>
+ <div class="row"><label><input type="checkbox" data-k="hills"> Hills and mountains</label><div class="sub"><span>strength</span><input type="range" data-k="hillK" min="10" max="100" step="5" aria-label="Hill shading strength"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="names"> Town names (zoom in)</label></div>
+ <div class="row"><label><input type="checkbox" data-k="cnames"> Country names</label></div>
+ <div class="row"><label><input type="checkbox" data-k="borders"> Borders</label></div>
+ <div class="hd">Paintings</div>
+ <div class="row"><label><input type="checkbox" data-k="dots"> Painted places</label><div class="sub"><span>size</span><input type="range" data-k="size" min="1" max="7" step=".5" aria-label="Circle size"></div></div>
+ <div class="row"><label><input type="checkbox" data-k="plabels"> Names of the most painted places</label></div>
+ <div class="hd">Painters' journeys</div>
+ <div class="row"><label><input type="checkbox" data-k="lines"> Lines from birthplace to place painted</label></div>
+ <div class="row"><label><input type="checkbox" data-k="births"> Painters' birthplaces</label></div>
+ <button class="reset">Reset layers</button>
+</div>`;
+  ["click", "dblclick", "mousedown", "touchstart", "wheel"].forEach(t => box.addEventListener(t, e => e.stopPropagation(), { passive: t !== "click" }));
+  document.getElementById("map").appendChild(box);
+  const btn = box.querySelector(".lyrBtn"), pan = box.querySelector(".lyrPanel");
+  btn.onclick = () => { const o = pan.hidden; pan.hidden = !o; btn.setAttribute("aria-expanded", o); };
+  const sync = () => pan.querySelectorAll("[data-k]").forEach(i => { const k = i.dataset.k; if (i.type === "checkbox") i.checked = LY[k]; else i.value = LY[k]; });
+  pan.querySelectorAll("[data-k]").forEach(i => i.addEventListener(i.type === "range" ? "input" : "change", () => {
+    const k = i.dataset.k; LY[k] = i.type === "checkbox" ? i.checked : (k === "base" ? i.value : +i.value);
+    if (k === "hillK") LY.hills = true; if (k === "size") LY.dots = true;
+    if ((k === "lines" || k === "births") && LY[k] && S.mode !== "journeys") { setMode("journeys"); }
+    sync(); saveLY(); applyLayers(); legend();
+  }));
+  pan.querySelector(".reset").onclick = () => { Object.assign(LY, LYDEF); saveLY(); sync(); applyLayers(); legend(); };
+  sync(); syncLayers = sync;
+}
+
+function startMap() {
+  map = new maplibregl.Map({ container: "map", style: baseStyle(), ...HOME(), minZoom: 0, maxZoom: 15, renderWorldCopies: false, attributionControl: { compact: true }, fadeDuration: 0 });
+  window.map = map;
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
+  map.addControl(new maplibregl.ScaleControl({ unit: "metric" }), "bottom-right");
+  map.on("error", e => { if (e && e.error && /Failed to fetch|NetworkError|AJAXError|404|Could not load|ERR_/.test(String(e.error.message || e.error))) return; console.warn(e && e.error); });
+  layerPanel();
+  map.getCanvasContainer().appendChild(document.getElementById("plabels"));   // under popups, above the map
+  const init = () => {
+    if (ready) return;
+    fetch("data/world.json").then(r => r.json()).then(w => map.getSource("world").setData(w)).catch(() => {});
+    addLabels(); ready = true; const ld = document.getElementById("loading"); if (ld) ld.remove();
+    update();
+  };
+  map.on("load", init);
+  // if some tile servers cannot be reached the "load" event can be late or never come: start once the style is ready
+  const poll = setInterval(() => { if (ready) return clearInterval(poll); if (map.isStyleLoaded()) init(); }, 600);
+  map.on("moveend", plabels); map.on("resize", plabels);
+  map.on("click", "dots", e => { const f = e.features && e.features[0]; if (f) openPlace(f.properties.i, false); });
+  map.on("mouseenter", "dots", () => map.getCanvas().style.cursor = "pointer"); map.on("mouseleave", "dots", () => { map.getCanvas().style.cursor = ""; hideTip(); });
+  map.on("mousemove", "dots", e => { const f = e.features && e.features[0]; if (!f) return; const p = PLACES[f.properties.i], r = map.getContainer().getBoundingClientRect();
+    showTip(`<b>${esc(p[0])}</b>, ${esc(CTRY[p[4]] || "at sea")}<br>${fmt(f.properties.n)} painting${f.properties.n === 1 ? "" : "s"}${S.p == null ? "" : " by " + esc(PAINTERS[S.p][0])}`, r.left + e.point.x, r.top + e.point.y); });
+  map.on("click", "births", e => { const f = e.features && e.features[0]; if (f && S.p == null) pickPainter(f.properties.j); });
+}
+
+/* ---------- controls ---------- */
+const press = (row, b) => document.querySelectorAll(row + " .btn").forEach(x => x.setAttribute("aria-pressed", x === b));
+function setMode(m) { S.mode = m; document.querySelectorAll("#modeRow .btn").forEach(x => x.setAttribute("aria-pressed", x.dataset.m === m)); if (m === "journeys") { LY.lines = true; LY.births = true; saveLY(); syncLayers(); } update(); }
+document.querySelectorAll("#modeRow .btn").forEach(b => b.onclick = () => setMode(b.dataset.m));
+(function genreRow() {
+  const row = document.getElementById("genreRow");
+  const all = document.createElement("button"); all.className = "btn"; all.textContent = "All"; row.appendChild(all);
+  const bs = GEN.map(([n, c], i) => { const b = document.createElement("button"); b.className = "btn"; b.innerHTML = `<i style="background:${c}"></i>${n[0].toUpperCase() + n.slice(1)}`; b.dataset.g = i; row.appendChild(b); return b; });
+  const sync = () => { all.setAttribute("aria-pressed", S.g === 7); bs.forEach(b => b.setAttribute("aria-pressed", S.g !== 7 && !!(S.g & (1 << +b.dataset.g)))); update(); };
+  all.onclick = () => { S.g = 7; sync(); };
+  bs.forEach(b => b.onclick = () => { const m = 1 << +b.dataset.g; if (S.g === 7) S.g = m; else if (S.g & m) { S.g &= ~m; if (!S.g) S.g = 7; } else S.g |= m; sync(); });
+  all.setAttribute("aria-pressed", "true"); bs.forEach(b => b.setAttribute("aria-pressed", "false"));
+  window.setGenres = m => { S.g = m; sync(); };
+})();
+(function centRow() {
+  const row = document.getElementById("centRow");
+  const all = document.createElement("button"); all.className = "btn"; all.textContent = "Any time"; row.appendChild(all);
+  const bs = CENTS.map(([c, n], i) => { const b = document.createElement("button"); b.className = "btn"; b.textContent = n[0].toUpperCase() + n.slice(1); b.dataset.c = i; row.appendChild(b); return b; });
+  const sync = () => { all.setAttribute("aria-pressed", allCents()); bs.forEach(b => b.setAttribute("aria-pressed", !allCents() && S.c.has(+b.dataset.c))); update(); };
+  all.onclick = () => { S.c = new Set(CENTS.map((c, i) => i)); sync(); };
+  bs.forEach(b => b.onclick = () => { const c = +b.dataset.c; if (allCents()) S.c = new Set([c]); else if (S.c.has(c)) { S.c.delete(c); if (!S.c.size) S.c = new Set(CENTS.map((x, i) => i)); } else S.c.add(c); sync(); });
+  all.setAttribute("aria-pressed", "true"); bs.forEach(b => b.setAttribute("aria-pressed", "false"));
+  window.setCents = set => { S.c = set; sync(); };
+})();
+function chip() {
+  const c = document.getElementById("chip");
+  c.innerHTML = S.p != null ? `Painter: ${esc(PAINTERS[S.p][0])} <button aria-label="Clear painter" title="Clear painter">×</button>` : "";
+  const b = c.querySelector("button"); if (b) b.onclick = () => { S.p = null; document.getElementById("q").value = ""; if (popup) popup.remove(); update(); };
+}
+function fitPlaces(list, maxZoom) {
+  if (!ready || !list.length) return; let b = null;
+  for (const [lon, lat] of list) { if (!b) b = [[lon, lat], [lon, lat]]; else { b[0][0] = Math.min(b[0][0], lon); b[0][1] = Math.min(b[0][1], lat); b[1][0] = Math.max(b[1][0], lon); b[1][1] = Math.max(b[1][1], lat); } }
+  if (b[0][0] === b[1][0] && b[0][1] === b[1][1]) map.flyTo({ center: b[0], zoom: 7 }); else map.fitBounds(b, { padding: 50, maxZoom: maxZoom || 8, duration: 900 });
+}
+function pickPainter(j, journeys = true) {
+  S.p = j; S.sel = null; if (popup) popup.remove(); if (journeys) setMode("journeys"); else update();
+  const pa = PAINTERS[j], pts = []; PASS.forEach(k => PT.rows[k][7].forEach(pi => { if (!PLACES[pi][6]) pts.push([PLACES[pi][2], PLACES[pi][1]]); }));
+  if (pa[1] != null) pts.push([pa[2], pa[1]]);
+  fitPlaces(pts, 7); document.getElementById("q").value = pa[0];
+}
+(function focusRow() {
+  const row = document.getElementById("focusRow");
+  const F = [["World", null], ["Europe", [[-11, 35], [32, 71]]], ["Paris and the Seine", [[0.0, 48.3], [3.2, 49.8]]], ["Normandy coast", [[-1.6, 49.1], [1.6, 50.2]]], ["Low Countries", [[3, 50.7], [7, 53.4]]], ["London and the Thames", [[-1.2, 51.2], [0.9, 51.8]]], ["Venice", [[12.25, 45.4], [12.4, 45.47]]], ["Rome and Naples", [[11.8, 40.3], [15, 42.2]]], ["Norway", [[4, 57.8], [20, 70]]], ["Hudson and Catskills", [[-75.2, 40.4], [-73, 43.6]]], ["American West", [[-125, 32], [-104, 49]]]];
+  F.forEach(([n, b]) => { const x = document.createElement("button"); x.className = "btn"; x.textContent = n; x.onclick = () => {
+    if (!ready) return; if (!b) { if (popup) popup.remove(); S.sel = null; map.flyTo({ ...HOME(), speed: 1.6 }); applyLayers(); side(); } else map.fitBounds(b, { padding: 20, duration: 900 }); toMap(); }; row.appendChild(x); });
+})();
+(function search() {
+  const inp = document.getElementById("q"), sug = document.getElementById("sug"); let opts = [], k = -1;
+  const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const PN = PAINTERS.map(p => norm(p[0])), PLN = PLACES.map(p => norm(p[0]));
+  const ALIAS = { canaletto: "giovanni antonio canal", turner: "j. m. w. turner", "grandma moses": "grandma moses", "van gogh": "vincent van gogh" };
+  function build(q) {
+    let nq = norm(q).trim(); if (nq.length < 2) return [];
+    const out = [], al = ALIAS[nq];
+    PAINTERS.forEach((p, i) => { const n = PN[i]; if (n.includes(nq) || (al && n === al)) out.push({ t: "p", i, s: (al && n === al ? 20 : n.startsWith(nq) ? 9 : n.split(" ").some(w => w.startsWith(nq)) ? 7 : 3) + Math.log10(p[3] + 1) }); });
+    PLACES.forEach((p, i) => { const n = PLN[i]; if (n.includes(nq)) out.push({ t: "l", i, s: (n === nq ? 12 : n.startsWith(nq) ? 8 : 2) + Math.log10(p[3] + 1) }); });
+    return out.sort((a, b) => b.s - a.s).slice(0, 12);
+  }
+  const lab = o => o.t === "p" ? `${esc(PAINTERS[o.i][0])} <span>painter, ${fmt(PAINTERS[o.i][3])} painting${PAINTERS[o.i][3] === 1 ? "" : "s"}</span>` : `${esc(PLACES[o.i][0])} <span>place, ${esc(CTRY[PLACES[o.i][4]] || "at sea")}, ${fmt(PLACES[o.i][3])}</span>`;
+  const show = () => { sug.innerHTML = opts.map((o, i) => `<li role="option" aria-selected="${i === k}" data-i="${i}">${lab(o)}</li>`).join(""); sug.style.display = opts.length ? "block" : "none"; };
+  const choose = o => { sug.style.display = "none"; inp.blur(); if (!PT || !ready) return;
+    if (o.t === "p") { pickPainter(o.i); toMap(); }
+    else { inp.value = PLACES[o.i][0]; if (!CNT[o.i]) { S.p = null; window.setGenres(7); window.setCents(new Set([0, 1, 2, 3, 4])); } openPlace(o.i, true); toMap(); } };
+  inp.addEventListener("input", () => { opts = build(inp.value); k = -1; show(); });
+  inp.addEventListener("keydown", e => { if (e.key === "ArrowDown") { k = Math.min(opts.length - 1, k + 1); show(); e.preventDefault(); } else if (e.key === "ArrowUp") { k = Math.max(0, k - 1); show(); e.preventDefault(); } else if (e.key === "Enter" && opts.length) { choose(opts[Math.max(0, k)]); } else if (e.key === "Escape") { sug.style.display = "none"; } });
+  sug.addEventListener("click", e => { const li = e.target.closest("li"); if (li) choose(opts[+li.dataset.i]); });
+  document.addEventListener("click", e => { if (!e.target.closest(".searchbox")) sug.style.display = "none"; });
+  window.searchPick = (q) => { opts = build(q); if (opts.length) choose(opts[0]); };
+})();
+
+/* ---------- legend and side panel ---------- */
+function legend() {
+  const e = document.getElementById("legend"), gc = GCOL();
+  let h = GEN.map(([n], i) => (S.g & (1 << i)) ? `<span><i style="background:${gc[i]}"></i>mostly ${esc(n)}</span>` : "").join("");
+  h += `<span>circle area: paintings of the place</span>`;
+  if (S.mode === "journeys") h += DB.map((b, i) => `<span><i class="ln" style="background:${DBC()[i]}"></i>${b[2]}</span>`).join("") + `<span><i style="background:var(--line);border:1.5px solid #fff"></i>painter's birthplace</span>`;
+  e.innerHTML = h;
+}
+function note(h) { document.getElementById("mapnote").innerHTML = h || ""; }
+function selTxt() { const g = S.g === 7 ? "" : GEN.filter((x, i) => S.g & (1 << i)).map(x => x[0]).join(" and ") + " "; const c = allCents() ? "" : ", " + CENTS.filter((x, i) => S.c.has(i)).map(x => x[1]).join(", "); return g + "paintings" + c; }
+function median(a) { if (!a.length) return null; a = a.slice().sort((x, y) => x - y); const m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; }
+function bars(list, max, col) { return list.map(([n, v, a]) => `<tr><td>${a || esc(n)}</td><td class="num">${fmt(v)}</td></tr>`).join(""); }
+function side() {
+  const box = document.getElementById("side"); if (!CNT) { box.innerHTML = `<p class="sub">Loading the paintings...</p>`; return; } let h = "";
+  const placeList = (cnt, n) => { const o = []; for (let i = 0; i < PLACES.length; i++) if (cnt[i]) o.push(i); o.sort((a, b) => cnt[b] - cnt[a]); return o.slice(0, n); };
+  if (S.sel != null) {
+    const pi = S.sel, p = PLACES[pi], ks = atPlace(pi), pc = new Map(), cc = new Map(), cents = [0, 0, 0, 0, 0];
+    ks.forEach(k => { const r = PT.rows[k]; pc.set(r[2], (pc.get(r[2]) || 0) + 1); r[5].forEach(c => cc.set(c, (cc.get(c) || 0) + 1)); const c = centOf(r[3]); if (c >= 0) cents[c]++; });
+    const tp = [...pc].sort((a, b) => b[1] - a[1]).slice(0, 8), tc = [...cc].sort((a, b) => b[1] - a[1]).slice(0, 5), mx = Math.max(1, ...cents);
+    h = `<button class="back">Back</button><h4>Place</h4><div class="big">${esc(p[0])}</div><p class="sub">${esc(CTRY[p[4]] || "at sea")} · ${p[1].toFixed(2)}°, ${p[2].toFixed(2)}° · <a href="https://www.wikidata.org/wiki/${p[7]}" target="_blank" rel="noopener">${p[7]}</a></p>
+<table><tr><td>Paintings, all genres and years</td><td class="num">${fmt(p[3])}</td></tr><tr><td>In your selection</td><td class="num">${fmt(ks.length)}</td></tr><tr><td>Painters</td><td class="num">${fmt([...pc.keys()].filter(j => j >= 0).length)}</td></tr></table>
+<h4>When</h4><svg viewBox="0 0 300 70">${cents.map((v, i) => `<rect x="${i * 60 + 4}" y="${52 - 38 * v / mx}" width="52" height="${38 * v / mx}" fill="var(--hot)"/><text x="${i * 60 + 30}" y="66" class="lab s m" text-anchor="middle">${["<1600", "1600s", "1700s", "1800s", "1900+"][i]}</text>${v ? `<text x="${i * 60 + 30}" y="${48 - 38 * v / mx}" class="lab s" text-anchor="middle">${v}</text>` : ""}`).join("")}</svg>
+<h4>Painters</h4><ol>${tp.map(([j, n]) => j >= 0 ? `<li><span class="go" data-p="${j}">${esc(PAINTERS[j][0])}</span> <small>${n}</small></li>` : `<li>Unknown painter <small>${n}</small></li>`).join("")}</ol>
+${tc.length ? `<h4>Collections</h4><ul>${tc.map(([c, n]) => `<li>${esc(COLLS[c])} <small>${n}</small></li>`).join("")}</ul>` : ""}
+<p class="sub">The gallery is in the popup on the map.</p>`;
+    note(`<b>${esc(p[0])}</b>: ${fmt(ks.length)} painting${ks.length === 1 ? "" : "s"}`);
+  } else if (S.p != null) {
+    const pa = PAINTERS[S.p], ds = PASS.map(k => PT.rows[k][8]).filter(v => v >= 0), md = median(ds), top = placeList(CNT, 10);
+    h = `<button class="back">Clear painter</button><h4>Painter</h4><div class="big">${esc(pa[0])}</div><p class="sub">Born in ${esc(CTRY[pa[4]] || "an unrecorded place")} · <a href="https://www.wikidata.org/wiki/${pa[5]}" target="_blank" rel="noopener">${pa[5]}</a></p>
+<table><tr><td>Paintings mapped</td><td class="num">${fmt(pa[3])}</td></tr><tr><td>In your selection</td><td class="num">${fmt(PASS.length)}</td></tr><tr><td>Places</td><td class="num">${fmt(top.length < 10 ? top.length : CNT.reduce((a, v) => a + (v ? 1 : 0), 0))}</td></tr>
+${md != null ? `<tr><td>Median distance from birthplace</td><td class="num">${fmt(md)} km</td></tr><tr><td>Furthest</td><td class="num">${fmt(Math.max(...ds))} km</td></tr>` : `<tr><td colspan="2"><small>No birthplace or no measurable place in Wikidata</small></td></tr>`}</table>
+<h4>Most painted places</h4><ol>${top.map(i => `<li><span class="go" data-l="${i}">${esc(PLACES[i][0])}</span> <small>${CNT[i]}</small></li>`).join("")}</ol>
+<p class="sub">${S.mode === "journeys" ? "Lines run from the birthplace to each place painted." : "Switch to Painters' journeys to draw lines from the birthplace."}</p>`;
+    note(`<b>${esc(pa[0])}</b>: ${fmt(PASS.length)} painting${PASS.length === 1 ? "" : "s"}`);
+  } else {
+    const nPl = CNT.reduce((a, v) => a + (v ? 1 : 0), 0), pset = new Set(), ds = [];
+    PASS.forEach(k => { const r = PT.rows[k]; if (r[2] >= 0) pset.add(r[2]); if (r[8] >= 0) ds.push(r[8]); });
+    const pcount = new Map(); PASS.forEach(k => { const j = PT.rows[k][2]; if (j >= 0) pcount.set(j, (pcount.get(j) || 0) + 1); });
+    const tpa = [...pcount].sort((a, b) => b[1] - a[1]).slice(0, 8), md = median(ds);
+    h = `<h4>On the map now</h4><div class="big">${fmt(PASS.length)}</div><p class="sub">${esc(selTxt())}, showing ${fmt(nPl)} places, by ${fmt(pset.size)} named painters${md != null ? `; median ${fmt(md)} km from the painter's birthplace` : ""}</p>
+<h4>Most painted places</h4><ol>${placeList(CNT, 10).map(i => `<li><span class="go" data-l="${i}">${esc(PLACES[i][0])}</span> <small>${CNT[i]}</small></li>`).join("")}</ol>
+<h4>Most mapped painters</h4><ol>${tpa.map(([j, n]) => `<li><span class="go" data-p="${j}">${esc(PAINTERS[j][0])}</span> <small>${n}</small></li>`).join("")}</ol>
+${S.mode === "journeys" ? `<p class="sub">${fmt(JSTAT.pairs)} lines from ${fmt(JSTAT.painters)} birthplaces. Search or click a painter to follow one.</p>` : ""}
+<p class="sub">Click a circle for its paintings. Search a painter to see their places; Painters' journeys draws lines from where they were born.</p>`;
+    note("");
+  }
+  box.innerHTML = h;
+  const b = box.querySelector(".back"); if (b) b.onclick = () => { if (S.sel != null) { S.sel = null; if (popup) popup.remove(); applyLayers(); side(); } else { S.p = null; document.getElementById("q").value = ""; update(); } };
+  box.querySelectorAll("[data-p]").forEach(e => e.onclick = () => { pickPainter(+e.dataset.p, S.mode === "journeys"); toMap(); });
+  box.querySelectorAll("[data-l]").forEach(e => e.onclick = () => { openPlace(+e.dataset.l, true); toMap(); });
+}
+
+/* ---------- charts ---------- */
+const PIDX = new Map(PLACES.map((p, i) => [p[7], i]));
+const KN = { river: 0, city: 1, coast: 2, mountain: 3, building: 4, region: 5, other: 6 };
+function goPlace(q) { const i = PIDX.get(q); if (i == null) return; document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); setTimeout(() => { S.p = null; window.setGenres(7); window.setCents(new Set([0, 1, 2, 3, 4])); openPlace(i, true); }, 350); }
+function goPainter(name) { const j = PAINTERS.findIndex(p => p[0] === name); if (j < 0) return; document.getElementById("atlas").scrollIntoView({ behavior: "smooth" }); setTimeout(() => pickPainter(j), 350); }
+function topChart() {
+  const D = R.top.slice(0, 25);
+  resp(document.getElementById("topChart"), (w, sm) => {
+    const rh = 22, lw = sm ? 128 : 170, h = D.length * rh + 8, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Bar chart of the 25 most painted places, led by the Seine" }, document.getElementById("topChart"));
+    const mx = D[0].n;
+    D.forEach((d, i) => { const y = i * rh, bw = (w - lw - 44) * d.n / mx;
+      lbl(svg, lw - 8, y + 15, d.label.length > (sm ? 16 : 24) ? d.label.slice(0, sm ? 15 : 23) + "…" : d.label, "lab", "end");
+      const b = el("rect", { x: lw, y: y + 4, width: Math.max(2, bw), height: rh - 7, fill: KCOL[KN[d.kind]] || "#8C8478", rx: 2 }, svg); b.style.cursor = "pointer";
+      lbl(svg, lw + bw + 5, y + 15, fmt(d.n), "lab s b");
+      b.addEventListener("click", ev => { ev.stopPropagation(); goPlace(d.q); });
+      b.addEventListener("mousemove", ev => showTip(`<b>${esc(d.label)}</b>, ${esc(d.country || "at sea")}<br>${fmt(d.n)} paintings by ${fmt(d.painters)} painters${d.anon ? ` (and ${d.anon} unknown)` : ""}<br>most by ${esc(d.top_painter)} (${d.top_painter_n})<br>most held by ${esc(d.top_coll || "none recorded")} (${d.top_coll_n})`, ev.clientX, ev.clientY)); b.addEventListener("mouseleave", hideTip); });
+  });
+  document.getElementById("kindLegend").innerHTML = KINDS.slice(0, 6).map(([k, n, c]) => `<span><i class="sq" style="background:${c}"></i>${esc(n)}</span>`).join("");
+}
+function kindChart() {
+  const D = R.kinds.slice().sort((a, b) => b.places - a.places);
+  resp(document.getElementById("kindChart"), (w, sm) => {
+    const rh = 30, lw = sm ? 150 : 230, h = D.length * rh + 26, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Bar chart of the 100 most painted places by kind" }, document.getElementById("kindChart"));
+    const mx = Math.max(...D.map(d => d.places)); lbl(svg, lw, 12, "places among the top 100", "lab s m");
+    D.forEach((d, i) => { const y = 20 + i * rh, bw = (w - lw - (sm ? 175 : 235)) * d.places / mx, c = KCOL[KN[d.kind]];
+      lbl(svg, lw - 8, y + 18, sm ? d.name.split(",")[0] : d.name, "lab", "end");
+      el("rect", { x: lw, y: y + 5, width: Math.max(2, bw), height: rh - 10, fill: c, rx: 2 }, svg);
+      lbl(svg, lw + bw + 6, y + 19, sm ? `${d.places}, ${fmt(d.pairs)} paintings` : `${d.places} places, ${fmt(d.pairs)} paintings`, "lab s"); });
+  });
+}
+function favChart() {
+  const D = R.fav_rows;
+  resp(document.getElementById("favChart"), (w, sm) => {
+    const rh = sm ? 40 : 30, lw = sm ? 0 : 200, h = D.length * rh + 6, x0 = lw, x1 = w - 4, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Painters and the share of their paintings showing their three favourite places" }, document.getElementById("favChart"));
+    const tones = isDark() ? ["#F08A5B", "#C9745A", "#8E6455"] : ["#8E3A17", "#C2582B", "#E3A07F"];
+    D.forEach((d, i) => { const y = i * rh; let x = x0, yb = sm ? y + 16 : y + 4;
+      lbl(svg, sm ? 0 : lw - 8, sm ? y + 12 : y + 17, `${d.name} (${d.n})`, "lab b", sm ? "start" : "end");
+      d.top.forEach(([nm, v], k) => { const bw = (x1 - x0) * v / d.n; el("rect", { x, y: yb, width: Math.max(1, bw - 1), height: rh - (sm ? 20 : 9), fill: tones[k] }, svg);
+        let tx = `${nm} ${v}`; if (tx.length * 6.7 + 10 > bw) tx = `${nm.slice(0, Math.max(0, Math.floor((bw - 10) / 6.7) - String(v).length - 2))}… ${v}`;
+        if (bw > 46 && tx.length * 6.7 + 10 <= bw && !tx.startsWith("…")) { const t = lbl(svg, x + 5, yb + (sm ? 14 : 16), tx, "lab s"); t.setAttribute("style", `fill:${k < 2 ? "#fff" : "#2a1a12"}`); }
+        x += bw; });
+      el("rect", { x, y: yb, width: Math.max(0, x1 - x), height: rh - (sm ? 20 : 9), fill: css("--rule") }, svg);
+      const hit = el("rect", { x: 0, y, width: w, height: rh, fill: "transparent" }, svg); hit.style.cursor = "pointer";
+      hit.addEventListener("mousemove", ev => showTip(`<b>${esc(d.name)}</b>: ${fmt(d.n)} paintings of ${fmt(d.places)} places<br>` + d.top.map(([nm, v]) => `${esc(nm)} ${v} (${Math.round(100 * v / d.n)}%)`).join("<br>"), ev.clientX, ev.clientY)); hit.addEventListener("mouseleave", hideTip);
+      hit.addEventListener("click", ev => { ev.stopPropagation(); goPainter(d.name); }); });
+  });
+}
+function distChart() {
+  const rows = [{ name: "all periods", n: R.dist.n, bins: R.dist.all }].concat(R.dist_cent.filter(d => d.n >= 30));
+  const C = isDark() ? ["#E9F2E0", "#C8E0AE", "#9CC874", "#C59BE8", "#A26BD6", "#8A4FCB"] : ["#2E5418", "#5E8C3A", "#A9C98A", "#CDB6E0", "#8F66B5", "#4B2A6B"];
+  resp(document.getElementById("distChart"), (w, sm) => {
+    const rh = 34, lw = sm ? 96 : 150, h = rows.length * rh + 8, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Stacked bars of distance from the painter's birthplace by period" }, document.getElementById("distChart"));
+    rows.forEach((d, i) => { const y = i * rh; let x = lw;
+      lbl(svg, lw - 8, y + 16, d.name[0].toUpperCase() + d.name.slice(1), "lab b", "end"); lbl(svg, lw - 8, y + 29, `${fmt(d.n)} paintings`, "lab s m", "end");
+      d.bins.forEach((v, k) => { const bw = (w - lw - 4) * v / 100; const r = el("rect", { x, y: y + 4, width: Math.max(0, bw - .8), height: rh - 10, fill: C[k] }, svg);
+        if (bw > 34) { const t = lbl(svg, x + bw / 2, y + 23, Math.round(v) + "%", "lab s b", "middle"); t.setAttribute("style", `fill:${(k === 0 || k === 1 || k === 5 || k === 4) !== isDark() ? "#fff" : "#1d1a16"}`); }
+        r.addEventListener("mousemove", ev => showTip(`<b>${esc(d.name)}</b>: ${R.dist.bins[k]}<br>${v.toFixed(1)}% of ${fmt(d.n)} paintings${d.median != null ? `<br>median ${fmt(d.median)} km` : ""}`, ev.clientX, ev.clientY)); r.addEventListener("mouseleave", hideTip); x += bw; });
+    });
+  });
+  document.getElementById("distLegend").innerHTML = R.dist.bins.map((b, k) => `<span><i class="sq" style="background:${C[k]}"></i>${esc(b)}</span>`).join("");
+}
+function natChart() {
+  const D = R.dist_country.slice().sort((a, b) => a.median - b.median);
+  resp(document.getElementById("natChart"), (w, sm) => {
+    const rh = 24, lw = sm ? 112 : 150, h = D.length * rh + 30, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Median distance from birthplace by country of birth, log scale" }, document.getElementById("natChart"));
+    const lo = Math.log10(10), hi = Math.log10(3000), X = v => lw + (w - lw - 60) * (Math.log10(Math.max(10, v)) - lo) / (hi - lo);
+    [10, 30, 100, 300, 1000, 3000].forEach(v => { el("line", { x1: X(v), x2: X(v), y1: 14, y2: h - 4, stroke: css("--rule") }, svg); lbl(svg, X(v), 10, fmt(v) + (v === 3000 ? " km" : ""), "lab s m", "middle"); });
+    D.forEach((d, i) => { const y = 20 + i * rh;
+      lbl(svg, lw - 8, y + 15, d.country, "lab", "end");
+      const b = el("rect", { x: lw, y: y + 4, width: X(d.median) - lw, height: rh - 8, fill: css("--line"), rx: 2 }, svg);
+      lbl(svg, X(d.median) + 5, y + 15, fmt(d.median) + " km", "lab s b");
+      b.addEventListener("mousemove", ev => showTip(`<b>Born in ${esc(d.country)}</b>: ${fmt(d.n)} paintings by ${fmt(d.painters)} painters<br>median ${fmt(d.median)} km; ${Math.round(d.within50_pct)}% within 50 km, ${Math.round(d.over1000_pct)}% over 1,000 km`, ev.clientX, ev.clientY)); b.addEventListener("mouseleave", hideTip); });
+  });
+}
+function travTable() {
+  const t = document.getElementById("travTable");
+  t.innerHTML = `<thead><tr><th>Painter</th><th>Born in</th><th class="r">Paintings</th><th class="r">Median km</th><th>Most painted</th></tr></thead><tbody>` +
+    R.travellers.map((d, i) => `<tr data-i="${i}"><td>${esc(d.name)}</td><td>${esc(d.bcountry)}</td><td class="r">${fmt(d.n)}</td><td class="r">${fmt(d.median)}</td><td>${esc(d.top)}</td></tr>`).join("") + `</tbody>`;
+  t.querySelectorAll("tr[data-i]").forEach(r => r.onclick = () => goPainter(R.travellers[+r.dataset.i].name));
+}
+function centChart() {
+  const K = ["Netherlands", "Italy", "France", "United Kingdom", "United States", "Norway", "Germany", "Belgium", "Other"];
+  const C = ["#E0A11B", "#2E9A8C", "#2F6DA8", "#C8322B", "#7B57A8", "#5E8C3A", "#3B3B3B", "#D46A8C", "#C9C2B6"];
+  const D = R.cents.filter(d => d.n >= 30);
+  resp(document.getElementById("centChart"), (w, sm) => {
+    const h = sm ? 300 : 340, m = { l: 34, r: 6, t: 10, b: 36 }, bw = (w - m.l - m.r) / D.length, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Stacked bars of the country of painted places by period" }, document.getElementById("centChart"));
+    const Y = v => m.t + (h - m.t - m.b) * (1 - v / 100);
+    [0, 25, 50, 75, 100].forEach(v => { el("line", { x1: m.l, x2: w - m.r, y1: Y(v), y2: Y(v), stroke: css("--rule") }, svg); lbl(svg, m.l - 5, Y(v) + 4, v + "%", "lab s m", "end"); });
+    D.forEach((d, i) => { let acc = 0; const x = m.l + i * bw + bw * .12, ww = bw * .76;
+      K.forEach((k, j) => { const v = Math.max(0, d[k] || 0); if (!v) return; const y0 = Y(acc + v), hh = Y(acc) - Y(acc + v);
+        const r = el("rect", { x, y: y0, width: ww, height: Math.max(0, hh - .6), fill: C[j] }, svg);
+        if (hh > 15 && ww > 46) { const t = lbl(svg, x + ww / 2, y0 + hh / 2 + 4, Math.round(v) + "%", "lab s b", "middle"); t.setAttribute("style", `fill:${j === 8 || j === 0 ? "#1d1a16" : "#fff"}`); }
+        r.addEventListener("mousemove", ev => showTip(`<b>${esc(d.name)}</b>: ${esc(k)}<br>${v.toFixed(1)}% of ${fmt(d.n)} paintings`, ev.clientX, ev.clientY)); r.addEventListener("mouseleave", hideTip); acc += v; });
+      lbl(svg, x + ww / 2, h - 20, d.name[0].toUpperCase() + d.name.slice(1), "lab s b", "middle"); lbl(svg, x + ww / 2, h - 6, `${fmt(d.n)}`, "lab s m", "middle"); });
+  });
+  document.getElementById("centLegend").innerHTML = K.map((k, j) => `<span><i class="sq" style="background:${C[j]}"></i>${esc(k)}</span>`).join("");
+}
+function collChart() {
+  const D = R.colls.slice(0, 15);
+  resp(document.getElementById("collChart"), (w, sm) => {
+    const rh = 24, lw = sm ? 150 : 250, h = D.length * rh + 8, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "Bar chart of the collections with the most mapped paintings" }, document.getElementById("collChart"));
+    const mx = D[0].n, nm = s => { const t = s.replace("National Library of Wales Framed works of art collection", "National Library of Wales, framed works").replace("National Museum of Art, Architecture and Design", "National Museum, Oslo"); const L = sm ? 19 : 31; return t.length > L ? t.slice(0, L - 1) + "…" : t; };
+    D.forEach((d, i) => { const y = i * rh, bw = (w - lw - 50) * d.n / mx, bp = bw * d.top_painter_n / d.n;
+      lbl(svg, lw - 8, y + 16, nm(d.name), "lab", "end");
+      el("rect", { x: lw, y: y + 4, width: bw, height: rh - 8, fill: css("--gold"), opacity: .55, rx: 2 }, svg);
+      el("rect", { x: lw, y: y + 4, width: Math.max(1, bp), height: rh - 8, fill: css("--gold"), rx: 2 }, svg);
+      lbl(svg, lw + bw + 5, y + 16, fmt(d.n), "lab s b");
+      const hit = el("rect", { x: 0, y, width: w, height: rh, fill: "transparent" }, svg);
+      hit.addEventListener("mousemove", ev => showTip(`<b>${esc(d.name)}</b>: ${fmt(d.n)} paintings (${d.pct.toFixed(1)}%)<br>most by ${esc(d.top_painter)}: ${d.top_painter_n} (${Math.round(d.top_painter_pct)}%)<br>most painted place: ${esc(d.top_place)} (${d.top_place_n})`, ev.clientX, ev.clientY)); hit.addEventListener("mouseleave", hideTip); });
+  });
+}
+function biasChart() {
+  const D = R.top.slice(0, 20);
+  resp(document.getElementById("biasChart"), (w, sm) => {
+    const rh = 22, lw = sm ? 112 : 160, gap = 16, h = D.length * rh + 26, pw = (w - lw - gap) / 2, svg = el("svg", { viewBox: `0 0 ${w} ${h}`, role: "img", "aria-label": "For the 20 most painted places, the share by the leading painter and the share held by the leading collection" }, document.getElementById("biasChart"));
+    lbl(svg, lw, 12, "leading painter", "lab s m"); lbl(svg, lw + pw + gap, 12, "leading collection", "lab s m");
+    D.forEach((d, i) => { const y = 20 + i * rh;
+      lbl(svg, lw - 8, y + 15, d.label.length > (sm ? 13 : 20) ? d.label.slice(0, sm ? 12 : 19) + "…" : d.label, "lab", "end");
+      [[d.top_painter_pct, css("--hot"), lw], [d.top_coll_pct, css("--gold"), lw + pw + gap]].forEach(([v, c, x]) => {
+        el("rect", { x, y: y + 4, width: pw - 30, height: rh - 8, fill: css("--rule") }, svg);
+        el("rect", { x, y: y + 4, width: (pw - 30) * v / 100, height: rh - 8, fill: c }, svg); lbl(svg, x + (pw - 30) * v / 100 + 4, y + 15, Math.round(v) + "%", "lab s"); });
+      const hit = el("rect", { x: 0, y, width: w, height: rh, fill: "transparent" }, svg);
+      hit.addEventListener("mousemove", ev => showTip(`<b>${esc(d.label)}</b>: ${fmt(d.n)} paintings<br>${esc(d.top_painter)}: ${d.top_painter_n} (${Math.round(d.top_painter_pct)}%)<br>${esc(d.top_coll || "no collection")}: ${d.top_coll_n} (${Math.round(d.top_coll_pct)}%)`, ev.clientX, ev.clientY)); hit.addEventListener("mouseleave", hideTip); });
+  });
+}
+function charts() { topChart(); kindChart(); favChart(); distChart(); natChart(); travTable(); centChart(); collChart(); biasChart(); }
+
+/* ---------- start ---------- */
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; if (ready) { const c = colours(); ["names", "cnames"].forEach(id => { if (map.getLayer(id)) map.setPaintProperty(id, "text-halo-color", c.bg); }); applyLayers(); } legend(); redraws.forEach(f => f()); };
+charts(); legend(); side();
+fetch("data/paintings.json").then(r => r.json()).then(d => { PT = d; compute(); side();
+  if (typeof maplibregl === "undefined") { document.getElementById("loading").textContent = "The map library did not load. The charts below still work."; legend(); return; }
+  startMap(); }).catch(() => { document.getElementById("loading").textContent = "The painting data did not load."; });
+</script>
+/*FULLSCREEN*/
+</body>
+</html>

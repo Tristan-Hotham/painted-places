@@ -1,0 +1,6357 @@
+{
+ "source": {
+  "rows": 18249,
+  "paintings_all": 10321,
+  "items_all": 5231,
+  "query_date": "1 November 2026",
+  "core": 8757,
+  "set_aside": 1564,
+  "set_aside_religious": 966,
+  "set_aside_genre": 564,
+  "items_core": 4834,
+  "items_dropped": 94,
+  "drop_event": 70,
+  "drop_vessel": 19,
+  "drop_globe": 3,
+  "drop_other": 2,
+  "pairs_dropped": 294,
+  "moon": 138,
+  "event_pairs": 120,
+  "vessel_pairs": 32,
+  "no_place": 224,
+  "n": 8533,
+  "places": 4740,
+  "places_broad": 156,
+  "pairs": 11176,
+  "multi": 1913,
+  "painters": 2393,
+  "anon": 385,
+  "painters_birth": 2124,
+  "year_known": 7961,
+  "year_pct": 93.3,
+  "year_min": 1348,
+  "year_max": 2015,
+  "img": 7063,
+  "img_pct": 82.77,
+  "coll_known": 7258,
+  "coll_pct": 85.06,
+  "wiki": 1509,
+  "wiki_pct": 17.68,
+  "landscape": 6470,
+  "marine": 715,
+  "cityscape": 1517,
+  "countries": 102,
+  "depcoord_n": 2,
+  "depcoord_delft_km": 0.8,
+  "depcoord_max_km": 1.4,
+  "query_year": "2026",
+  "oldest_title": "Dwelling in the Fuchun Mountains",
+  "oldest_painter": "Huang Gongwang",
+  "oldest_year": 1348
+ },
+ "top": [
+  {
+   "q": "Q1471",
+   "label": "Seine",
+   "n": 228,
+   "painters": 81,
+   "country": "France",
+   "kind": "river",
+   "broad": 0,
+   "lat": 49.4347,
+   "lon": 0.1175,
+   "anon": 3,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 38,
+   "top_painter_pct": 16.67,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 73,
+   "top_coll_pct": 32.02,
+   "first": 1637,
+   "last": 2000,
+   "g": {
+    "landscape": 177,
+    "marine": 2,
+    "cityscape": 58
+   }
+  },
+  {
+   "q": "Q90",
+   "label": "Paris",
+   "n": 120,
+   "painters": 76,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 48.8567,
+   "lon": 2.3522,
+   "anon": 4,
+   "top_painter": "Nicolas-Jean-Baptiste Raguenet",
+   "top_painter_n": 7,
+   "top_painter_pct": 5.83,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 34,
+   "top_coll_pct": 28.33,
+   "first": 1600,
+   "last": 2000,
+   "g": {
+    "landscape": 61,
+    "marine": 0,
+    "cityscape": 68
+   }
+  },
+  {
+   "q": "Q186822",
+   "label": "Lofoten",
+   "n": 97,
+   "painters": 5,
+   "country": "Norway",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 68.3331,
+   "lon": 14.6664,
+   "anon": 0,
+   "top_painter": "Anna Boberg",
+   "top_painter_n": 93,
+   "top_painter_pct": 95.88,
+   "top_coll": "Nationalmuseum",
+   "top_coll_n": 93,
+   "top_coll_pct": 95.88,
+   "first": 1856,
+   "last": 1934,
+   "g": {
+    "landscape": 96,
+    "marine": 0,
+    "cityscape": 1
+   }
+  },
+  {
+   "q": "Q641",
+   "label": "Venice",
+   "n": 95,
+   "painters": 50,
+   "country": "Italy",
+   "kind": "city",
+   "broad": 0,
+   "lat": 45.4397,
+   "lon": 12.3319,
+   "anon": 11,
+   "top_painter": "J. M. W. Turner",
+   "top_painter_n": 10,
+   "top_painter_pct": 10.53,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 11,
+   "top_coll_pct": 11.58,
+   "first": 1600,
+   "last": 1950,
+   "g": {
+    "landscape": 29,
+    "marine": 19,
+    "cityscape": 55
+   }
+  },
+  {
+   "q": "Q50630",
+   "label": "Nordland",
+   "n": 89,
+   "painters": 2,
+   "country": "Norway",
+   "kind": "region",
+   "broad": 1,
+   "lat": 66.8333,
+   "lon": 14.6667,
+   "anon": 0,
+   "top_painter": "Anna Boberg",
+   "top_painter_n": 88,
+   "top_painter_pct": 98.88,
+   "top_coll": "Nationalmuseum",
+   "top_coll_n": 89,
+   "top_coll_pct": 100.0,
+   "first": 1864,
+   "last": 1864,
+   "g": {
+    "landscape": 89,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q1545193",
+   "label": "Grote Kerk",
+   "n": 67,
+   "painters": 24,
+   "country": "Netherlands",
+   "kind": "building",
+   "broad": 0,
+   "lat": 52.3808,
+   "lon": 4.6364,
+   "anon": 2,
+   "top_painter": "Gerrit Adriaenszoon Berckheyde",
+   "top_painter_n": 28,
+   "top_painter_pct": 41.79,
+   "top_coll": "Frans Hals Museum",
+   "top_coll_n": 11,
+   "top_coll_pct": 16.42,
+   "first": 1518,
+   "last": 1882,
+   "g": {
+    "landscape": 31,
+    "marine": 2,
+    "cityscape": 35
+   }
+  },
+  {
+   "q": "Q41428",
+   "label": "Rio de Janeiro",
+   "n": 64,
+   "painters": 19,
+   "country": "Brazil",
+   "kind": "region",
+   "broad": 1,
+   "lat": -22.0333,
+   "lon": -42.7,
+   "anon": 5,
+   "top_painter": "Harro Harring",
+   "top_painter_n": 17,
+   "top_painter_pct": 26.56,
+   "top_coll": "Brasiliana Iconográfica",
+   "top_coll_n": 64,
+   "top_coll_pct": 100.0,
+   "first": 1801,
+   "last": 1895,
+   "g": {
+    "landscape": 64,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q34640",
+   "label": "English Channel",
+   "n": 59,
+   "painters": 23,
+   "country": "France",
+   "kind": "coast",
+   "broad": 1,
+   "lat": 50.0,
+   "lon": -2.0,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 22,
+   "top_painter_pct": 37.29,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 13,
+   "top_coll_pct": 22.03,
+   "first": 1653,
+   "last": 1949,
+   "g": {
+    "landscape": 23,
+    "marine": 45,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q19686",
+   "label": "River Thames",
+   "n": 58,
+   "painters": 30,
+   "country": "United Kingdom",
+   "kind": "river",
+   "broad": 0,
+   "lat": 51.6944,
+   "lon": -2.0297,
+   "anon": 3,
+   "top_painter": "J. M. W. Turner",
+   "top_painter_n": 8,
+   "top_painter_pct": 13.79,
+   "top_coll": "National Trust",
+   "top_coll_n": 10,
+   "top_coll_pct": 17.24,
+   "first": 1677,
+   "last": 1929,
+   "g": {
+    "landscape": 43,
+    "marine": 6,
+    "cityscape": 11
+   }
+  },
+  {
+   "q": "Q3140",
+   "label": "Hudson River",
+   "n": 56,
+   "painters": 26,
+   "country": "United States",
+   "kind": "river",
+   "broad": 0,
+   "lat": 40.6001,
+   "lon": -74.042,
+   "anon": 0,
+   "top_painter": "Grandma Moses",
+   "top_painter_n": 7,
+   "top_painter_pct": 12.5,
+   "top_coll": "Brooklyn Museum",
+   "top_coll_n": 6,
+   "top_coll_pct": 10.71,
+   "first": 1825,
+   "last": 1959,
+   "g": {
+    "landscape": 53,
+    "marine": 3,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q42646",
+   "label": "Windsor Castle",
+   "n": 56,
+   "painters": 27,
+   "country": "United Kingdom",
+   "kind": "building",
+   "broad": 0,
+   "lat": 51.4839,
+   "lon": -0.6044,
+   "anon": 28,
+   "top_painter": "James Baker Pyne",
+   "top_painter_n": 2,
+   "top_painter_pct": 3.57,
+   "top_coll": "National Trust",
+   "top_coll_n": 50,
+   "top_coll_pct": 89.29,
+   "first": 1649,
+   "last": 1903,
+   "g": {
+    "landscape": 56,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q97",
+   "label": "Atlantic Ocean",
+   "n": 55,
+   "painters": 21,
+   "country": "",
+   "kind": "coast",
+   "broad": 1,
+   "lat": 0.0,
+   "lon": -30.0,
+   "anon": 0,
+   "top_painter": "Alfred Thompson Bricher",
+   "top_painter_n": 24,
+   "top_painter_pct": 43.64,
+   "top_coll": "Metropolitan Museum of Art",
+   "top_coll_n": 5,
+   "top_coll_pct": 9.09,
+   "first": 1837,
+   "last": 1925,
+   "g": {
+    "landscape": 11,
+    "marine": 45,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q26421",
+   "label": "Dordrecht",
+   "n": 55,
+   "painters": 14,
+   "country": "Netherlands",
+   "kind": "city",
+   "broad": 0,
+   "lat": 51.7958,
+   "lon": 4.6783,
+   "anon": 1,
+   "top_painter": "Jan van Goyen",
+   "top_painter_n": 24,
+   "top_painter_pct": 43.64,
+   "top_coll": "Dordrechts Museum",
+   "top_coll_n": 4,
+   "top_coll_pct": 7.27,
+   "first": 1631,
+   "last": 1892,
+   "g": {
+    "landscape": 37,
+    "marine": 13,
+    "cityscape": 7
+   }
+  },
+  {
+   "q": "Q4918",
+   "label": "Mediterranean Sea",
+   "n": 48,
+   "painters": 24,
+   "country": "",
+   "kind": "coast",
+   "broad": 1,
+   "lat": 38.0,
+   "lon": 17.0,
+   "anon": 0,
+   "top_painter": "Moustafa Farroukh",
+   "top_painter_n": 6,
+   "top_painter_pct": 12.5,
+   "top_coll": "Sursock Museum",
+   "top_coll_n": 5,
+   "top_coll_pct": 10.42,
+   "first": 1624,
+   "last": 1930,
+   "g": {
+    "landscape": 37,
+    "marine": 16,
+    "cityscape": 2
+   }
+  },
+  {
+   "q": "Q630566",
+   "label": "Catskill Mountains",
+   "n": 46,
+   "painters": 14,
+   "country": "United States",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 41.9986,
+   "lon": -74.3864,
+   "anon": 0,
+   "top_painter": "Thomas Cole",
+   "top_painter_n": 15,
+   "top_painter_pct": 32.61,
+   "top_coll": "Metropolitan Museum of Art",
+   "top_coll_n": 3,
+   "top_coll_pct": 6.52,
+   "first": 1825,
+   "last": 1880,
+   "g": {
+    "landscape": 46,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q524",
+   "label": "Mount Vesuvius",
+   "n": 44,
+   "painters": 28,
+   "country": "Italy",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 40.8226,
+   "lon": 14.4292,
+   "anon": 1,
+   "top_painter": "Johan Christian Dahl",
+   "top_painter_n": 7,
+   "top_painter_pct": 15.91,
+   "top_coll": "Condé Museum",
+   "top_coll_n": 9,
+   "top_coll_pct": 20.45,
+   "first": 1718,
+   "last": 1950,
+   "g": {
+    "landscape": 39,
+    "marine": 6,
+    "cityscape": 1
+   }
+  },
+  {
+   "q": "Q99",
+   "label": "California",
+   "n": 43,
+   "painters": 6,
+   "country": "United States",
+   "kind": "region",
+   "broad": 1,
+   "lat": 37.0,
+   "lon": -120.0,
+   "anon": 0,
+   "top_painter": "Albert Bierstadt",
+   "top_painter_n": 37,
+   "top_painter_pct": 86.05,
+   "top_coll": "Fine Arts Museums of San Francisco",
+   "top_coll_n": 4,
+   "top_coll_pct": 9.3,
+   "first": 1850,
+   "last": 1987,
+   "g": {
+    "landscape": 36,
+    "marine": 8,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q159605",
+   "label": "Tivoli",
+   "n": 40,
+   "painters": 30,
+   "country": "Italy",
+   "kind": "city",
+   "broad": 0,
+   "lat": 41.9667,
+   "lon": 12.8,
+   "anon": 1,
+   "top_painter": "Joseph Vernet",
+   "top_painter_n": 5,
+   "top_painter_pct": 12.5,
+   "top_coll": "Musée Fabre",
+   "top_coll_n": 6,
+   "top_coll_pct": 15.0,
+   "first": 1600,
+   "last": 1938,
+   "g": {
+    "landscape": 39,
+    "marine": 0,
+    "cityscape": 1
+   }
+  },
+  {
+   "q": "Q290936",
+   "label": "Étretat",
+   "n": 39,
+   "painters": 11,
+   "country": "France",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 49.7064,
+   "lon": 0.2067,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 19,
+   "top_painter_pct": 48.72,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 5,
+   "top_coll_pct": 12.82,
+   "first": 1850,
+   "last": 1920,
+   "g": {
+    "landscape": 8,
+    "marine": 36,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q1083850",
+   "label": "Grote Markt",
+   "n": 38,
+   "painters": 12,
+   "country": "Netherlands",
+   "kind": "building",
+   "broad": 0,
+   "lat": 52.3814,
+   "lon": 4.6359,
+   "anon": 1,
+   "top_painter": "Gerrit Adriaenszoon Berckheyde",
+   "top_painter_n": 23,
+   "top_painter_pct": 60.53,
+   "top_coll": "Frans Hals Museum",
+   "top_coll_n": 11,
+   "top_coll_pct": 28.95,
+   "first": 1618,
+   "last": 1856,
+   "g": {
+    "landscape": 3,
+    "marine": 0,
+    "cityscape": 35
+   }
+  },
+  {
+   "q": "Q727",
+   "label": "Amsterdam",
+   "n": 36,
+   "painters": 17,
+   "country": "Netherlands",
+   "kind": "city",
+   "broad": 0,
+   "lat": 52.3667,
+   "lon": 4.8833,
+   "anon": 2,
+   "top_painter": "Ludolf Bakhuizen",
+   "top_painter_n": 7,
+   "top_painter_pct": 19.44,
+   "top_coll": "Department of Paintings of the Louvre",
+   "top_coll_n": 4,
+   "top_coll_pct": 11.11,
+   "first": 1589,
+   "last": 1893,
+   "g": {
+    "landscape": 13,
+    "marine": 12,
+    "cityscape": 11
+   }
+  },
+  {
+   "q": "Q220",
+   "label": "Rome",
+   "n": 35,
+   "painters": 25,
+   "country": "Italy",
+   "kind": "city",
+   "broad": 0,
+   "lat": 41.8931,
+   "lon": 12.4828,
+   "anon": 4,
+   "top_painter": "François Marius Granet",
+   "top_painter_n": 3,
+   "top_painter_pct": 8.57,
+   "top_coll": "National Trust",
+   "top_coll_n": 4,
+   "top_coll_pct": 11.43,
+   "first": 1599,
+   "last": 1900,
+   "g": {
+    "landscape": 23,
+    "marine": 0,
+    "cityscape": 13
+   }
+  },
+  {
+   "q": "Q335277",
+   "label": "Pont Neuf",
+   "n": 33,
+   "painters": 16,
+   "country": "France",
+   "kind": "building",
+   "broad": 0,
+   "lat": 48.8575,
+   "lon": 2.3417,
+   "anon": 8,
+   "top_painter": "Camille Pissarro",
+   "top_painter_n": 5,
+   "top_painter_pct": 15.15,
+   "top_coll": "Musée Carnavalet",
+   "top_coll_n": 15,
+   "top_coll_pct": 45.45,
+   "first": 1601,
+   "last": 1937,
+   "g": {
+    "landscape": 4,
+    "marine": 0,
+    "cityscape": 29
+   }
+  },
+  {
+   "q": "Q12994",
+   "label": "Bruges",
+   "n": 33,
+   "painters": 22,
+   "country": "Belgium",
+   "kind": "city",
+   "broad": 0,
+   "lat": 51.2089,
+   "lon": 3.2242,
+   "anon": 5,
+   "top_painter": "Jan Baptist van Meunincxhove",
+   "top_painter_n": 2,
+   "top_painter_pct": 6.06,
+   "top_coll": "Groeningemuseum",
+   "top_coll_n": 26,
+   "top_coll_pct": 78.79,
+   "first": 1564,
+   "last": 2000,
+   "g": {
+    "landscape": 8,
+    "marine": 0,
+    "cityscape": 25
+   }
+  },
+  {
+   "q": "Q84",
+   "label": "London",
+   "n": 31,
+   "painters": 17,
+   "country": "United Kingdom",
+   "kind": "city",
+   "broad": 0,
+   "lat": 51.5072,
+   "lon": -0.1275,
+   "anon": 0,
+   "top_painter": "Giovanni Antonio Canal",
+   "top_painter_n": 11,
+   "top_painter_pct": 35.48,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 4,
+   "top_coll_pct": 12.9,
+   "first": 1690,
+   "last": 1929,
+   "g": {
+    "landscape": 22,
+    "marine": 1,
+    "cityscape": 8
+   }
+  },
+  {
+   "q": "Q41986",
+   "label": "Meuse",
+   "n": 30,
+   "painters": 12,
+   "country": "Netherlands",
+   "kind": "river",
+   "broad": 0,
+   "lat": 51.8664,
+   "lon": 4.0189,
+   "anon": 1,
+   "top_painter": "Aelbert Cuyp",
+   "top_painter_n": 14,
+   "top_painter_pct": 46.67,
+   "top_coll": "Wallace Collection",
+   "top_coll_n": 2,
+   "top_coll_pct": 6.67,
+   "first": 1639,
+   "last": 1928,
+   "g": {
+    "landscape": 18,
+    "marine": 11,
+    "cityscape": 2
+   }
+  },
+  {
+   "q": "Q4204",
+   "label": "Black Forest",
+   "n": 29,
+   "painters": 15,
+   "country": "Germany",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 48.3,
+   "lon": 8.15,
+   "anon": 0,
+   "top_painter": "Hermann Dischler",
+   "top_painter_n": 5,
+   "top_painter_pct": 17.24,
+   "top_coll": "Augustiner Museum",
+   "top_coll_n": 26,
+   "top_coll_pct": 89.66,
+   "first": 1855,
+   "last": 1937,
+   "g": {
+    "landscape": 29,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q11151861",
+   "label": "Cambridge",
+   "n": 28,
+   "painters": 1,
+   "country": "United States",
+   "kind": "city",
+   "broad": 0,
+   "lat": 43.0281,
+   "lon": -73.3812,
+   "anon": 0,
+   "top_painter": "Grandma Moses",
+   "top_painter_n": 28,
+   "top_painter_pct": 100.0,
+   "top_coll": "Sidney Janis Gallery",
+   "top_coll_n": 3,
+   "top_coll_pct": 10.71,
+   "first": 1939,
+   "last": 1955,
+   "g": {
+    "landscape": 28,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q309243",
+   "label": "Grand Canal",
+   "n": 27,
+   "painters": 12,
+   "country": "Italy",
+   "kind": "river",
+   "broad": 0,
+   "lat": 45.4422,
+   "lon": 12.3264,
+   "anon": 6,
+   "top_painter": "Giovanni Antonio Canal",
+   "top_painter_n": 5,
+   "top_painter_pct": 18.52,
+   "top_coll": "Wallace Collection",
+   "top_coll_n": 4,
+   "top_coll_pct": 14.81,
+   "first": 1720,
+   "last": 1914,
+   "g": {
+    "landscape": 14,
+    "marine": 1,
+    "cityscape": 12
+   }
+  },
+  {
+   "q": "Q584",
+   "label": "Rhine",
+   "n": 27,
+   "painters": 15,
+   "country": "Switzerland",
+   "kind": "river",
+   "broad": 0,
+   "lat": 46.6325,
+   "lon": 8.6748,
+   "anon": 0,
+   "top_painter": "Jan van Goyen",
+   "top_painter_n": 6,
+   "top_painter_pct": 22.22,
+   "top_coll": "Hessen Kassel Heritage",
+   "top_coll_n": 2,
+   "top_coll_pct": 7.41,
+   "first": 1639,
+   "last": 1862,
+   "g": {
+    "landscape": 26,
+    "marine": 0,
+    "cityscape": 1
+   }
+  },
+  {
+   "q": "Q124798672",
+   "label": "Checkered House",
+   "n": 26,
+   "painters": 1,
+   "country": "United States",
+   "kind": "building",
+   "broad": 0,
+   "lat": 42.9923,
+   "lon": -73.3867,
+   "anon": 0,
+   "top_painter": "Grandma Moses",
+   "top_painter_n": 26,
+   "top_painter_pct": 100.0,
+   "top_coll": "Bennington Museum",
+   "top_coll_n": 2,
+   "top_coll_pct": 7.69,
+   "first": 1941,
+   "last": 1959,
+   "g": {
+    "landscape": 26,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q243",
+   "label": "Eiffel Tower",
+   "n": 26,
+   "painters": 13,
+   "country": "France",
+   "kind": "building",
+   "broad": 0,
+   "lat": 48.8583,
+   "lon": 2.2945,
+   "anon": 0,
+   "top_painter": "Robert Delaunay",
+   "top_painter_n": 13,
+   "top_painter_pct": 50.0,
+   "top_coll": "Musée National d'Art Moderne",
+   "top_coll_n": 3,
+   "top_coll_pct": 11.54,
+   "first": 1889,
+   "last": 1926,
+   "g": {
+    "landscape": 5,
+    "marine": 0,
+    "cityscape": 22
+   }
+  },
+  {
+   "q": "Q236736",
+   "label": "Vernon",
+   "n": 26,
+   "painters": 13,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 49.0917,
+   "lon": 1.485,
+   "anon": 0,
+   "top_painter": "Pierre Maubert",
+   "top_painter_n": 9,
+   "top_painter_pct": 34.62,
+   "top_coll": "Musée Blanche Hoschedé-Monet",
+   "top_coll_n": 22,
+   "top_coll_pct": 84.62,
+   "first": 1890,
+   "last": 1975,
+   "g": {
+    "landscape": 26,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q2981",
+   "label": "Notre-Dame de Paris",
+   "n": 26,
+   "painters": 19,
+   "country": "France",
+   "kind": "building",
+   "broad": 0,
+   "lat": 48.853,
+   "lon": 2.3498,
+   "anon": 3,
+   "top_painter": "Johan Jongkind",
+   "top_painter_n": 2,
+   "top_painter_pct": 7.69,
+   "top_coll": "Musée Carnavalet",
+   "top_coll_n": 8,
+   "top_coll_pct": 30.77,
+   "first": 1801,
+   "last": 2000,
+   "g": {
+    "landscape": 9,
+    "marine": 0,
+    "cityscape": 19
+   }
+  },
+  {
+   "q": "Q1996389",
+   "label": "Yosemite Valley",
+   "n": 26,
+   "painters": 1,
+   "country": "United States",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 37.7217,
+   "lon": -119.646,
+   "anon": 0,
+   "top_painter": "Albert Bierstadt",
+   "top_painter_n": 26,
+   "top_painter_pct": 100.0,
+   "top_coll": "Yale University Art Gallery",
+   "top_coll_n": 2,
+   "top_coll_pct": 7.69,
+   "first": 1850,
+   "last": 1873,
+   "g": {
+    "landscape": 26,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  {
+   "q": "Q837211",
+   "label": "Scheveningen",
+   "n": 26,
+   "painters": 18,
+   "country": "Netherlands",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 52.1081,
+   "lon": 4.2731,
+   "anon": 0,
+   "top_painter": "Jan van Goyen",
+   "top_painter_n": 6,
+   "top_painter_pct": 23.08,
+   "top_coll": "Rijksmuseum",
+   "top_coll_n": 2,
+   "top_coll_pct": 7.69,
+   "first": 1630,
+   "last": 1882,
+   "g": {
+    "landscape": 18,
+    "marine": 8,
+    "cityscape": 1
+   }
+  },
+  {
+   "q": "Q667456",
+   "label": "Oslofjord",
+   "n": 25,
+   "painters": 16,
+   "country": "Norway",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 59.4167,
+   "lon": 10.5667,
+   "anon": 0,
+   "top_painter": "Edvard Munch",
+   "top_painter_n": 5,
+   "top_painter_pct": 20.0,
+   "top_coll": "National Museum of Art, Architecture and Design",
+   "top_coll_n": 7,
+   "top_coll_pct": 28.0,
+   "first": 1699,
+   "last": 1913,
+   "g": {
+    "landscape": 19,
+    "marine": 4,
+    "cityscape": 2
+   }
+  },
+  {
+   "q": "Q201352",
+   "label": "Pontoise",
+   "n": 25,
+   "painters": 3,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 49.0508,
+   "lon": 2.1008,
+   "anon": 0,
+   "top_painter": "Camille Pissarro",
+   "top_painter_n": 23,
+   "top_painter_pct": 92.0,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 10,
+   "top_coll_pct": 40.0,
+   "first": 1867,
+   "last": 1879,
+   "g": {
+    "landscape": 24,
+    "marine": 0,
+    "cityscape": 1
+   }
+  },
+  {
+   "q": "Q217527",
+   "label": "Piazza San Marco",
+   "n": 25,
+   "painters": 12,
+   "country": "Italy",
+   "kind": "building",
+   "broad": 0,
+   "lat": 45.434,
+   "lon": 12.338,
+   "anon": 7,
+   "top_painter": "Francesco Guardi",
+   "top_painter_n": 4,
+   "top_painter_pct": 16.0,
+   "top_coll": "National Trust",
+   "top_coll_n": 3,
+   "top_coll_pct": 12.0,
+   "first": 1742,
+   "last": 1936,
+   "g": {
+    "landscape": 6,
+    "marine": 1,
+    "cityscape": 18
+   }
+  },
+  {
+   "q": "Q186115",
+   "label": "Montmartre",
+   "n": 24,
+   "painters": 13,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 48.8869,
+   "lon": 2.3411,
+   "anon": 1,
+   "top_painter": "Maurice Utrillo",
+   "top_painter_n": 6,
+   "top_painter_pct": 25.0,
+   "top_coll": "Musée Carnavalet",
+   "top_coll_n": 8,
+   "top_coll_pct": 33.33,
+   "first": 1830,
+   "last": 1930,
+   "g": {
+    "landscape": 9,
+    "marine": 0,
+    "cityscape": 15
+   }
+  }
+ ],
+ "places": {
+  "Q1471": {
+   "q": "Q1471",
+   "label": "Seine",
+   "n": 228,
+   "painters": 81,
+   "country": "France",
+   "kind": "river",
+   "broad": 0,
+   "lat": 49.4347,
+   "lon": 0.1175,
+   "anon": 3,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 38,
+   "top_painter_pct": 16.67,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 73,
+   "top_coll_pct": 32.02,
+   "first": 1637,
+   "last": 2000,
+   "g": {
+    "landscape": 177,
+    "marine": 2,
+    "cityscape": 58
+   }
+  },
+  "Q90": {
+   "q": "Q90",
+   "label": "Paris",
+   "n": 120,
+   "painters": 76,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 48.8567,
+   "lon": 2.3522,
+   "anon": 4,
+   "top_painter": "Nicolas-Jean-Baptiste Raguenet",
+   "top_painter_n": 7,
+   "top_painter_pct": 5.83,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 34,
+   "top_coll_pct": 28.33,
+   "first": 1600,
+   "last": 2000,
+   "g": {
+    "landscape": 61,
+    "marine": 0,
+    "cityscape": 68
+   }
+  },
+  "Q186822": {
+   "q": "Q186822",
+   "label": "Lofoten",
+   "n": 97,
+   "painters": 5,
+   "country": "Norway",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 68.3331,
+   "lon": 14.6664,
+   "anon": 0,
+   "top_painter": "Anna Boberg",
+   "top_painter_n": 93,
+   "top_painter_pct": 95.88,
+   "top_coll": "Nationalmuseum",
+   "top_coll_n": 93,
+   "top_coll_pct": 95.88,
+   "first": 1856,
+   "last": 1934,
+   "g": {
+    "landscape": 96,
+    "marine": 0,
+    "cityscape": 1
+   }
+  },
+  "Q641": {
+   "q": "Q641",
+   "label": "Venice",
+   "n": 95,
+   "painters": 50,
+   "country": "Italy",
+   "kind": "city",
+   "broad": 0,
+   "lat": 45.4397,
+   "lon": 12.3319,
+   "anon": 11,
+   "top_painter": "J. M. W. Turner",
+   "top_painter_n": 10,
+   "top_painter_pct": 10.53,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 11,
+   "top_coll_pct": 11.58,
+   "first": 1600,
+   "last": 1950,
+   "g": {
+    "landscape": 29,
+    "marine": 19,
+    "cityscape": 55
+   }
+  },
+  "Q50630": {
+   "q": "Q50630",
+   "label": "Nordland",
+   "n": 89,
+   "painters": 2,
+   "country": "Norway",
+   "kind": "region",
+   "broad": 1,
+   "lat": 66.8333,
+   "lon": 14.6667,
+   "anon": 0,
+   "top_painter": "Anna Boberg",
+   "top_painter_n": 88,
+   "top_painter_pct": 98.88,
+   "top_coll": "Nationalmuseum",
+   "top_coll_n": 89,
+   "top_coll_pct": 100.0,
+   "first": 1864,
+   "last": 1864,
+   "g": {
+    "landscape": 89,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q1545193": {
+   "q": "Q1545193",
+   "label": "Grote Kerk",
+   "n": 67,
+   "painters": 24,
+   "country": "Netherlands",
+   "kind": "building",
+   "broad": 0,
+   "lat": 52.3808,
+   "lon": 4.6364,
+   "anon": 2,
+   "top_painter": "Gerrit Adriaenszoon Berckheyde",
+   "top_painter_n": 28,
+   "top_painter_pct": 41.79,
+   "top_coll": "Frans Hals Museum",
+   "top_coll_n": 11,
+   "top_coll_pct": 16.42,
+   "first": 1518,
+   "last": 1882,
+   "g": {
+    "landscape": 31,
+    "marine": 2,
+    "cityscape": 35
+   }
+  },
+  "Q41428": {
+   "q": "Q41428",
+   "label": "Rio de Janeiro",
+   "n": 64,
+   "painters": 19,
+   "country": "Brazil",
+   "kind": "region",
+   "broad": 1,
+   "lat": -22.0333,
+   "lon": -42.7,
+   "anon": 5,
+   "top_painter": "Harro Harring",
+   "top_painter_n": 17,
+   "top_painter_pct": 26.56,
+   "top_coll": "Brasiliana Iconográfica",
+   "top_coll_n": 64,
+   "top_coll_pct": 100.0,
+   "first": 1801,
+   "last": 1895,
+   "g": {
+    "landscape": 64,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q34640": {
+   "q": "Q34640",
+   "label": "English Channel",
+   "n": 59,
+   "painters": 23,
+   "country": "France",
+   "kind": "coast",
+   "broad": 1,
+   "lat": 50.0,
+   "lon": -2.0,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 22,
+   "top_painter_pct": 37.29,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 13,
+   "top_coll_pct": 22.03,
+   "first": 1653,
+   "last": 1949,
+   "g": {
+    "landscape": 23,
+    "marine": 45,
+    "cityscape": 0
+   }
+  },
+  "Q19686": {
+   "q": "Q19686",
+   "label": "River Thames",
+   "n": 58,
+   "painters": 30,
+   "country": "United Kingdom",
+   "kind": "river",
+   "broad": 0,
+   "lat": 51.6944,
+   "lon": -2.0297,
+   "anon": 3,
+   "top_painter": "J. M. W. Turner",
+   "top_painter_n": 8,
+   "top_painter_pct": 13.79,
+   "top_coll": "National Trust",
+   "top_coll_n": 10,
+   "top_coll_pct": 17.24,
+   "first": 1677,
+   "last": 1929,
+   "g": {
+    "landscape": 43,
+    "marine": 6,
+    "cityscape": 11
+   }
+  },
+  "Q3140": {
+   "q": "Q3140",
+   "label": "Hudson River",
+   "n": 56,
+   "painters": 26,
+   "country": "United States",
+   "kind": "river",
+   "broad": 0,
+   "lat": 40.6001,
+   "lon": -74.042,
+   "anon": 0,
+   "top_painter": "Grandma Moses",
+   "top_painter_n": 7,
+   "top_painter_pct": 12.5,
+   "top_coll": "Brooklyn Museum",
+   "top_coll_n": 6,
+   "top_coll_pct": 10.71,
+   "first": 1825,
+   "last": 1959,
+   "g": {
+    "landscape": 53,
+    "marine": 3,
+    "cityscape": 0
+   }
+  },
+  "Q42646": {
+   "q": "Q42646",
+   "label": "Windsor Castle",
+   "n": 56,
+   "painters": 27,
+   "country": "United Kingdom",
+   "kind": "building",
+   "broad": 0,
+   "lat": 51.4839,
+   "lon": -0.6044,
+   "anon": 28,
+   "top_painter": "James Baker Pyne",
+   "top_painter_n": 2,
+   "top_painter_pct": 3.57,
+   "top_coll": "National Trust",
+   "top_coll_n": 50,
+   "top_coll_pct": 89.29,
+   "first": 1649,
+   "last": 1903,
+   "g": {
+    "landscape": 56,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q97": {
+   "q": "Q97",
+   "label": "Atlantic Ocean",
+   "n": 55,
+   "painters": 21,
+   "country": "",
+   "kind": "coast",
+   "broad": 1,
+   "lat": 0.0,
+   "lon": -30.0,
+   "anon": 0,
+   "top_painter": "Alfred Thompson Bricher",
+   "top_painter_n": 24,
+   "top_painter_pct": 43.64,
+   "top_coll": "Metropolitan Museum of Art",
+   "top_coll_n": 5,
+   "top_coll_pct": 9.09,
+   "first": 1837,
+   "last": 1925,
+   "g": {
+    "landscape": 11,
+    "marine": 45,
+    "cityscape": 0
+   }
+  },
+  "Q26421": {
+   "q": "Q26421",
+   "label": "Dordrecht",
+   "n": 55,
+   "painters": 14,
+   "country": "Netherlands",
+   "kind": "city",
+   "broad": 0,
+   "lat": 51.7958,
+   "lon": 4.6783,
+   "anon": 1,
+   "top_painter": "Jan van Goyen",
+   "top_painter_n": 24,
+   "top_painter_pct": 43.64,
+   "top_coll": "Dordrechts Museum",
+   "top_coll_n": 4,
+   "top_coll_pct": 7.27,
+   "first": 1631,
+   "last": 1892,
+   "g": {
+    "landscape": 37,
+    "marine": 13,
+    "cityscape": 7
+   }
+  },
+  "Q4918": {
+   "q": "Q4918",
+   "label": "Mediterranean Sea",
+   "n": 48,
+   "painters": 24,
+   "country": "",
+   "kind": "coast",
+   "broad": 1,
+   "lat": 38.0,
+   "lon": 17.0,
+   "anon": 0,
+   "top_painter": "Moustafa Farroukh",
+   "top_painter_n": 6,
+   "top_painter_pct": 12.5,
+   "top_coll": "Sursock Museum",
+   "top_coll_n": 5,
+   "top_coll_pct": 10.42,
+   "first": 1624,
+   "last": 1930,
+   "g": {
+    "landscape": 37,
+    "marine": 16,
+    "cityscape": 2
+   }
+  },
+  "Q630566": {
+   "q": "Q630566",
+   "label": "Catskill Mountains",
+   "n": 46,
+   "painters": 14,
+   "country": "United States",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 41.9986,
+   "lon": -74.3864,
+   "anon": 0,
+   "top_painter": "Thomas Cole",
+   "top_painter_n": 15,
+   "top_painter_pct": 32.61,
+   "top_coll": "Metropolitan Museum of Art",
+   "top_coll_n": 3,
+   "top_coll_pct": 6.52,
+   "first": 1825,
+   "last": 1880,
+   "g": {
+    "landscape": 46,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q524": {
+   "q": "Q524",
+   "label": "Mount Vesuvius",
+   "n": 44,
+   "painters": 28,
+   "country": "Italy",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 40.8226,
+   "lon": 14.4292,
+   "anon": 1,
+   "top_painter": "Johan Christian Dahl",
+   "top_painter_n": 7,
+   "top_painter_pct": 15.91,
+   "top_coll": "Condé Museum",
+   "top_coll_n": 9,
+   "top_coll_pct": 20.45,
+   "first": 1718,
+   "last": 1950,
+   "g": {
+    "landscape": 39,
+    "marine": 6,
+    "cityscape": 1
+   }
+  },
+  "Q99": {
+   "q": "Q99",
+   "label": "California",
+   "n": 43,
+   "painters": 6,
+   "country": "United States",
+   "kind": "region",
+   "broad": 1,
+   "lat": 37.0,
+   "lon": -120.0,
+   "anon": 0,
+   "top_painter": "Albert Bierstadt",
+   "top_painter_n": 37,
+   "top_painter_pct": 86.05,
+   "top_coll": "Fine Arts Museums of San Francisco",
+   "top_coll_n": 4,
+   "top_coll_pct": 9.3,
+   "first": 1850,
+   "last": 1987,
+   "g": {
+    "landscape": 36,
+    "marine": 8,
+    "cityscape": 0
+   }
+  },
+  "Q159605": {
+   "q": "Q159605",
+   "label": "Tivoli",
+   "n": 40,
+   "painters": 30,
+   "country": "Italy",
+   "kind": "city",
+   "broad": 0,
+   "lat": 41.9667,
+   "lon": 12.8,
+   "anon": 1,
+   "top_painter": "Joseph Vernet",
+   "top_painter_n": 5,
+   "top_painter_pct": 12.5,
+   "top_coll": "Musée Fabre",
+   "top_coll_n": 6,
+   "top_coll_pct": 15.0,
+   "first": 1600,
+   "last": 1938,
+   "g": {
+    "landscape": 39,
+    "marine": 0,
+    "cityscape": 1
+   }
+  },
+  "Q290936": {
+   "q": "Q290936",
+   "label": "Étretat",
+   "n": 39,
+   "painters": 11,
+   "country": "France",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 49.7064,
+   "lon": 0.2067,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 19,
+   "top_painter_pct": 48.72,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 5,
+   "top_coll_pct": 12.82,
+   "first": 1850,
+   "last": 1920,
+   "g": {
+    "landscape": 8,
+    "marine": 36,
+    "cityscape": 0
+   }
+  },
+  "Q1083850": {
+   "q": "Q1083850",
+   "label": "Grote Markt",
+   "n": 38,
+   "painters": 12,
+   "country": "Netherlands",
+   "kind": "building",
+   "broad": 0,
+   "lat": 52.3814,
+   "lon": 4.6359,
+   "anon": 1,
+   "top_painter": "Gerrit Adriaenszoon Berckheyde",
+   "top_painter_n": 23,
+   "top_painter_pct": 60.53,
+   "top_coll": "Frans Hals Museum",
+   "top_coll_n": 11,
+   "top_coll_pct": 28.95,
+   "first": 1618,
+   "last": 1856,
+   "g": {
+    "landscape": 3,
+    "marine": 0,
+    "cityscape": 35
+   }
+  },
+  "Q727": {
+   "q": "Q727",
+   "label": "Amsterdam",
+   "n": 36,
+   "painters": 17,
+   "country": "Netherlands",
+   "kind": "city",
+   "broad": 0,
+   "lat": 52.3667,
+   "lon": 4.8833,
+   "anon": 2,
+   "top_painter": "Ludolf Bakhuizen",
+   "top_painter_n": 7,
+   "top_painter_pct": 19.44,
+   "top_coll": "Department of Paintings of the Louvre",
+   "top_coll_n": 4,
+   "top_coll_pct": 11.11,
+   "first": 1589,
+   "last": 1893,
+   "g": {
+    "landscape": 13,
+    "marine": 12,
+    "cityscape": 11
+   }
+  },
+  "Q220": {
+   "q": "Q220",
+   "label": "Rome",
+   "n": 35,
+   "painters": 25,
+   "country": "Italy",
+   "kind": "city",
+   "broad": 0,
+   "lat": 41.8931,
+   "lon": 12.4828,
+   "anon": 4,
+   "top_painter": "François Marius Granet",
+   "top_painter_n": 3,
+   "top_painter_pct": 8.57,
+   "top_coll": "National Trust",
+   "top_coll_n": 4,
+   "top_coll_pct": 11.43,
+   "first": 1599,
+   "last": 1900,
+   "g": {
+    "landscape": 23,
+    "marine": 0,
+    "cityscape": 13
+   }
+  },
+  "Q335277": {
+   "q": "Q335277",
+   "label": "Pont Neuf",
+   "n": 33,
+   "painters": 16,
+   "country": "France",
+   "kind": "building",
+   "broad": 0,
+   "lat": 48.8575,
+   "lon": 2.3417,
+   "anon": 8,
+   "top_painter": "Camille Pissarro",
+   "top_painter_n": 5,
+   "top_painter_pct": 15.15,
+   "top_coll": "Musée Carnavalet",
+   "top_coll_n": 15,
+   "top_coll_pct": 45.45,
+   "first": 1601,
+   "last": 1937,
+   "g": {
+    "landscape": 4,
+    "marine": 0,
+    "cityscape": 29
+   }
+  },
+  "Q12994": {
+   "q": "Q12994",
+   "label": "Bruges",
+   "n": 33,
+   "painters": 22,
+   "country": "Belgium",
+   "kind": "city",
+   "broad": 0,
+   "lat": 51.2089,
+   "lon": 3.2242,
+   "anon": 5,
+   "top_painter": "Jan Baptist van Meunincxhove",
+   "top_painter_n": 2,
+   "top_painter_pct": 6.06,
+   "top_coll": "Groeningemuseum",
+   "top_coll_n": 26,
+   "top_coll_pct": 78.79,
+   "first": 1564,
+   "last": 2000,
+   "g": {
+    "landscape": 8,
+    "marine": 0,
+    "cityscape": 25
+   }
+  },
+  "Q84": {
+   "q": "Q84",
+   "label": "London",
+   "n": 31,
+   "painters": 17,
+   "country": "United Kingdom",
+   "kind": "city",
+   "broad": 0,
+   "lat": 51.5072,
+   "lon": -0.1275,
+   "anon": 0,
+   "top_painter": "Giovanni Antonio Canal",
+   "top_painter_n": 11,
+   "top_painter_pct": 35.48,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 4,
+   "top_coll_pct": 12.9,
+   "first": 1690,
+   "last": 1929,
+   "g": {
+    "landscape": 22,
+    "marine": 1,
+    "cityscape": 8
+   }
+  },
+  "Q41986": {
+   "q": "Q41986",
+   "label": "Meuse",
+   "n": 30,
+   "painters": 12,
+   "country": "Netherlands",
+   "kind": "river",
+   "broad": 0,
+   "lat": 51.8664,
+   "lon": 4.0189,
+   "anon": 1,
+   "top_painter": "Aelbert Cuyp",
+   "top_painter_n": 14,
+   "top_painter_pct": 46.67,
+   "top_coll": "Wallace Collection",
+   "top_coll_n": 2,
+   "top_coll_pct": 6.67,
+   "first": 1639,
+   "last": 1928,
+   "g": {
+    "landscape": 18,
+    "marine": 11,
+    "cityscape": 2
+   }
+  },
+  "Q4204": {
+   "q": "Q4204",
+   "label": "Black Forest",
+   "n": 29,
+   "painters": 15,
+   "country": "Germany",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 48.3,
+   "lon": 8.15,
+   "anon": 0,
+   "top_painter": "Hermann Dischler",
+   "top_painter_n": 5,
+   "top_painter_pct": 17.24,
+   "top_coll": "Augustiner Museum",
+   "top_coll_n": 26,
+   "top_coll_pct": 89.66,
+   "first": 1855,
+   "last": 1937,
+   "g": {
+    "landscape": 29,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q11151861": {
+   "q": "Q11151861",
+   "label": "Cambridge",
+   "n": 28,
+   "painters": 1,
+   "country": "United States",
+   "kind": "city",
+   "broad": 0,
+   "lat": 43.0281,
+   "lon": -73.3812,
+   "anon": 0,
+   "top_painter": "Grandma Moses",
+   "top_painter_n": 28,
+   "top_painter_pct": 100.0,
+   "top_coll": "Sidney Janis Gallery",
+   "top_coll_n": 3,
+   "top_coll_pct": 10.71,
+   "first": 1939,
+   "last": 1955,
+   "g": {
+    "landscape": 28,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q309243": {
+   "q": "Q309243",
+   "label": "Grand Canal",
+   "n": 27,
+   "painters": 12,
+   "country": "Italy",
+   "kind": "river",
+   "broad": 0,
+   "lat": 45.4422,
+   "lon": 12.3264,
+   "anon": 6,
+   "top_painter": "Giovanni Antonio Canal",
+   "top_painter_n": 5,
+   "top_painter_pct": 18.52,
+   "top_coll": "Wallace Collection",
+   "top_coll_n": 4,
+   "top_coll_pct": 14.81,
+   "first": 1720,
+   "last": 1914,
+   "g": {
+    "landscape": 14,
+    "marine": 1,
+    "cityscape": 12
+   }
+  },
+  "Q584": {
+   "q": "Q584",
+   "label": "Rhine",
+   "n": 27,
+   "painters": 15,
+   "country": "Switzerland",
+   "kind": "river",
+   "broad": 0,
+   "lat": 46.6325,
+   "lon": 8.6748,
+   "anon": 0,
+   "top_painter": "Jan van Goyen",
+   "top_painter_n": 6,
+   "top_painter_pct": 22.22,
+   "top_coll": "Hessen Kassel Heritage",
+   "top_coll_n": 2,
+   "top_coll_pct": 7.41,
+   "first": 1639,
+   "last": 1862,
+   "g": {
+    "landscape": 26,
+    "marine": 0,
+    "cityscape": 1
+   }
+  },
+  "Q124798672": {
+   "q": "Q124798672",
+   "label": "Checkered House",
+   "n": 26,
+   "painters": 1,
+   "country": "United States",
+   "kind": "building",
+   "broad": 0,
+   "lat": 42.9923,
+   "lon": -73.3867,
+   "anon": 0,
+   "top_painter": "Grandma Moses",
+   "top_painter_n": 26,
+   "top_painter_pct": 100.0,
+   "top_coll": "Bennington Museum",
+   "top_coll_n": 2,
+   "top_coll_pct": 7.69,
+   "first": 1941,
+   "last": 1959,
+   "g": {
+    "landscape": 26,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q243": {
+   "q": "Q243",
+   "label": "Eiffel Tower",
+   "n": 26,
+   "painters": 13,
+   "country": "France",
+   "kind": "building",
+   "broad": 0,
+   "lat": 48.8583,
+   "lon": 2.2945,
+   "anon": 0,
+   "top_painter": "Robert Delaunay",
+   "top_painter_n": 13,
+   "top_painter_pct": 50.0,
+   "top_coll": "Musée National d'Art Moderne",
+   "top_coll_n": 3,
+   "top_coll_pct": 11.54,
+   "first": 1889,
+   "last": 1926,
+   "g": {
+    "landscape": 5,
+    "marine": 0,
+    "cityscape": 22
+   }
+  },
+  "Q236736": {
+   "q": "Q236736",
+   "label": "Vernon",
+   "n": 26,
+   "painters": 13,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 49.0917,
+   "lon": 1.485,
+   "anon": 0,
+   "top_painter": "Pierre Maubert",
+   "top_painter_n": 9,
+   "top_painter_pct": 34.62,
+   "top_coll": "Musée Blanche Hoschedé-Monet",
+   "top_coll_n": 22,
+   "top_coll_pct": 84.62,
+   "first": 1890,
+   "last": 1975,
+   "g": {
+    "landscape": 26,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q2981": {
+   "q": "Q2981",
+   "label": "Notre-Dame de Paris",
+   "n": 26,
+   "painters": 19,
+   "country": "France",
+   "kind": "building",
+   "broad": 0,
+   "lat": 48.853,
+   "lon": 2.3498,
+   "anon": 3,
+   "top_painter": "Johan Jongkind",
+   "top_painter_n": 2,
+   "top_painter_pct": 7.69,
+   "top_coll": "Musée Carnavalet",
+   "top_coll_n": 8,
+   "top_coll_pct": 30.77,
+   "first": 1801,
+   "last": 2000,
+   "g": {
+    "landscape": 9,
+    "marine": 0,
+    "cityscape": 19
+   }
+  },
+  "Q1996389": {
+   "q": "Q1996389",
+   "label": "Yosemite Valley",
+   "n": 26,
+   "painters": 1,
+   "country": "United States",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 37.7217,
+   "lon": -119.646,
+   "anon": 0,
+   "top_painter": "Albert Bierstadt",
+   "top_painter_n": 26,
+   "top_painter_pct": 100.0,
+   "top_coll": "Yale University Art Gallery",
+   "top_coll_n": 2,
+   "top_coll_pct": 7.69,
+   "first": 1850,
+   "last": 1873,
+   "g": {
+    "landscape": 26,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q837211": {
+   "q": "Q837211",
+   "label": "Scheveningen",
+   "n": 26,
+   "painters": 18,
+   "country": "Netherlands",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 52.1081,
+   "lon": 4.2731,
+   "anon": 0,
+   "top_painter": "Jan van Goyen",
+   "top_painter_n": 6,
+   "top_painter_pct": 23.08,
+   "top_coll": "Rijksmuseum",
+   "top_coll_n": 2,
+   "top_coll_pct": 7.69,
+   "first": 1630,
+   "last": 1882,
+   "g": {
+    "landscape": 18,
+    "marine": 8,
+    "cityscape": 1
+   }
+  },
+  "Q667456": {
+   "q": "Q667456",
+   "label": "Oslofjord",
+   "n": 25,
+   "painters": 16,
+   "country": "Norway",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 59.4167,
+   "lon": 10.5667,
+   "anon": 0,
+   "top_painter": "Edvard Munch",
+   "top_painter_n": 5,
+   "top_painter_pct": 20.0,
+   "top_coll": "National Museum of Art, Architecture and Design",
+   "top_coll_n": 7,
+   "top_coll_pct": 28.0,
+   "first": 1699,
+   "last": 1913,
+   "g": {
+    "landscape": 19,
+    "marine": 4,
+    "cityscape": 2
+   }
+  },
+  "Q201352": {
+   "q": "Q201352",
+   "label": "Pontoise",
+   "n": 25,
+   "painters": 3,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 49.0508,
+   "lon": 2.1008,
+   "anon": 0,
+   "top_painter": "Camille Pissarro",
+   "top_painter_n": 23,
+   "top_painter_pct": 92.0,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 10,
+   "top_coll_pct": 40.0,
+   "first": 1867,
+   "last": 1879,
+   "g": {
+    "landscape": 24,
+    "marine": 0,
+    "cityscape": 1
+   }
+  },
+  "Q217527": {
+   "q": "Q217527",
+   "label": "Piazza San Marco",
+   "n": 25,
+   "painters": 12,
+   "country": "Italy",
+   "kind": "building",
+   "broad": 0,
+   "lat": 45.434,
+   "lon": 12.338,
+   "anon": 7,
+   "top_painter": "Francesco Guardi",
+   "top_painter_n": 4,
+   "top_painter_pct": 16.0,
+   "top_coll": "National Trust",
+   "top_coll_n": 3,
+   "top_coll_pct": 12.0,
+   "first": 1742,
+   "last": 1936,
+   "g": {
+    "landscape": 6,
+    "marine": 1,
+    "cityscape": 18
+   }
+  },
+  "Q186115": {
+   "q": "Q186115",
+   "label": "Montmartre",
+   "n": 24,
+   "painters": 13,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 48.8869,
+   "lon": 2.3411,
+   "anon": 1,
+   "top_painter": "Maurice Utrillo",
+   "top_painter_n": 6,
+   "top_painter_pct": 25.0,
+   "top_coll": "Musée Carnavalet",
+   "top_coll_n": 8,
+   "top_coll_pct": 33.33,
+   "first": 1830,
+   "last": 1930,
+   "g": {
+    "landscape": 9,
+    "marine": 0,
+    "cityscape": 15
+   }
+  },
+  "Q38": {
+   "q": "Q38",
+   "label": "Italy",
+   "n": 24,
+   "painters": 19,
+   "country": "Italy",
+   "kind": "region",
+   "broad": 1,
+   "lat": 42.5,
+   "lon": 12.5,
+   "anon": 0,
+   "top_painter": "Karel Dujardin",
+   "top_painter_n": 4,
+   "top_painter_pct": 16.67,
+   "top_coll": "Department of Paintings of the Louvre",
+   "top_coll_n": 7,
+   "top_coll_pct": 29.17,
+   "first": 1610,
+   "last": 1950,
+   "g": {
+    "landscape": 24,
+    "marine": 2,
+    "cityscape": 0
+   }
+  },
+  "Q1229951": {
+   "q": "Q1229951",
+   "label": "L'Estaque",
+   "n": 24,
+   "painters": 2,
+   "country": "France",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 43.3645,
+   "lon": 5.3162,
+   "anon": 0,
+   "top_painter": "Paul Cézanne",
+   "top_painter_n": 14,
+   "top_painter_pct": 58.33,
+   "top_coll": "Musée National d'Art Moderne",
+   "top_coll_n": 4,
+   "top_coll_pct": 16.67,
+   "first": 1870,
+   "last": 1910,
+   "g": {
+    "landscape": 17,
+    "marine": 1,
+    "cityscape": 6
+   }
+  },
+  "Q17373121": {
+   "q": "Q17373121",
+   "label": "Porte d'Aval",
+   "n": 23,
+   "painters": 9,
+   "country": "France",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 49.707,
+   "lon": 0.194,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 11,
+   "top_painter_pct": 47.83,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 2,
+   "top_coll_pct": 8.7,
+   "first": 1850,
+   "last": 1894,
+   "g": {
+    "landscape": 4,
+    "marine": 22,
+    "cityscape": 0
+   }
+  },
+  "Q1644": {
+   "q": "Q1644",
+   "label": "Elbe",
+   "n": 23,
+   "painters": 6,
+   "country": "Czech Republic",
+   "kind": "river",
+   "broad": 0,
+   "lat": 50.7755,
+   "lon": 15.5364,
+   "anon": 0,
+   "top_painter": "Johan Christian Dahl",
+   "top_painter_n": 13,
+   "top_painter_pct": 56.52,
+   "top_coll": "National Museum of Art, Architecture and Design",
+   "top_coll_n": 12,
+   "top_coll_pct": 52.17,
+   "first": 1747,
+   "last": 1900,
+   "g": {
+    "landscape": 20,
+    "marine": 1,
+    "cityscape": 2
+   }
+  },
+  "Q200231": {
+   "q": "Q200231",
+   "label": "Oise",
+   "n": 23,
+   "painters": 6,
+   "country": "Belgium",
+   "kind": "river",
+   "broad": 0,
+   "lat": 49.9966,
+   "lon": 4.3449,
+   "anon": 0,
+   "top_painter": "Camille Pissarro",
+   "top_painter_n": 9,
+   "top_painter_pct": 39.13,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 7,
+   "top_coll_pct": 30.43,
+   "first": 1859,
+   "last": 1903,
+   "g": {
+    "landscape": 23,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q1286": {
+   "q": "Q1286",
+   "label": "Alps",
+   "n": 22,
+   "painters": 12,
+   "country": "Switzerland",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 46.5781,
+   "lon": 8.615,
+   "anon": 2,
+   "top_painter": "Gustave Doré",
+   "top_painter_n": 8,
+   "top_painter_pct": 36.36,
+   "top_coll": "Strasbourg Museum of Modern and Contemporary Art",
+   "top_coll_n": 7,
+   "top_coll_pct": 31.82,
+   "first": 1625,
+   "last": 1923,
+   "g": {
+    "landscape": 22,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q762133": {
+   "q": "Q762133",
+   "label": "Louveciennes",
+   "n": 22,
+   "painters": 4,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 48.8603,
+   "lon": 2.1164,
+   "anon": 0,
+   "top_painter": "Alfred Sisley",
+   "top_painter_n": 13,
+   "top_painter_pct": 59.09,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 15,
+   "top_coll_pct": 68.18,
+   "first": 1869,
+   "last": 1895,
+   "g": {
+    "landscape": 22,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q9920": {
+   "q": "Q9920",
+   "label": "Haarlem",
+   "n": 22,
+   "painters": 15,
+   "country": "Netherlands",
+   "kind": "city",
+   "broad": 0,
+   "lat": 52.3814,
+   "lon": 4.6356,
+   "anon": 0,
+   "top_painter": "Jacob van Ruisdael",
+   "top_painter_n": 4,
+   "top_painter_pct": 18.18,
+   "top_coll": "Frans Hals Museum",
+   "top_coll_n": 6,
+   "top_coll_pct": 27.27,
+   "first": 1625,
+   "last": 1887,
+   "g": {
+    "landscape": 16,
+    "marine": 1,
+    "cityscape": 5
+   }
+  },
+  "Q1731": {
+   "q": "Q1731",
+   "label": "Dresden",
+   "n": 21,
+   "painters": 6,
+   "country": "Germany",
+   "kind": "city",
+   "broad": 0,
+   "lat": 51.0493,
+   "lon": 13.7381,
+   "anon": 0,
+   "top_painter": "Bernardo Bellotto",
+   "top_painter_n": 8,
+   "top_painter_pct": 38.1,
+   "top_coll": "National Museum of Art, Architecture and Design",
+   "top_coll_n": 5,
+   "top_coll_pct": 23.81,
+   "first": 1750,
+   "last": 1845,
+   "g": {
+    "landscape": 12,
+    "marine": 0,
+    "cityscape": 9
+   }
+  },
+  "Q839050": {
+   "q": "Q839050",
+   "label": "Dam Square",
+   "n": 21,
+   "painters": 9,
+   "country": "Netherlands",
+   "kind": "building",
+   "broad": 0,
+   "lat": 52.3731,
+   "lon": 4.8928,
+   "anon": 1,
+   "top_painter": "Gerrit Adriaenszoon Berckheyde",
+   "top_painter_n": 6,
+   "top_painter_pct": 28.57,
+   "top_coll": "Amsterdam Museum",
+   "top_coll_n": 10,
+   "top_coll_pct": 47.62,
+   "first": 1650,
+   "last": 1898,
+   "g": {
+    "landscape": 1,
+    "marine": 0,
+    "cityscape": 20
+   }
+  },
+  "Q181946": {
+   "q": "Q181946",
+   "label": "Argenteuil",
+   "n": 21,
+   "painters": 5,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 48.9478,
+   "lon": 2.2489,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 14,
+   "top_painter_pct": 66.67,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 15,
+   "top_coll_pct": 71.43,
+   "first": 1850,
+   "last": 1888,
+   "g": {
+    "landscape": 19,
+    "marine": 1,
+    "cityscape": 2
+   }
+  },
+  "Q34221": {
+   "q": "Q34221",
+   "label": "Niagara Falls",
+   "n": 21,
+   "painters": 13,
+   "country": "Canada",
+   "kind": "river",
+   "broad": 0,
+   "lat": 43.08,
+   "lon": -79.071,
+   "anon": 0,
+   "top_painter": "Albert Bierstadt",
+   "top_painter_n": 4,
+   "top_painter_pct": 19.05,
+   "top_coll": "Smithsonian American Art Museum",
+   "top_coll_n": 2,
+   "top_coll_pct": 9.52,
+   "first": 1762,
+   "last": 1889,
+   "g": {
+    "landscape": 21,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q174645": {
+   "q": "Q174645",
+   "label": "Walchensee",
+   "n": 20,
+   "painters": 1,
+   "country": "Germany",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 47.5939,
+   "lon": 11.3461,
+   "anon": 0,
+   "top_painter": "Lovis Corinth",
+   "top_painter_n": 20,
+   "top_painter_pct": 100.0,
+   "top_coll": "Museen für Kunst und Kulturgeschichte der Hansestadt Lübeck",
+   "top_coll_n": 1,
+   "top_coll_pct": 5.0,
+   "first": 1918,
+   "last": 1924,
+   "g": {
+    "landscape": 20,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q365": {
+   "q": "Q365",
+   "label": "Cologne",
+   "n": 20,
+   "painters": 3,
+   "country": "Germany",
+   "kind": "city",
+   "broad": 0,
+   "lat": 50.9422,
+   "lon": 6.9578,
+   "anon": 0,
+   "top_painter": "Gerrit Adriaenszoon Berckheyde",
+   "top_painter_n": 13,
+   "top_painter_pct": 65.0,
+   "top_coll": "Staatliches Museum Schwerin",
+   "top_coll_n": 2,
+   "top_coll_pct": 10.0,
+   "first": 1603,
+   "last": 1845,
+   "g": {
+    "landscape": 4,
+    "marine": 0,
+    "cityscape": 16
+   }
+  },
+  "Q1518970": {
+   "q": "Q1518970",
+   "label": "Montagne Sainte-Victoire",
+   "n": 20,
+   "painters": 4,
+   "country": "France",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 43.5392,
+   "lon": 5.6453,
+   "anon": 0,
+   "top_painter": "Paul Cézanne",
+   "top_painter_n": 17,
+   "top_painter_pct": 85.0,
+   "top_coll": "Musée du Vieil-Aix",
+   "top_coll_n": 2,
+   "top_coll_pct": 10.0,
+   "first": 1878,
+   "last": 2000,
+   "g": {
+    "landscape": 20,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q877031": {
+   "q": "Q877031",
+   "label": "Burg Bentheim",
+   "n": 20,
+   "painters": 3,
+   "country": "Germany",
+   "kind": "building",
+   "broad": 0,
+   "lat": 52.3022,
+   "lon": 7.1572,
+   "anon": 0,
+   "top_painter": "Jacob van Ruisdael",
+   "top_painter_n": 18,
+   "top_painter_pct": 90.0,
+   "top_coll": "Staatliche Kunstsammlungen Dresden",
+   "top_coll_n": 2,
+   "top_coll_pct": 10.0,
+   "first": 1650,
+   "last": 1675,
+   "g": {
+    "landscape": 20,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q1056152": {
+   "q": "Q1056152",
+   "label": "Royal Palace of Amsterdam",
+   "n": 19,
+   "painters": 5,
+   "country": "Netherlands",
+   "kind": "building",
+   "broad": 0,
+   "lat": 52.3732,
+   "lon": 4.8914,
+   "anon": 1,
+   "top_painter": "Gerrit Adriaenszoon Berckheyde",
+   "top_painter_n": 10,
+   "top_painter_pct": 52.63,
+   "top_coll": "Rijksmuseum",
+   "top_coll_n": 7,
+   "top_coll_pct": 36.84,
+   "first": 1650,
+   "last": 1785,
+   "g": {
+    "landscape": 3,
+    "marine": 0,
+    "cityscape": 16
+   }
+  },
+  "Q2634": {
+   "q": "Q2634",
+   "label": "Naples",
+   "n": 19,
+   "painters": 15,
+   "country": "Italy",
+   "kind": "city",
+   "broad": 0,
+   "lat": 40.8358,
+   "lon": 14.2486,
+   "anon": 0,
+   "top_painter": "Johan Christian Dahl",
+   "top_painter_n": 3,
+   "top_painter_pct": 15.79,
+   "top_coll": "National Trust",
+   "top_coll_n": 3,
+   "top_coll_pct": 15.79,
+   "first": 1669,
+   "last": 1880,
+   "g": {
+    "landscape": 14,
+    "marine": 3,
+    "cityscape": 2
+   }
+  },
+  "Q201385": {
+   "q": "Q201385",
+   "label": "Gulf of Naples",
+   "n": 19,
+   "painters": 12,
+   "country": "Italy",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 40.7353,
+   "lon": 14.2753,
+   "anon": 1,
+   "top_painter": "Gabrielle Ricciardelli",
+   "top_painter_n": 4,
+   "top_painter_pct": 21.05,
+   "top_coll": "National Trust",
+   "top_coll_n": 9,
+   "top_coll_pct": 47.37,
+   "first": 1745,
+   "last": 1908,
+   "g": {
+    "landscape": 14,
+    "marine": 6,
+    "cityscape": 1
+   }
+  },
+  "Q1075988": {
+   "q": "Q1075988",
+   "label": "Louvre Palace",
+   "n": 19,
+   "painters": 10,
+   "country": "France",
+   "kind": "building",
+   "broad": 0,
+   "lat": 48.861,
+   "lon": 2.3359,
+   "anon": 4,
+   "top_painter": "Abraham de Verwer",
+   "top_painter_n": 4,
+   "top_painter_pct": 21.05,
+   "top_coll": "Musée Carnavalet",
+   "top_coll_n": 12,
+   "top_coll_pct": 63.16,
+   "first": 1601,
+   "last": 1910,
+   "g": {
+    "landscape": 3,
+    "marine": 0,
+    "cityscape": 16
+   }
+  },
+  "Q3561": {
+   "q": "Q3561",
+   "label": "Algiers",
+   "n": 19,
+   "painters": 17,
+   "country": "Algeria",
+   "kind": "city",
+   "broad": 0,
+   "lat": 36.7764,
+   "lon": 3.0586,
+   "anon": 0,
+   "top_painter": "Albert Marquet",
+   "top_painter_n": 2,
+   "top_painter_pct": 10.53,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 6,
+   "top_coll_pct": 31.58,
+   "first": 1836,
+   "last": 1970,
+   "g": {
+    "landscape": 7,
+    "marine": 5,
+    "cityscape": 8
+   }
+  },
+  "Q173292": {
+   "q": "Q173292",
+   "label": "Capri",
+   "n": 19,
+   "painters": 15,
+   "country": "Italy",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 40.55,
+   "lon": 14.2333,
+   "anon": 0,
+   "top_painter": "Albert Bierstadt",
+   "top_painter_n": 3,
+   "top_painter_pct": 15.79,
+   "top_coll": "Museum of Fine Arts Boston",
+   "top_coll_n": 2,
+   "top_coll_pct": 10.53,
+   "first": 1824,
+   "last": 1910,
+   "g": {
+    "landscape": 14,
+    "marine": 6,
+    "cityscape": 0
+   }
+  },
+  "Q165061": {
+   "q": "Q165061",
+   "label": "Giverny",
+   "n": 19,
+   "painters": 9,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 49.0761,
+   "lon": 1.5292,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 8,
+   "top_painter_pct": 42.11,
+   "top_coll": "Musée Blanche Hoschedé-Monet",
+   "top_coll_n": 11,
+   "top_coll_pct": 57.89,
+   "first": 1875,
+   "last": 1925,
+   "g": {
+    "landscape": 19,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q212406": {
+   "q": "Q212406",
+   "label": "Auvers-sur-Oise",
+   "n": 18,
+   "painters": 5,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 49.0717,
+   "lon": 2.1742,
+   "anon": 0,
+   "top_painter": "Vincent van Gogh",
+   "top_painter_n": 9,
+   "top_painter_pct": 50.0,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 10,
+   "top_coll_pct": 55.56,
+   "first": 1872,
+   "last": 1890,
+   "g": {
+    "landscape": 18,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q12892": {
+   "q": "Q12892",
+   "label": "Antwerp",
+   "n": 17,
+   "painters": 14,
+   "country": "Belgium",
+   "kind": "city",
+   "broad": 0,
+   "lat": 51.2211,
+   "lon": 4.3997,
+   "anon": 1,
+   "top_painter": "Eugène Louis Boudin",
+   "top_painter_n": 2,
+   "top_painter_pct": 11.76,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 3,
+   "top_coll_pct": 17.65,
+   "first": 1573,
+   "last": 1966,
+   "g": {
+    "landscape": 11,
+    "marine": 4,
+    "cityscape": 4
+   }
+  },
+  "Q2188006": {
+   "q": "Q2188006",
+   "label": "Gein",
+   "n": 17,
+   "painters": 2,
+   "country": "Netherlands",
+   "kind": "river",
+   "broad": 0,
+   "lat": 52.2995,
+   "lon": 5.015,
+   "anon": 0,
+   "top_painter": "Piet Mondrian",
+   "top_painter_n": 16,
+   "top_painter_pct": 94.12,
+   "top_coll": "Kunstmuseum Den Haag",
+   "top_coll_n": 8,
+   "top_coll_pct": 47.06,
+   "first": 1850,
+   "last": 1907,
+   "g": {
+    "landscape": 17,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q338137": {
+   "q": "Q338137",
+   "label": "IJ",
+   "n": 17,
+   "painters": 6,
+   "country": "Netherlands",
+   "kind": "river",
+   "broad": 0,
+   "lat": 52.3798,
+   "lon": 4.9164,
+   "anon": 0,
+   "top_painter": "Ludolf Bakhuizen",
+   "top_painter_n": 7,
+   "top_painter_pct": 41.18,
+   "top_coll": "Staatliche Kunstsammlungen Dresden",
+   "top_coll_n": 1,
+   "top_coll_pct": 5.88,
+   "first": 1601,
+   "last": 1707,
+   "g": {
+    "landscape": 2,
+    "marine": 12,
+    "cityscape": 3
+   }
+  },
+  "Q1133035": {
+   "q": "Q1133035",
+   "label": "Hoosic River",
+   "n": 17,
+   "painters": 1,
+   "country": "United States",
+   "kind": "river",
+   "broad": 0,
+   "lat": 42.9277,
+   "lon": -73.6593,
+   "anon": 0,
+   "top_painter": "Grandma Moses",
+   "top_painter_n": 17,
+   "top_painter_pct": 100.0,
+   "top_coll": "Abby Aldrich Rockefeller Folk Art Museum",
+   "top_coll_n": 1,
+   "top_coll_pct": 5.88,
+   "first": 1942,
+   "last": 1953,
+   "g": {
+    "landscape": 17,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q13712": {
+   "q": "Q13712",
+   "label": "Tiber",
+   "n": 17,
+   "painters": 14,
+   "country": "Italy",
+   "kind": "river",
+   "broad": 0,
+   "lat": 43.7869,
+   "lon": 12.0777,
+   "anon": 1,
+   "top_painter": "Isaac de Moucheron",
+   "top_painter_n": 2,
+   "top_painter_pct": 11.76,
+   "top_coll": "National Museum in Warsaw",
+   "top_coll_n": 2,
+   "top_coll_pct": 11.76,
+   "first": 1640,
+   "last": 1893,
+   "g": {
+    "landscape": 16,
+    "marine": 0,
+    "cityscape": 1
+   }
+  },
+  "Q5463": {
+   "q": "Q5463",
+   "label": "Rocky Mountains",
+   "n": 16,
+   "painters": 2,
+   "country": "United States",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 44.15,
+   "lon": -113.8,
+   "anon": 0,
+   "top_painter": "Albert Bierstadt",
+   "top_painter_n": 15,
+   "top_painter_pct": 93.75,
+   "top_coll": "Fogg Museum",
+   "top_coll_n": 2,
+   "top_coll_pct": 12.5,
+   "first": 1850,
+   "last": 1870,
+   "g": {
+    "landscape": 16,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q180402": {
+   "q": "Q180402",
+   "label": "Yosemite National Park",
+   "n": 16,
+   "painters": 2,
+   "country": "United States",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 37.7425,
+   "lon": -119.5375,
+   "anon": 0,
+   "top_painter": "Thomas Hill",
+   "top_painter_n": 15,
+   "top_painter_pct": 93.75,
+   "top_coll": "Oakland Museum of California",
+   "top_coll_n": 3,
+   "top_coll_pct": 18.75,
+   "first": 1850,
+   "last": 1900,
+   "g": {
+    "landscape": 16,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q839537": {
+   "q": "Q839537",
+   "label": "Moret-sur-Loing",
+   "n": 16,
+   "painters": 4,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 48.3744,
+   "lon": 2.815,
+   "anon": 0,
+   "top_painter": "Alfred Sisley",
+   "top_painter_n": 13,
+   "top_painter_pct": 81.25,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 7,
+   "top_coll_pct": 43.75,
+   "first": 1879,
+   "last": 1902,
+   "g": {
+    "landscape": 12,
+    "marine": 0,
+    "cityscape": 4
+   }
+  },
+  "Q1754": {
+   "q": "Q1754",
+   "label": "Stockholm",
+   "n": 16,
+   "painters": 11,
+   "country": "Sweden",
+   "kind": "city",
+   "broad": 0,
+   "lat": 59.3294,
+   "lon": 18.0686,
+   "anon": 0,
+   "top_painter": "Elias Martin",
+   "top_painter_n": 5,
+   "top_painter_pct": 31.25,
+   "top_coll": "Nationalmuseum",
+   "top_coll_n": 12,
+   "top_coll_pct": 75.0,
+   "first": 1827,
+   "last": 1938,
+   "g": {
+    "landscape": 1,
+    "marine": 3,
+    "cityscape": 12
+   }
+  },
+  "Q1495651": {
+   "q": "Q1495651",
+   "label": "Lake George",
+   "n": 16,
+   "painters": 11,
+   "country": "United States",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 43.6222,
+   "lon": -73.5467,
+   "anon": 0,
+   "top_painter": "John Frederick Kensett",
+   "top_painter_n": 3,
+   "top_painter_pct": 18.75,
+   "top_coll": "Brooklyn Museum",
+   "top_coll_n": 3,
+   "top_coll_pct": 18.75,
+   "first": 1850,
+   "last": 1949,
+   "g": {
+    "landscape": 16,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q2587792": {
+   "q": "Q2587792",
+   "label": "Haarlem City Hall",
+   "n": 16,
+   "painters": 8,
+   "country": "Netherlands",
+   "kind": "building",
+   "broad": 0,
+   "lat": 52.3814,
+   "lon": 4.635,
+   "anon": 1,
+   "top_painter": "Gerrit Adriaenszoon Berckheyde",
+   "top_painter_n": 6,
+   "top_painter_pct": 37.5,
+   "top_coll": "Frans Hals Museum",
+   "top_coll_n": 5,
+   "top_coll_pct": 31.25,
+   "first": 1618,
+   "last": 1856,
+   "g": {
+    "landscape": 2,
+    "marine": 0,
+    "cityscape": 14
+   }
+  },
+  "Q555450": {
+   "q": "Q555450",
+   "label": "Akerselva",
+   "n": 16,
+   "painters": 8,
+   "country": "Norway",
+   "kind": "river",
+   "broad": 0,
+   "lat": 59.9075,
+   "lon": 10.7555,
+   "anon": 0,
+   "top_painter": "Axel Stephansen",
+   "top_painter_n": 4,
+   "top_painter_pct": 25.0,
+   "top_coll": "Oslo Museum",
+   "top_coll_n": 9,
+   "top_coll_pct": 56.25,
+   "first": 1830,
+   "last": 1918,
+   "g": {
+    "landscape": 5,
+    "marine": 0,
+    "cityscape": 11
+   }
+  },
+  "Q249062": {
+   "q": "Q249062",
+   "label": "Loing",
+   "n": 16,
+   "painters": 3,
+   "country": "France",
+   "kind": "river",
+   "broad": 0,
+   "lat": 47.5533,
+   "lon": 3.2328,
+   "anon": 0,
+   "top_painter": "Alfred Sisley",
+   "top_painter_n": 14,
+   "top_painter_pct": 87.5,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 6,
+   "top_coll_pct": 37.5,
+   "first": 1870,
+   "last": 1898,
+   "g": {
+    "landscape": 16,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q1556007": {
+   "q": "Q1556007",
+   "label": "White Mountains",
+   "n": 16,
+   "painters": 10,
+   "country": "United States",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 44.27,
+   "lon": -71.31,
+   "anon": 0,
+   "top_painter": "Albert Bierstadt",
+   "top_painter_n": 5,
+   "top_painter_pct": 31.25,
+   "top_coll": "Los Angeles County Museum of Art",
+   "top_coll_n": 2,
+   "top_coll_pct": 12.5,
+   "first": 1836,
+   "last": 1930,
+   "g": {
+    "landscape": 16,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q10285": {
+   "q": "Q10285",
+   "label": "Colosseum",
+   "n": 16,
+   "painters": 12,
+   "country": "Italy",
+   "kind": "building",
+   "broad": 0,
+   "lat": 41.8903,
+   "lon": 12.4922,
+   "anon": 3,
+   "top_painter": "Gaspar van Wittel",
+   "top_painter_n": 2,
+   "top_painter_pct": 12.5,
+   "top_coll": "National Trust",
+   "top_coll_n": 2,
+   "top_coll_pct": 12.5,
+   "first": 1553,
+   "last": 1900,
+   "g": {
+    "landscape": 11,
+    "marine": 0,
+    "cityscape": 5
+   }
+  },
+  "Q327": {
+   "q": "Q327",
+   "label": "Brittany",
+   "n": 16,
+   "painters": 11,
+   "country": "France",
+   "kind": "region",
+   "broad": 1,
+   "lat": 48.0,
+   "lon": -3.0,
+   "anon": 0,
+   "top_painter": "Paul Gauguin",
+   "top_painter_n": 2,
+   "top_painter_pct": 12.5,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 7,
+   "top_coll_pct": 43.75,
+   "first": 1845,
+   "last": 1918,
+   "g": {
+    "landscape": 13,
+    "marine": 2,
+    "cityscape": 1
+   }
+  },
+  "Q189883": {
+   "q": "Q189883",
+   "label": "Doge's Palace",
+   "n": 15,
+   "painters": 8,
+   "country": "Italy",
+   "kind": "building",
+   "broad": 0,
+   "lat": 45.4337,
+   "lon": 12.3404,
+   "anon": 1,
+   "top_painter": "J. M. W. Turner",
+   "top_painter_n": 3,
+   "top_painter_pct": 20.0,
+   "top_coll": "National Trust",
+   "top_coll_n": 3,
+   "top_coll_pct": 20.0,
+   "first": 1720,
+   "last": 1908,
+   "g": {
+    "landscape": 6,
+    "marine": 0,
+    "cityscape": 9
+   }
+  },
+  "Q155": {
+   "q": "Q155",
+   "label": "Brazil",
+   "n": 15,
+   "painters": 4,
+   "country": "Brazil",
+   "kind": "region",
+   "broad": 1,
+   "lat": -14.0,
+   "lon": -53.0,
+   "anon": 2,
+   "top_painter": "Frans Post",
+   "top_painter_n": 9,
+   "top_painter_pct": 60.0,
+   "top_coll": "Department of Paintings of the Louvre",
+   "top_coll_n": 4,
+   "top_coll_pct": 26.67,
+   "first": 1637,
+   "last": 1864,
+   "g": {
+    "landscape": 15,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q1616324": {
+   "q": "Q1616324",
+   "label": "Egmond aan Zee",
+   "n": 15,
+   "painters": 8,
+   "country": "Netherlands",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 52.6186,
+   "lon": 4.6242,
+   "anon": 0,
+   "top_painter": "Jan van Goyen",
+   "top_painter_n": 4,
+   "top_painter_pct": 26.67,
+   "top_coll": "Fralin Museum of Art",
+   "top_coll_n": 1,
+   "top_coll_pct": 6.67,
+   "first": 1634,
+   "last": 1684,
+   "g": {
+    "landscape": 15,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q2360422": {
+   "q": "Q2360422",
+   "label": "Bridalveil Fall",
+   "n": 15,
+   "painters": 4,
+   "country": "United States",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 37.7168,
+   "lon": -119.6465,
+   "anon": 0,
+   "top_painter": "Thomas Hill",
+   "top_painter_n": 11,
+   "top_painter_pct": 73.33,
+   "top_coll": "Oakland Museum of California",
+   "top_coll_n": 3,
+   "top_coll_pct": 20.0,
+   "first": 1850,
+   "last": 1904,
+   "g": {
+    "landscape": 15,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q22158811": {
+   "q": "Q22158811",
+   "label": "aiguille d'Étretat",
+   "n": 15,
+   "painters": 9,
+   "country": "France",
+   "kind": "coast",
+   "broad": 0,
+   "lat": 49.707,
+   "lon": 0.193,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 7,
+   "top_painter_pct": 46.67,
+   "top_coll": "Clark Art Institute",
+   "top_coll_n": 2,
+   "top_coll_pct": 13.33,
+   "first": 1850,
+   "last": 1890,
+   "g": {
+    "landscape": 1,
+    "marine": 15,
+    "cityscape": 0
+   }
+  },
+  "Q182872": {
+   "q": "Q182872",
+   "label": "Fontainebleau",
+   "n": 15,
+   "painters": 8,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 48.4089,
+   "lon": 2.7017,
+   "anon": 0,
+   "top_painter": "Narcisse Virgilio Díaz",
+   "top_painter_n": 4,
+   "top_painter_pct": 26.67,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 7,
+   "top_coll_pct": 46.67,
+   "first": 1836,
+   "last": 1900,
+   "g": {
+    "landscape": 15,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q1310": {
+   "q": "Q1310",
+   "label": "Arnhem",
+   "n": 15,
+   "painters": 5,
+   "country": "Netherlands",
+   "kind": "city",
+   "broad": 0,
+   "lat": 51.9833,
+   "lon": 5.9167,
+   "anon": 0,
+   "top_painter": "Jan van Goyen",
+   "top_painter_n": 9,
+   "top_painter_pct": 60.0,
+   "top_coll": "Mauritshuis",
+   "top_coll_n": 1,
+   "top_coll_pct": 6.67,
+   "first": 1639,
+   "last": 1901,
+   "g": {
+    "landscape": 15,
+    "marine": 0,
+    "cityscape": 1
+   }
+  },
+  "Q52531": {
+   "q": "Q52531",
+   "label": "Santa Maria della Salute",
+   "n": 15,
+   "painters": 9,
+   "country": "Italy",
+   "kind": "building",
+   "broad": 0,
+   "lat": 45.4306,
+   "lon": 12.3347,
+   "anon": 4,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 2,
+   "top_painter_pct": 13.33,
+   "top_coll": "Wallace Collection",
+   "top_coll_n": 2,
+   "top_coll_pct": 13.33,
+   "first": 1730,
+   "last": 1937,
+   "g": {
+    "landscape": 8,
+    "marine": 1,
+    "cityscape": 6
+   }
+  },
+  "Q189358": {
+   "q": "Q189358",
+   "label": "Kronborg Castle",
+   "n": 15,
+   "painters": 10,
+   "country": "Denmark",
+   "kind": "building",
+   "broad": 0,
+   "lat": 56.0386,
+   "lon": 12.6219,
+   "anon": 0,
+   "top_painter": "Christoffer Wilhelm Eckersberg",
+   "top_painter_n": 3,
+   "top_painter_pct": 20.0,
+   "top_coll": "Statens Museum for Kunst",
+   "top_coll_n": 6,
+   "top_coll_pct": 40.0,
+   "first": 1619,
+   "last": 2000,
+   "g": {
+    "landscape": 4,
+    "marine": 12,
+    "cityscape": 0
+   }
+  },
+  "Q3921376": {
+   "q": "Q3921376",
+   "label": "Valkhof",
+   "n": 14,
+   "painters": 2,
+   "country": "Netherlands",
+   "kind": "building",
+   "broad": 0,
+   "lat": 51.8478,
+   "lon": 5.8708,
+   "anon": 0,
+   "top_painter": "Jan van Goyen",
+   "top_painter_n": 10,
+   "top_painter_pct": 71.43,
+   "top_coll": "Munich Central Collecting Point",
+   "top_coll_n": 3,
+   "top_coll_pct": 21.43,
+   "first": 1636,
+   "last": 1657,
+   "g": {
+    "landscape": 14,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q41983": {
+   "q": "Q41983",
+   "label": "Marne",
+   "n": 14,
+   "painters": 9,
+   "country": "France",
+   "kind": "river",
+   "broad": 0,
+   "lat": 47.8183,
+   "lon": 5.35,
+   "anon": 1,
+   "top_painter": "Camille Pissarro",
+   "top_painter_n": 3,
+   "top_painter_pct": 21.43,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 4,
+   "top_coll_pct": 28.57,
+   "first": 1686,
+   "last": 1920,
+   "g": {
+    "landscape": 13,
+    "marine": 0,
+    "cityscape": 2
+   }
+  },
+  "Q20": {
+   "q": "Q20",
+   "label": "Norway",
+   "n": 14,
+   "painters": 12,
+   "country": "Norway",
+   "kind": "region",
+   "broad": 1,
+   "lat": 59.9333,
+   "lon": 10.6833,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 2,
+   "top_painter_pct": 14.29,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 4,
+   "top_coll_pct": 28.57,
+   "first": 1660,
+   "last": 1900,
+   "g": {
+    "landscape": 14,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q26777": {
+   "q": "Q26777",
+   "label": "Sierra Nevada",
+   "n": 14,
+   "painters": 3,
+   "country": "United States",
+   "kind": "mountain",
+   "broad": 0,
+   "lat": 37.73,
+   "lon": -119.57,
+   "anon": 0,
+   "top_painter": "Albert Bierstadt",
+   "top_painter_n": 12,
+   "top_painter_pct": 85.71,
+   "top_coll": "Smithsonian American Art Museum",
+   "top_coll_n": 2,
+   "top_coll_pct": 14.29,
+   "first": 1850,
+   "last": 1880,
+   "g": {
+    "landscape": 14,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q183557": {
+   "q": "Q183557",
+   "label": "Dieppe",
+   "n": 14,
+   "painters": 11,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 49.925,
+   "lon": 1.075,
+   "anon": 0,
+   "top_painter": "Camille Pissarro",
+   "top_painter_n": 3,
+   "top_painter_pct": 21.43,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 2,
+   "top_coll_pct": 14.29,
+   "first": 1765,
+   "last": 1942,
+   "g": {
+    "landscape": 8,
+    "marine": 2,
+    "cityscape": 5
+   }
+  },
+  "Q686703": {
+   "q": "Q686703",
+   "label": "Castle Brederode",
+   "n": 14,
+   "painters": 7,
+   "country": "Netherlands",
+   "kind": "building",
+   "broad": 0,
+   "lat": 52.4256,
+   "lon": 4.6225,
+   "anon": 0,
+   "top_painter": "Jacob van Ruisdael",
+   "top_painter_n": 5,
+   "top_painter_pct": 35.71,
+   "top_coll": "Amsterdam Museum",
+   "top_coll_n": 1,
+   "top_coll_pct": 7.14,
+   "first": 1641,
+   "last": 1909,
+   "g": {
+    "landscape": 14,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q40430": {
+   "q": "Q40430",
+   "label": "Bahia",
+   "n": 14,
+   "painters": 3,
+   "country": "Brazil",
+   "kind": "region",
+   "broad": 1,
+   "lat": -12.52,
+   "lon": -41.69,
+   "anon": 9,
+   "top_painter": "Jean-Frédéric Bosset de Luze",
+   "top_painter_n": 3,
+   "top_painter_pct": 21.43,
+   "top_coll": "Brasiliana Iconográfica",
+   "top_coll_n": 14,
+   "top_coll_pct": 100.0,
+   "first": 1835,
+   "last": 1838,
+   "g": {
+    "landscape": 14,
+    "marine": 0,
+    "cityscape": 0
+   }
+  },
+  "Q231720": {
+   "q": "Q231720",
+   "label": "Honfleur",
+   "n": 14,
+   "painters": 10,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 49.4189,
+   "lon": 0.2331,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 4,
+   "top_painter_pct": 28.57,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 2,
+   "top_coll_pct": 14.29,
+   "first": 1841,
+   "last": 1922,
+   "g": {
+    "landscape": 8,
+    "marine": 4,
+    "cityscape": 3
+   }
+  },
+  "Q42810": {
+   "q": "Q42810",
+   "label": "Le Havre",
+   "n": 14,
+   "painters": 6,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 49.4942,
+   "lon": 0.1081,
+   "anon": 0,
+   "top_painter": "Eugène Louis Boudin",
+   "top_painter_n": 6,
+   "top_painter_pct": 42.86,
+   "top_coll": "MuMa Museum of modern art André Malraux",
+   "top_coll_n": 7,
+   "top_coll_pct": 50.0,
+   "first": 1852,
+   "last": 1930,
+   "g": {
+    "landscape": 9,
+    "marine": 6,
+    "cityscape": 2
+   }
+  },
+  "Q2441211": {
+   "q": "Q2441211",
+   "label": "Belfry of Bruges",
+   "n": 14,
+   "painters": 10,
+   "country": "Belgium",
+   "kind": "building",
+   "broad": 0,
+   "lat": 51.208,
+   "lon": 3.2253,
+   "anon": 4,
+   "top_painter": "Florimond Van Acker",
+   "top_painter_n": 1,
+   "top_painter_pct": 7.14,
+   "top_coll": "Groeningemuseum",
+   "top_coll_n": 13,
+   "top_coll_pct": 92.86,
+   "first": 1564,
+   "last": 1894,
+   "g": {
+    "landscape": 1,
+    "marine": 0,
+    "cityscape": 13
+   }
+  },
+  "Q920444": {
+   "q": "Q920444",
+   "label": "Vétheuil",
+   "n": 13,
+   "painters": 1,
+   "country": "France",
+   "kind": "city",
+   "broad": 0,
+   "lat": 49.0639,
+   "lon": 1.7031,
+   "anon": 0,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 13,
+   "top_painter_pct": 100.0,
+   "top_coll": "Musée d'Orsay",
+   "top_coll_n": 9,
+   "top_coll_pct": 69.23,
+   "first": 1878,
+   "last": 1901,
+   "g": {
+    "landscape": 13,
+    "marine": 0,
+    "cityscape": 0
+   }
+  }
+ },
+ "kinds": [
+  {
+   "kind": "river",
+   "name": "Rivers and canals",
+   "places": 16,
+   "pairs": 607
+  },
+  {
+   "kind": "city",
+   "name": "Cities, towns and villages",
+   "places": 30,
+   "pairs": 863
+  },
+  {
+   "kind": "coast",
+   "name": "Coasts, seas and islands",
+   "places": 13,
+   "pairs": 464
+  },
+  {
+   "kind": "mountain",
+   "name": "Mountains, valleys and forests",
+   "places": 13,
+   "pairs": 300
+  },
+  {
+   "kind": "building",
+   "name": "Buildings, bridges and squares",
+   "places": 20,
+   "pairs": 495
+  },
+  {
+   "kind": "region",
+   "name": "Regions and countries",
+   "places": 8,
+   "pairs": 279
+  }
+ ],
+ "kinds_top": {
+  "river": {
+   "kind": "river",
+   "name": "Rivers and canals",
+   "places": 16,
+   "pairs": 607
+  },
+  "city": {
+   "kind": "city",
+   "name": "Cities, towns and villages",
+   "places": 30,
+   "pairs": 863
+  },
+  "coast": {
+   "kind": "coast",
+   "name": "Coasts, seas and islands",
+   "places": 13,
+   "pairs": 464
+  },
+  "mountain": {
+   "kind": "mountain",
+   "name": "Mountains, valleys and forests",
+   "places": 13,
+   "pairs": 300
+  },
+  "building": {
+   "kind": "building",
+   "name": "Buildings, bridges and squares",
+   "places": 20,
+   "pairs": 495
+  },
+  "region": {
+   "kind": "region",
+   "name": "Regions and countries",
+   "places": 8,
+   "pairs": 279
+  }
+ },
+ "top100_pairs": 3008,
+ "top100_pct": 26.91,
+ "single": {
+  "places_1": 3217,
+  "places_1_pct": 67.87,
+  "places_10": 155
+ },
+ "bias_top": {
+  "one_painter_half": 4,
+  "one_coll_half": 4
+ },
+ "by_genre": {
+  "landscape": [
+   {
+    "q": "Q1471",
+    "label": "Seine",
+    "n": 177
+   },
+   {
+    "q": "Q186822",
+    "label": "Lofoten",
+    "n": 96
+   },
+   {
+    "q": "Q50630",
+    "label": "Nordland",
+    "n": 89
+   },
+   {
+    "q": "Q41428",
+    "label": "Rio de Janeiro",
+    "n": 64
+   },
+   {
+    "q": "Q90",
+    "label": "Paris",
+    "n": 61
+   },
+   {
+    "q": "Q42646",
+    "label": "Windsor Castle",
+    "n": 56
+   },
+   {
+    "q": "Q3140",
+    "label": "Hudson River",
+    "n": 53
+   },
+   {
+    "q": "Q630566",
+    "label": "Catskill Mountains",
+    "n": 46
+   },
+   {
+    "q": "Q19686",
+    "label": "River Thames",
+    "n": 43
+   },
+   {
+    "q": "Q159605",
+    "label": "Tivoli",
+    "n": 39
+   }
+  ],
+  "marine": [
+   {
+    "q": "Q34640",
+    "label": "English Channel",
+    "n": 45
+   },
+   {
+    "q": "Q97",
+    "label": "Atlantic Ocean",
+    "n": 45
+   },
+   {
+    "q": "Q290936",
+    "label": "Étretat",
+    "n": 36
+   },
+   {
+    "q": "Q17373121",
+    "label": "Porte d'Aval",
+    "n": 22
+   },
+   {
+    "q": "Q641",
+    "label": "Venice",
+    "n": 19
+   },
+   {
+    "q": "Q4918",
+    "label": "Mediterranean Sea",
+    "n": 16
+   },
+   {
+    "q": "Q22158811",
+    "label": "aiguille d'Étretat",
+    "n": 15
+   },
+   {
+    "q": "Q26421",
+    "label": "Dordrecht",
+    "n": 13
+   },
+   {
+    "q": "Q338137",
+    "label": "IJ",
+    "n": 12
+   },
+   {
+    "q": "Q189358",
+    "label": "Kronborg Castle",
+    "n": 12
+   }
+  ],
+  "cityscape": [
+   {
+    "q": "Q90",
+    "label": "Paris",
+    "n": 68
+   },
+   {
+    "q": "Q1471",
+    "label": "Seine",
+    "n": 58
+   },
+   {
+    "q": "Q641",
+    "label": "Venice",
+    "n": 55
+   },
+   {
+    "q": "Q1545193",
+    "label": "Grote Kerk",
+    "n": 35
+   },
+   {
+    "q": "Q1083850",
+    "label": "Grote Markt",
+    "n": 35
+   },
+   {
+    "q": "Q335277",
+    "label": "Pont Neuf",
+    "n": 29
+   },
+   {
+    "q": "Q12994",
+    "label": "Bruges",
+    "n": 25
+   },
+   {
+    "q": "Q243",
+    "label": "Eiffel Tower",
+    "n": 22
+   },
+   {
+    "q": "Q839050",
+    "label": "Dam Square",
+    "n": 20
+   },
+   {
+    "q": "Q2981",
+    "label": "Notre-Dame de Paris",
+    "n": 19
+   }
+  ]
+ },
+ "countries": [
+  {
+   "country": "France",
+   "n": 2052.1,
+   "pct": 24.05
+  },
+  {
+   "country": "Netherlands",
+   "n": 899.0,
+   "pct": 10.54
+  },
+  {
+   "country": "United States",
+   "n": 882.0,
+   "pct": 10.34
+  },
+  {
+   "country": "United Kingdom",
+   "n": 841.3,
+   "pct": 9.86
+  },
+  {
+   "country": "Italy",
+   "n": 811.4,
+   "pct": 9.51
+  },
+  {
+   "country": "Norway",
+   "n": 599.7,
+   "pct": 7.03
+  },
+  {
+   "country": "Germany",
+   "n": 348.1,
+   "pct": 4.08
+  },
+  {
+   "country": "Sweden",
+   "n": 215.2,
+   "pct": 2.52
+  },
+  {
+   "country": "Denmark",
+   "n": 201.8,
+   "pct": 2.37
+  },
+  {
+   "country": "Belgium",
+   "n": 197.5,
+   "pct": 2.31
+  },
+  {
+   "country": "Brazil",
+   "n": 162.3,
+   "pct": 1.9
+  },
+  {
+   "country": "Switzerland",
+   "n": 132.0,
+   "pct": 1.55
+  },
+  {
+   "country": "Spain",
+   "n": 126.5,
+   "pct": 1.48
+  },
+  {
+   "country": "at sea",
+   "n": 96.3,
+   "pct": 1.13
+  },
+  {
+   "country": "Russia",
+   "n": 69.5,
+   "pct": 0.81
+  },
+  {
+   "country": "Canada",
+   "n": 60.5,
+   "pct": 0.71
+  },
+  {
+   "country": "Poland",
+   "n": 53.0,
+   "pct": 0.62
+  },
+  {
+   "country": "Portugal",
+   "n": 51.0,
+   "pct": 0.6
+  },
+  {
+   "country": "Algeria",
+   "n": 46.0,
+   "pct": 0.54
+  },
+  {
+   "country": "New Zealand",
+   "n": 46.0,
+   "pct": 0.54
+  }
+ ],
+ "eu_pct": null,
+ "continent": {
+  "at_sea": 1.13,
+  "Africa": 1.37,
+  "Antarctica": 0.01,
+  "Asia": 2.64,
+  "Europe": 79.96,
+  "North_America": 11.6,
+  "Oceania": 0.88,
+  "Seven_seas_(open_ocean)": 0.07,
+  "South_America": 2.34,
+  "rest": 8.44
+ },
+ "cents": [
+  {
+   "c": 1500,
+   "name": "before 1600",
+   "n": 38,
+   "Netherlands": 15.79,
+   "Italy": 23.68,
+   "France": 0.0,
+   "United Kingdom": 5.26,
+   "United States": 0.0,
+   "Norway": 0.0,
+   "Germany": 13.16,
+   "Belgium": 23.68,
+   "Other": 18.43,
+   "top": [
+    [
+     "Belgium",
+     23.68
+    ],
+    [
+     "Italy",
+     23.68
+    ],
+    [
+     "Netherlands",
+     15.79
+    ]
+   ],
+   "top_places": [
+    [
+     "Antwerp",
+     2
+    ],
+    [
+     "Amsterdam",
+     2
+    ],
+    [
+     "Rome",
+     2
+    ],
+    [
+     "Torgau",
+     1
+    ],
+    [
+     "Temple of Vesta",
+     1
+    ]
+   ],
+   "Norway_wo_boberg": 0.0
+  },
+  {
+   "c": 1600,
+   "name": "1600s",
+   "n": 932,
+   "Netherlands": 62.41,
+   "Italy": 8.8,
+   "France": 4.77,
+   "United Kingdom": 3.17,
+   "United States": 0.0,
+   "Norway": 0.97,
+   "Germany": 7.05,
+   "Belgium": 5.42,
+   "Other": 7.41,
+   "top": [
+    [
+     "Netherlands",
+     62.41
+    ],
+    [
+     "Italy",
+     8.8
+    ],
+    [
+     "Germany",
+     7.05
+    ]
+   ],
+   "top_places": [
+    [
+     "Grote Kerk",
+     52
+    ],
+    [
+     "Dordrecht",
+     45
+    ],
+    [
+     "Grote Markt",
+     27
+    ],
+    [
+     "Meuse",
+     23
+    ],
+    [
+     "Amsterdam",
+     20
+    ]
+   ],
+   "Norway_wo_boberg": 0.97
+  },
+  {
+   "c": 1700,
+   "name": "1700s",
+   "n": 599,
+   "Netherlands": 10.02,
+   "Italy": 37.23,
+   "France": 10.27,
+   "United Kingdom": 23.04,
+   "United States": 0.67,
+   "Norway": 0.83,
+   "Germany": 4.48,
+   "Belgium": 2.34,
+   "Other": 11.12,
+   "top": [
+    [
+     "Italy",
+     37.23
+    ],
+    [
+     "United Kingdom",
+     23.04
+    ],
+    [
+     "France",
+     10.27
+    ]
+   ],
+   "top_places": [
+    [
+     "Windsor Castle",
+     18
+    ],
+    [
+     "Venice",
+     17
+    ],
+    [
+     "River Thames",
+     15
+    ],
+    [
+     "Tivoli",
+     15
+    ],
+    [
+     "Grand Canal",
+     15
+    ]
+   ],
+   "Norway_wo_boberg": 0.83
+  },
+  {
+   "c": 1800,
+   "name": "1800s",
+   "n": 4238,
+   "Netherlands": 3.28,
+   "Italy": 8.07,
+   "France": 27.26,
+   "United Kingdom": 10.43,
+   "United States": 13.57,
+   "Norway": 5.87,
+   "Germany": 3.31,
+   "Belgium": 2.05,
+   "Other": 26.16,
+   "top": [
+    [
+     "France",
+     27.26
+    ],
+    [
+     "United States",
+     13.57
+    ],
+    [
+     "United Kingdom",
+     10.43
+    ]
+   ],
+   "top_places": [
+    [
+     "Seine",
+     144
+    ],
+    [
+     "Paris",
+     64
+    ],
+    [
+     "English Channel",
+     54
+    ],
+    [
+     "Atlantic Ocean",
+     50
+    ],
+    [
+     "Rio de Janeiro",
+     48
+    ]
+   ],
+   "Norway_wo_boberg": 5.82
+  },
+  {
+   "c": 1900,
+   "name": "1900 and later",
+   "n": 2154,
+   "Netherlands": 4.04,
+   "Italy": 5.49,
+   "France": 32.29,
+   "United Kingdom": 8.59,
+   "United States": 12.88,
+   "Norway": 8.87,
+   "Germany": 4.56,
+   "Belgium": 1.28,
+   "Other": 22.0,
+   "top": [
+    [
+     "France",
+     32.29
+    ],
+    [
+     "United States",
+     12.88
+    ],
+    [
+     "Norway",
+     8.87
+    ]
+   ],
+   "top_places": [
+    [
+     "Seine",
+     60
+    ],
+    [
+     "Lofoten",
+     48
+    ],
+    [
+     "Cambridge",
+     28
+    ],
+    [
+     "Paris",
+     28
+    ],
+    [
+     "Checkered House",
+     26
+    ]
+   ],
+   "Norway_wo_boberg": 6.31
+  }
+ ],
+ "undated": 572,
+ "painters_top10_pct": 16.93,
+ "painters_top1": "Anna Boberg",
+ "painters_1": 1455,
+ "painters_1_pct": 60.8,
+ "painters_top": [
+  {
+   "q": "Q4939691",
+   "name": "Anna Boberg",
+   "n": 223,
+   "places": 21,
+   "bcountry": "Sweden",
+   "top": [
+    [
+     "Lofoten",
+     93
+    ],
+    [
+     "Nordland",
+     88
+    ],
+    [
+     "Svolvær",
+     11
+    ]
+   ],
+   "top_pct": 41.7,
+   "first": 1856,
+   "last": 1934
+  },
+  {
+   "q": "Q77132",
+   "name": "Albert Bierstadt",
+   "n": 210,
+   "places": 101,
+   "bcountry": "Germany",
+   "top": [
+    [
+     "California",
+     37
+    ],
+    [
+     "Yosemite Valley",
+     26
+    ],
+    [
+     "Rocky Mountains",
+     15
+    ]
+   ],
+   "top_pct": 17.62,
+   "first": 1850,
+   "last": 1900
+  },
+  {
+   "q": "Q260683",
+   "name": "Grandma Moses",
+   "n": 175,
+   "places": 68,
+   "bcountry": "United States",
+   "top": [
+    [
+     "Cambridge",
+     28
+    ],
+    [
+     "Checkered House",
+     26
+    ],
+    [
+     "Hoosic River",
+     17
+    ]
+   ],
+   "top_pct": 16.0,
+   "first": 1924,
+   "last": 1959
+  },
+  {
+   "q": "Q296",
+   "name": "Claude Monet",
+   "n": 152,
+   "places": 90,
+   "bcountry": "France",
+   "top": [
+    [
+     "Seine",
+     38
+    ],
+    [
+     "English Channel",
+     22
+    ],
+    [
+     "Étretat",
+     19
+    ]
+   ],
+   "top_pct": 25.0,
+   "first": 1858,
+   "last": 2000
+  },
+  {
+   "q": "Q134741",
+   "name": "Camille Pissarro",
+   "n": 134,
+   "places": 69,
+   "bcountry": "US Virgin Islands",
+   "top": [
+    [
+     "Pontoise",
+     23
+    ],
+    [
+     "Seine",
+     15
+    ],
+    [
+     "boulevard Montmartre",
+     11
+    ]
+   ],
+   "top_pct": 17.16,
+   "first": 1854,
+   "last": 1903
+  },
+  {
+   "q": "Q315996",
+   "name": "Jan van Goyen",
+   "n": 126,
+   "places": 59,
+   "bcountry": "Netherlands",
+   "top": [
+    [
+     "Dordrecht",
+     24
+    ],
+    [
+     "Valkhof",
+     10
+    ],
+    [
+     "Arnhem",
+     9
+    ]
+   ],
+   "top_pct": 19.05,
+   "first": 1623,
+   "last": 1660
+  },
+  {
+   "q": "Q164735",
+   "name": "Johan Christian Dahl",
+   "n": 113,
+   "places": 79,
+   "bcountry": "Norway",
+   "top": [
+    [
+     "Elbe",
+     13
+    ],
+    [
+     "Dresden",
+     7
+    ],
+    [
+     "Mount Vesuvius",
+     7
+    ]
+   ],
+   "top_pct": 11.5,
+   "first": 1800,
+   "last": 1900
+  },
+  {
+   "q": "Q108301",
+   "name": "Maurice Utrillo",
+   "n": 112,
+   "places": 68,
+   "bcountry": "France",
+   "top": [
+    [
+     "rue du Mont-Cenis",
+     9
+    ],
+    [
+     "Sacré-Cœur",
+     8
+    ],
+    [
+     "Ushant",
+     7
+    ]
+   ],
+   "top_pct": 8.04,
+   "first": 1904,
+   "last": 1950
+  },
+  {
+   "q": "Q271648",
+   "name": "Marianne North",
+   "n": 107,
+   "places": 91,
+   "bcountry": "United Kingdom",
+   "top": [
+    [
+     "Sarawak",
+     5
+    ],
+    [
+     "Kalutara",
+     3
+    ],
+    [
+     "Bogor",
+     3
+    ]
+   ],
+   "top_pct": 4.67,
+   "first": 1870,
+   "last": 1887
+  },
+  {
+   "q": "Q576025",
+   "name": "Gerrit Adriaenszoon Berckheyde",
+   "n": 93,
+   "places": 67,
+   "bcountry": "Netherlands",
+   "top": [
+    [
+     "Grote Kerk",
+     28
+    ],
+    [
+     "Grote Markt",
+     23
+    ],
+    [
+     "Cologne",
+     13
+    ]
+   ],
+   "top_pct": 30.11,
+   "first": 1650,
+   "last": 1700
+  },
+  {
+   "q": "Q175130",
+   "name": "Alfred Sisley",
+   "n": 80,
+   "places": 37,
+   "bcountry": "France",
+   "top": [
+    [
+     "Seine",
+     27
+    ],
+    [
+     "Loing",
+     14
+    ],
+    [
+     "Moret-sur-Loing",
+     13
+    ]
+   ],
+   "top_pct": 33.75,
+   "first": 1865,
+   "last": 1898
+  },
+  {
+   "q": "Q370567",
+   "name": "Jan van der Heyden",
+   "n": 75,
+   "places": 49,
+   "bcountry": "Netherlands",
+   "top": [
+    [
+     "Huis ten Bosch",
+     7
+    ],
+    [
+     "Cologne",
+     6
+    ],
+    [
+     "Royal Palace of Amsterdam",
+     5
+    ]
+   ],
+   "top_pct": 9.33,
+   "first": 1603,
+   "last": 1700
+  },
+  {
+   "q": "Q213612",
+   "name": "Jacob van Ruisdael",
+   "n": 69,
+   "places": 36,
+   "bcountry": "Netherlands",
+   "top": [
+    [
+     "Burg Bentheim",
+     18
+    ],
+    [
+     "Grote Kerk",
+     9
+    ],
+    [
+     "Amstel",
+     6
+    ]
+   ],
+   "top_pct": 26.09,
+   "first": 1647,
+   "last": 1680
+  },
+  {
+   "q": "Q5582",
+   "name": "Vincent van Gogh",
+   "n": 67,
+   "places": 37,
+   "bcountry": "Netherlands",
+   "top": [
+    [
+     "Auvers-sur-Oise",
+     9
+    ],
+    [
+     "Alpilles",
+     7
+    ],
+    [
+     "Arles",
+     7
+    ]
+   ],
+   "top_pct": 13.43,
+   "first": 1882,
+   "last": 1890
+  },
+  {
+   "q": "Q35548",
+   "name": "Paul Cézanne",
+   "n": 65,
+   "places": 27,
+   "bcountry": "France",
+   "top": [
+    [
+     "Montagne Sainte-Victoire",
+     17
+    ],
+    [
+     "L'Estaque",
+     14
+    ],
+    [
+     "Auvers-sur-Oise",
+     6
+    ]
+   ],
+   "top_pct": 26.15,
+   "first": 1870,
+   "last": 1905
+  },
+  {
+   "q": "Q366212",
+   "name": "Frederic Edwin Church",
+   "n": 60,
+   "places": 37,
+   "bcountry": "United States",
+   "top": [
+    [
+     "Cotopaxi volcano",
+     7
+    ],
+    [
+     "Mount Desert Island",
+     5
+    ],
+    [
+     "Katahdin",
+     4
+    ]
+   ],
+   "top_pct": 11.67,
+   "first": 1846,
+   "last": 1895
+  },
+  {
+   "q": "Q41406",
+   "name": "Edvard Munch",
+   "n": 57,
+   "places": 35,
+   "bcountry": "Norway",
+   "top": [
+    [
+     "Kragerø",
+     9
+    ],
+    [
+     "Åsgårdstrand",
+     8
+    ],
+    [
+     "Oslofjord",
+     5
+    ]
+   ],
+   "top_pct": 15.79,
+   "first": 1881,
+   "last": 1930
+  },
+  {
+   "q": "Q313194",
+   "name": "Aelbert Cuyp",
+   "n": 54,
+   "places": 28,
+   "bcountry": "Netherlands",
+   "top": [
+    [
+     "Meuse",
+     14
+    ],
+    [
+     "Dordrecht",
+     12
+    ],
+    [
+     "Rijnsburg Abbey",
+     5
+    ]
+   ],
+   "top_pct": 25.93,
+   "first": 1639,
+   "last": 1680
+  },
+  {
+   "q": "Q148475",
+   "name": "Jean-Baptiste Camille Corot",
+   "n": 53,
+   "places": 68,
+   "bcountry": "France",
+   "top": [
+    [
+     "Ville-d'Avray",
+     6
+    ],
+    [
+     "Seine",
+     3
+    ],
+    [
+     "Mantes-la-Jolie",
+     3
+    ]
+   ],
+   "top_pct": 11.32,
+   "first": 1820,
+   "last": 1873
+  },
+  {
+   "q": "Q159758",
+   "name": "J. M. W. Turner",
+   "n": 52,
+   "places": 56,
+   "bcountry": "United Kingdom",
+   "top": [
+    [
+     "Venice",
+     10
+    ],
+    [
+     "River Thames",
+     8
+    ],
+    [
+     "Punta della Dogana",
+     4
+    ]
+   ],
+   "top_pct": 19.23,
+   "first": 1792,
+   "last": 1850
+  },
+  {
+   "q": "Q1451318",
+   "name": "Jasper Francis Cropsey",
+   "n": 51,
+   "places": 44,
+   "bcountry": "United States",
+   "top": [
+    [
+     "Greenwood Lake",
+     9
+    ],
+    [
+     "Hudson River",
+     6
+    ],
+    [
+     "Catskill Mountains",
+     3
+    ]
+   ],
+   "top_pct": 17.65,
+   "first": 1845,
+   "last": 1897
+  },
+  {
+   "q": "Q212600",
+   "name": "Eugène Louis Boudin",
+   "n": 49,
+   "places": 29,
+   "bcountry": "France",
+   "top": [
+    [
+     "English Channel",
+     8
+    ],
+    [
+     "Le Havre",
+     6
+    ],
+    [
+     "Trouville-sur-Mer",
+     6
+    ]
+   ],
+   "top_pct": 16.33,
+   "first": 1852,
+   "last": 1897
+  },
+  {
+   "q": "Q3018099",
+   "name": "D. Howard Hitchcock",
+   "n": 44,
+   "places": 24,
+   "bcountry": "United States",
+   "top": [
+    [
+     "Oahu",
+     4
+    ],
+    [
+     "Haleakalā",
+     4
+    ],
+    [
+     "Halemaumau Crater",
+     3
+    ]
+   ],
+   "top_pct": 9.09,
+   "first": 1887,
+   "last": 1935
+  },
+  {
+   "q": "Q615161",
+   "name": "Sanford Robinson Gifford",
+   "n": 38,
+   "places": 46,
+   "bcountry": "United States",
+   "top": [
+    [
+     "Catskill Mountains",
+     5
+    ],
+    [
+     "Atlantic Ocean",
+     4
+    ],
+    [
+     "Kaaterskill Clove",
+     3
+    ]
+   ],
+   "top_pct": 13.16,
+   "first": 1846,
+   "last": 1880
+  },
+  {
+   "q": "Q318769",
+   "name": "Francesco Guardi",
+   "n": 37,
+   "places": 20,
+   "bcountry": "Italy",
+   "top": [
+    [
+     "Venice",
+     8
+    ],
+    [
+     "Rialto Bridge",
+     6
+    ],
+    [
+     "Grand Canal",
+     4
+    ]
+   ],
+   "top_pct": 21.62,
+   "first": 1701,
+   "last": 1800
+  },
+  {
+   "q": "Q151803",
+   "name": "Piet Mondrian",
+   "n": 37,
+   "places": 17,
+   "bcountry": "Netherlands",
+   "top": [
+    [
+     "Gein",
+     16
+    ],
+    [
+     "Oostzijdse Molen",
+     5
+    ],
+    [
+     "Westkapelle Hoog",
+     2
+    ]
+   ],
+   "top_pct": 43.24,
+   "first": 1890,
+   "last": 1917
+  },
+  {
+   "q": "Q151573",
+   "name": "Paul Signac",
+   "n": 34,
+   "places": 45,
+   "bcountry": "France",
+   "top": [
+    [
+     "Saint-Tropez",
+     5
+    ],
+    [
+     "Antibes",
+     3
+    ],
+    [
+     "Mediterranean Sea",
+     3
+    ]
+   ],
+   "top_pct": 14.71,
+   "first": 1883,
+   "last": 2000
+  },
+  {
+   "q": "Q159297",
+   "name": "John Constable",
+   "n": 33,
+   "places": 26,
+   "bcountry": "United Kingdom",
+   "top": [
+    [
+     "Dedham",
+     4
+    ],
+    [
+     "Salisbury Cathedral",
+     4
+    ],
+    [
+     "River Stour",
+     3
+    ]
+   ],
+   "top_pct": 12.12,
+   "first": 1804,
+   "last": 1856
+  },
+  {
+   "q": "Q267858",
+   "name": "Albert Marquet",
+   "n": 32,
+   "places": 33,
+   "bcountry": "France",
+   "top": [
+    [
+     "Seine",
+     7
+    ],
+    [
+     "quai des Grands-Augustins",
+     4
+    ],
+    [
+     "Pont Neuf",
+     4
+    ]
+   ],
+   "top_pct": 21.88,
+   "first": 1901,
+   "last": 1942
+  },
+  {
+   "q": "Q182664",
+   "name": "Giovanni Antonio Canal",
+   "n": 32,
+   "places": 34,
+   "bcountry": "Italy",
+   "top": [
+    [
+     "London",
+     11
+    ],
+    [
+     "River Thames",
+     7
+    ],
+    [
+     "Grand Canal",
+     5
+    ]
+   ],
+   "top_pct": 34.38,
+   "first": 1720,
+   "last": 1760
+  }
+ ],
+ "fav": {
+  "monet_seine": {
+   "n": 38,
+   "of": 152
+  },
+  "turner_venice": {
+   "n": 13,
+   "of": 52
+  },
+  "turner_london": {
+   "n": 3,
+   "of": 52
+  },
+  "canaletto_london": {
+   "n": 13,
+   "of": 32
+  },
+  "canaletto_venice": {
+   "n": 15,
+   "of": 32
+  },
+  "guardi_venice": {
+   "n": 36,
+   "of": 37
+  },
+  "pissarro_paris": {
+   "n": 39,
+   "of": 134
+  },
+  "goyen_dordrecht": {
+   "n": 30,
+   "of": 126
+  },
+  "monet": {
+   "n": 152,
+   "places": 90,
+   "top": "Seine",
+   "top_n": 38,
+   "top2": "English Channel",
+   "top2_n": 22,
+   "top3": "Étretat",
+   "top3_n": 19
+  },
+  "turner": {
+   "n": 52,
+   "places": 56,
+   "top": "Venice",
+   "top_n": 10,
+   "top2": "River Thames",
+   "top2_n": 8,
+   "top3": "Punta della Dogana",
+   "top3_n": 4
+  },
+  "canaletto": {
+   "n": 32,
+   "places": 34,
+   "top": "London",
+   "top_n": 11,
+   "top2": "River Thames",
+   "top2_n": 7,
+   "top3": "Grand Canal",
+   "top3_n": 5
+  },
+  "sisley": {
+   "n": 80,
+   "places": 37,
+   "top": "Seine",
+   "top_n": 27,
+   "top2": "Loing",
+   "top2_n": 14,
+   "top3": "Louveciennes",
+   "top3_n": 13
+  },
+  "pissarro": {
+   "n": 134,
+   "places": 69,
+   "top": "Pontoise",
+   "top_n": 23,
+   "top2": "Seine",
+   "top2_n": 15,
+   "top3": "boulevard Montmartre",
+   "top3_n": 11
+  },
+  "goyen": {
+   "n": 126,
+   "places": 59,
+   "top": "Dordrecht",
+   "top_n": 24,
+   "top2": "Valkhof",
+   "top2_n": 10,
+   "top3": "Arnhem",
+   "top3_n": 9
+  },
+  "bierstadt": {
+   "n": 210,
+   "places": 101,
+   "top": "California",
+   "top_n": 37,
+   "top2": "Yosemite Valley",
+   "top2_n": 26,
+   "top3": "Rocky Mountains",
+   "top3_n": 15
+  },
+  "boberg": {
+   "n": 223,
+   "places": 21,
+   "top": "Lofoten",
+   "top_n": 93,
+   "top2": "Nordland",
+   "top2_n": 88,
+   "top3": "Svolvær",
+   "top3_n": 11
+  },
+  "cezanne": {
+   "n": 65,
+   "places": 27,
+   "top": "Montagne Sainte-Victoire",
+   "top_n": 17,
+   "top2": "L'Estaque",
+   "top2_n": 14,
+   "top3": "Auvers-sur-Oise",
+   "top3_n": 6
+  },
+  "moses": {
+   "n": 175,
+   "places": 68,
+   "top": "Cambridge",
+   "top_n": 29,
+   "top2": "Checkered House",
+   "top2_n": 26,
+   "top3": "Hoosic River",
+   "top3_n": 17
+  },
+  "berckheyde": {
+   "n": 93,
+   "places": 67,
+   "top": "Grote Kerk",
+   "top_n": 28,
+   "top2": "Grote Markt",
+   "top2_n": 23,
+   "top3": "Cologne",
+   "top3_n": 13
+  },
+  "north": {
+   "n": 107,
+   "places": 91,
+   "top": "Sarawak",
+   "top_n": 5,
+   "top2": "Bogor",
+   "top2_n": 3,
+   "top3": "Alderley House",
+   "top3_n": 3
+  },
+  "vangogh": {
+   "n": 67,
+   "places": 37,
+   "top": "Auvers-sur-Oise",
+   "top_n": 9,
+   "top2": "Arles",
+   "top2_n": 7,
+   "top3": "Alpilles",
+   "top3_n": 7
+  },
+  "cole": {
+   "n": 29,
+   "places": 25,
+   "top": "Catskill Mountains",
+   "top_n": 15,
+   "top2": "Arno",
+   "top2_n": 2,
+   "top3": "Hudson River",
+   "top3_n": 2
+  }
+ },
+ "fav_rows": [
+  {
+   "name": "Anna Boberg",
+   "wd_name": "Anna Boberg",
+   "n": 223,
+   "places": 21,
+   "top": [
+    [
+     "Lofoten",
+     93
+    ],
+    [
+     "Nordland",
+     88
+    ],
+    [
+     "Svolvær",
+     11
+    ]
+   ]
+  },
+  {
+   "name": "Albert Bierstadt",
+   "wd_name": "Albert Bierstadt",
+   "n": 210,
+   "places": 101,
+   "top": [
+    [
+     "California",
+     37
+    ],
+    [
+     "Yosemite Valley",
+     26
+    ],
+    [
+     "Rocky Mountains",
+     15
+    ]
+   ]
+  },
+  {
+   "name": "Grandma Moses",
+   "wd_name": "Grandma Moses",
+   "n": 175,
+   "places": 68,
+   "top": [
+    [
+     "Cambridge",
+     29
+    ],
+    [
+     "Checkered House",
+     26
+    ],
+    [
+     "Hoosic River",
+     17
+    ]
+   ]
+  },
+  {
+   "name": "Claude Monet",
+   "wd_name": "Claude Monet",
+   "n": 152,
+   "places": 90,
+   "top": [
+    [
+     "Seine",
+     38
+    ],
+    [
+     "English Channel",
+     22
+    ],
+    [
+     "Étretat",
+     19
+    ]
+   ]
+  },
+  {
+   "name": "Camille Pissarro",
+   "wd_name": "Camille Pissarro",
+   "n": 134,
+   "places": 69,
+   "top": [
+    [
+     "Pontoise",
+     23
+    ],
+    [
+     "Seine",
+     15
+    ],
+    [
+     "boulevard Montmartre",
+     11
+    ]
+   ]
+  },
+  {
+   "name": "Jan van Goyen",
+   "wd_name": "Jan van Goyen",
+   "n": 126,
+   "places": 59,
+   "top": [
+    [
+     "Dordrecht",
+     24
+    ],
+    [
+     "Valkhof",
+     10
+    ],
+    [
+     "Arnhem",
+     9
+    ]
+   ]
+  },
+  {
+   "name": "Maurice Utrillo",
+   "wd_name": "Maurice Utrillo",
+   "n": 112,
+   "places": 68,
+   "top": [
+    [
+     "rue du Mont-Cenis",
+     9
+    ],
+    [
+     "Sacré-Cœur",
+     8
+    ],
+    [
+     "Ouessant",
+     7
+    ]
+   ]
+  },
+  {
+   "name": "Gerrit Berckheyde",
+   "wd_name": "Gerrit Adriaenszoon Berckheyde",
+   "n": 93,
+   "places": 67,
+   "top": [
+    [
+     "Grote Kerk",
+     28
+    ],
+    [
+     "Grote Markt",
+     23
+    ],
+    [
+     "Cologne",
+     13
+    ]
+   ]
+  },
+  {
+   "name": "Alfred Sisley",
+   "wd_name": "Alfred Sisley",
+   "n": 80,
+   "places": 37,
+   "top": [
+    [
+     "Seine",
+     27
+    ],
+    [
+     "Loing",
+     14
+    ],
+    [
+     "Louveciennes",
+     13
+    ]
+   ]
+  },
+  {
+   "name": "Vincent van Gogh",
+   "wd_name": "Vincent van Gogh",
+   "n": 67,
+   "places": 37,
+   "top": [
+    [
+     "Auvers-sur-Oise",
+     9
+    ],
+    [
+     "Arles",
+     7
+    ],
+    [
+     "Alpilles",
+     7
+    ]
+   ]
+  },
+  {
+   "name": "Paul Cézanne",
+   "wd_name": "Paul Cézanne",
+   "n": 65,
+   "places": 27,
+   "top": [
+    [
+     "Montagne Sainte-Victoire",
+     17
+    ],
+    [
+     "L'Estaque",
+     14
+    ],
+    [
+     "Auvers-sur-Oise",
+     6
+    ]
+   ]
+  },
+  {
+   "name": "J. M. W. Turner",
+   "wd_name": "J. M. W. Turner",
+   "n": 52,
+   "places": 56,
+   "top": [
+    [
+     "Venice",
+     10
+    ],
+    [
+     "River Thames",
+     8
+    ],
+    [
+     "Punta della Dogana",
+     4
+    ]
+   ]
+  },
+  {
+   "name": "Francesco Guardi",
+   "wd_name": "Francesco Guardi",
+   "n": 37,
+   "places": 20,
+   "top": [
+    [
+     "Venice",
+     8
+    ],
+    [
+     "Rialto Bridge",
+     6
+    ],
+    [
+     "Church of San Giorgio Maggiore",
+     4
+    ]
+   ]
+  },
+  {
+   "name": "Canaletto",
+   "wd_name": "Giovanni Antonio Canal",
+   "n": 32,
+   "places": 34,
+   "top": [
+    [
+     "London",
+     11
+    ],
+    [
+     "River Thames",
+     7
+    ],
+    [
+     "Grand Canal",
+     5
+    ]
+   ]
+  }
+ ],
+ "rank": {
+  "lofoten": 3,
+  "nordland": 5,
+  "cambridge": 28,
+  "venice": 4
+ },
+ "top25_water": 8,
+ "seine": {
+  "painters": 81,
+  "monet": 38,
+  "sisley": 27,
+  "pissarro": 15,
+  "first": 1637,
+  "n1800": 144,
+  "n1900": 60,
+  "impr": 80,
+  "impr_pct": 35.09
+ },
+ "dist": {
+  "n": 7183,
+  "pct_of_mapped": 84.18,
+  "median": 231,
+  "within10_pct": 12.6,
+  "within50_pct": 26.38,
+  "over1000_pct": 25.78,
+  "over5000_pct": 11.44,
+  "bins": [
+   "under 10 km",
+   "10 to 50 km",
+   "50 to 200 km",
+   "200 to 1,000 km",
+   "1,000 to 5,000 km",
+   "over 5,000 km"
+  ],
+  "all": [
+   12.6,
+   13.78,
+   21.02,
+   26.81,
+   14.34,
+   11.44
+  ],
+  "painters": 2039,
+  "broad_only": 540
+ },
+ "dist_cent": [
+  {
+   "c": 1500,
+   "name": "before 1600",
+   "n": 33,
+   "median": 60,
+   "within50_pct": 48.48,
+   "over1000_pct": 27.27,
+   "bins": [
+    24.24,
+    24.24,
+    15.15,
+    9.09,
+    24.24,
+    3.03
+   ]
+  },
+  {
+   "c": 1600,
+   "name": "1600s",
+   "n": 827,
+   "median": 48,
+   "within50_pct": 50.67,
+   "over1000_pct": 10.64,
+   "bins": [
+    21.52,
+    29.14,
+    26.48,
+    12.21,
+    9.07,
+    1.57
+   ]
+  },
+  {
+   "c": 1700,
+   "name": "1700s",
+   "n": 459,
+   "median": 204,
+   "within50_pct": 32.68,
+   "over1000_pct": 21.13,
+   "bins": [
+    23.31,
+    9.37,
+    16.34,
+    29.85,
+    18.3,
+    2.83
+   ]
+  },
+  {
+   "c": 1800,
+   "name": "1800s",
+   "n": 3551,
+   "median": 331,
+   "within50_pct": 18.36,
+   "over1000_pct": 30.95,
+   "bins": [
+    8.81,
+    9.55,
+    21.8,
+    28.89,
+    13.21,
+    17.74
+   ]
+  },
+  {
+   "c": 1900,
+   "name": "1900 and later",
+   "n": 1925,
+   "median": 232,
+   "within50_pct": 29.3,
+   "over1000_pct": 22.49,
+   "bins": [
+    13.35,
+    15.95,
+    18.81,
+    29.4,
+    15.53,
+    6.96
+   ]
+  }
+ ],
+ "dist_country": [
+  {
+   "country": "France",
+   "n": 1706,
+   "painters": 456,
+   "median": 175,
+   "within50_pct": 29.66,
+   "over1000_pct": 10.73
+  },
+  {
+   "country": "Netherlands",
+   "n": 1091,
+   "painters": 243,
+   "median": 47,
+   "within50_pct": 51.05,
+   "over1000_pct": 8.25
+  },
+  {
+   "country": "United Kingdom",
+   "n": 743,
+   "painters": 256,
+   "median": 407,
+   "within50_pct": 10.23,
+   "over1000_pct": 43.61
+  },
+  {
+   "country": "United States",
+   "n": 681,
+   "painters": 112,
+   "median": 279,
+   "within50_pct": 26.87,
+   "over1000_pct": 28.19
+  },
+  {
+   "country": "Germany",
+   "n": 497,
+   "painters": 144,
+   "median": 887,
+   "within50_pct": 11.87,
+   "over1000_pct": 48.49
+  },
+  {
+   "country": "Norway",
+   "n": 393,
+   "painters": 73,
+   "median": 258,
+   "within50_pct": 13.49,
+   "over1000_pct": 23.66
+  },
+  {
+   "country": "Sweden",
+   "n": 387,
+   "painters": 92,
+   "median": 1004,
+   "within50_pct": 15.76,
+   "over1000_pct": 51.68
+  },
+  {
+   "country": "Italy",
+   "n": 244,
+   "painters": 91,
+   "median": 111,
+   "within50_pct": 43.85,
+   "over1000_pct": 18.85
+  },
+  {
+   "country": "Denmark",
+   "n": 232,
+   "painters": 70,
+   "median": 156,
+   "within50_pct": 22.84,
+   "over1000_pct": 12.5
+  },
+  {
+   "country": "Belgium",
+   "n": 208,
+   "painters": 118,
+   "median": 104,
+   "within50_pct": 39.42,
+   "over1000_pct": 20.67
+  },
+  {
+   "country": "Spain",
+   "n": 135,
+   "painters": 62,
+   "median": 383,
+   "within50_pct": 25.93,
+   "over1000_pct": 17.78
+  },
+  {
+   "country": "Russia",
+   "n": 132,
+   "painters": 38,
+   "median": 1035,
+   "within50_pct": 10.61,
+   "over1000_pct": 60.61
+  },
+  {
+   "country": "Poland",
+   "n": 97,
+   "painters": 52,
+   "median": 341,
+   "within50_pct": 13.4,
+   "over1000_pct": 22.68
+  }
+ ],
+ "travellers": [
+  {
+   "q": "Q78172549",
+   "name": "Vivian Smith",
+   "n": 7,
+   "median": 18471,
+   "max": 18599,
+   "bcountry": "United Kingdom",
+   "top": "Taranaki Maunga",
+   "places_countries": [
+    "New Zealand"
+   ]
+  },
+  {
+   "q": "Q1126926",
+   "name": "Conrad Martens",
+   "n": 11,
+   "median": 16919,
+   "max": 16997,
+   "bcountry": "United Kingdom",
+   "top": "Port Jackson",
+   "places_countries": [
+    "Australia",
+    "French Polynesia"
+   ]
+  },
+  {
+   "q": "Q709280",
+   "name": "Arthur Streeton",
+   "n": 6,
+   "median": 16903,
+   "max": 17052,
+   "bcountry": "Australia",
+   "top": "Chepstow Castle",
+   "places_countries": [
+    "Australia",
+    "United Kingdom"
+   ]
+  },
+  {
+   "q": "Q78901710",
+   "name": "Herbert Ivan Babbage",
+   "n": 5,
+   "median": 16664,
+   "max": 16664,
+   "bcountry": "Australia",
+   "top": "St Ives",
+   "places_countries": [
+    "France",
+    "United Kingdom"
+   ]
+  },
+  {
+   "q": "Q271648",
+   "name": "Marianne North",
+   "n": 94,
+   "median": 8467,
+   "max": 18916,
+   "bcountry": "United Kingdom",
+   "top": "Alderley House",
+   "places_countries": [
+    "Australia",
+    "Brazil",
+    "Canada",
+    "Chile",
+    "China",
+    "India"
+   ]
+  },
+  {
+   "q": "Q2534502",
+   "name": "Thomas Hill",
+   "n": 26,
+   "median": 8322,
+   "max": 8457,
+   "bcountry": "United Kingdom",
+   "top": "Yosemite National Park",
+   "places_countries": [
+    "United States"
+   ]
+  },
+  {
+   "q": "Q77132",
+   "name": "Albert Bierstadt",
+   "n": 182,
+   "median": 8140,
+   "max": 9073,
+   "bcountry": "Germany",
+   "top": "Yosemite Valley",
+   "places_countries": [
+    "Canada",
+    "France",
+    "Germany",
+    "Italy",
+    "Switzerland",
+    "The Bahamas"
+   ]
+  },
+  {
+   "q": "Q2095810",
+   "name": "William Simpson",
+   "n": 6,
+   "median": 8019,
+   "max": 8563,
+   "bcountry": "Australia",
+   "top": "Sanchi",
+   "places_countries": [
+    "India"
+   ]
+  },
+  {
+   "q": "Q577489",
+   "name": "Frans Post",
+   "n": 6,
+   "median": 7688,
+   "max": 7688,
+   "bcountry": "Netherlands",
+   "top": "Olinda",
+   "places_countries": [
+    "Brazil"
+   ]
+  },
+  {
+   "q": "Q10289990",
+   "name": "Giuseppe Leone Righini",
+   "n": 5,
+   "median": 7363,
+   "max": 7559,
+   "bcountry": "Italy",
+   "top": "São Luís",
+   "places_countries": [
+    "Brazil"
+   ]
+  },
+  {
+   "q": "Q983441",
+   "name": "Thomas Moran",
+   "n": 26,
+   "median": 7138,
+   "max": 8787,
+   "bcountry": "United Kingdom",
+   "top": "Venice",
+   "places_countries": [
+    "Italy",
+    "Mexico",
+    "Sudan",
+    "United Kingdom",
+    "United States"
+   ]
+  },
+  {
+   "q": "Q134741",
+   "name": "Camille Pissarro",
+   "n": 133,
+   "median": 6815,
+   "max": 7047,
+   "bcountry": "US Virgin Islands",
+   "top": "Pontoise",
+   "places_countries": [
+    "Belgium",
+    "France",
+    "United Kingdom",
+    "United States",
+    "Venezuela"
+   ]
+  },
+  {
+   "q": "Q2762575",
+   "name": "William Stanley Haseltine",
+   "n": 13,
+   "median": 6528,
+   "max": 7453,
+   "bcountry": "United States",
+   "top": "Capri",
+   "places_countries": [
+    "France",
+    "Italy",
+    "Switzerland",
+    "United States"
+   ]
+  },
+  {
+   "q": "Q3636874",
+   "name": "Régis François Gignoux",
+   "n": 6,
+   "median": 6252,
+   "max": 6580,
+   "bcountry": "France",
+   "top": "Niagara Falls",
+   "places_countries": [
+    "Canada",
+    "United States"
+   ]
+  },
+  {
+   "q": "Q17485976",
+   "name": "Victor de Grailly",
+   "n": 8,
+   "median": 5676,
+   "max": 5821,
+   "bcountry": "France",
+   "top": "Connecticut River",
+   "places_countries": [
+    "Canada",
+    "France",
+    "United States"
+   ]
+  }
+ ],
+ "dist_country_nl": {
+  "country": "Netherlands",
+  "n": 1091,
+  "painters": 243,
+  "median": 47,
+  "within50_pct": 51.05,
+  "over1000_pct": 8.25
+ },
+ "dist_country_fr": {
+  "country": "France",
+  "n": 1706,
+  "painters": 456,
+  "median": 175,
+  "within50_pct": 29.66,
+  "over1000_pct": 10.73
+ },
+ "dist_country_uk": {
+  "country": "United Kingdom",
+  "n": 743,
+  "painters": 256,
+  "median": 407,
+  "within50_pct": 10.23,
+  "over1000_pct": 43.61
+ },
+ "dist_country_de": {
+  "country": "Germany",
+  "n": 497,
+  "painters": 144,
+  "median": 887,
+  "within50_pct": 11.87,
+  "over1000_pct": 48.49
+ },
+ "dist_country_se": {
+  "country": "Sweden",
+  "n": 387,
+  "painters": 92,
+  "median": 1004,
+  "within50_pct": 15.76,
+  "over1000_pct": 51.68
+ },
+ "dist_country_us": {
+  "country": "United States",
+  "n": 681,
+  "painters": 112,
+  "median": 279,
+  "within50_pct": 26.87,
+  "over1000_pct": 28.19
+ },
+ "dist_country_it": {
+  "country": "Italy",
+  "n": 244,
+  "painters": 91,
+  "median": 111,
+  "within50_pct": 43.85,
+  "over1000_pct": 18.85
+ },
+ "uk_far": {
+  "n": 324,
+  "top": [
+   [
+    "United States",
+    100.2
+   ],
+   [
+    "Italy",
+    64.5
+   ],
+   [
+    "India",
+    26.0
+   ],
+   [
+    "New Zealand",
+    20.0
+   ],
+   [
+    "Australia",
+    16.0
+   ],
+   [
+    "Brazil",
+    13.0
+   ]
+  ],
+  "it_pct": 19.91,
+  "ch_pct": 0.31
+ },
+ "north_countries": {
+  "n": 20,
+  "list": [
+   "Australia",
+   "Brazil",
+   "Canada",
+   "Chile",
+   "China",
+   "India",
+   "Indonesia",
+   "Italy",
+   "Jamaica",
+   "Japan",
+   "Malaysia",
+   "Nepal",
+   "New Zealand",
+   "Seychelles",
+   "Singapore",
+   "South Africa",
+   "Spain",
+   "Sri Lanka",
+   "United Kingdom",
+   "United States"
+  ]
+ },
+ "travellers_min": 5,
+ "painters_dist5": 264,
+ "homebodies_pct": 21.97,
+ "trav": {
+  "north": {
+   "q": "Q271648",
+   "name": "Marianne North",
+   "n": 94,
+   "median": 8467,
+   "max": 18916,
+   "bcountry": "United Kingdom",
+   "top": "Alderley House",
+   "places_countries": [
+    "Australia",
+    "Brazil",
+    "Canada",
+    "Chile",
+    "China",
+    "India"
+   ]
+  },
+  "bierstadt": {
+   "q": "Q77132",
+   "name": "Albert Bierstadt",
+   "n": 182,
+   "median": 8140,
+   "max": 9073,
+   "bcountry": "Germany",
+   "top": "Yosemite Valley",
+   "places_countries": [
+    "Canada",
+    "France",
+    "Germany",
+    "Italy",
+    "Switzerland",
+    "The Bahamas"
+   ]
+  },
+  "pissarro": {
+   "q": "Q134741",
+   "name": "Camille Pissarro",
+   "n": 133,
+   "median": 6815,
+   "max": 7047,
+   "bcountry": "US Virgin Islands",
+   "top": "Pontoise",
+   "places_countries": [
+    "Belgium",
+    "France",
+    "United Kingdom",
+    "United States",
+    "Venezuela"
+   ]
+  },
+  "top": {
+   "q": "Q78172549",
+   "name": "Vivian Smith",
+   "n": 7,
+   "median": 18471,
+   "max": 18599,
+   "bcountry": "United Kingdom",
+   "top": "Taranaki Maunga",
+   "places_countries": [
+    "New Zealand"
+   ]
+  },
+  "monet": {
+   "n": 149,
+   "median": 167,
+   "within50_pct": 13.42
+  },
+  "turner": {
+   "n": 52,
+   "median": 227,
+   "within50_pct": 7.69
+  },
+  "canaletto": {
+   "n": 32,
+   "median": 395,
+   "within50_pct": 46.88
+  },
+  "boberg": {
+   "n": 127,
+   "median": 1014,
+   "within50_pct": 1.57
+  },
+  "goyen": {
+   "n": 125,
+   "median": 43,
+   "within50_pct": 59.2
+  },
+  "vangogh": {
+   "n": 67,
+   "median": 332,
+   "within50_pct": 1.49
+  },
+  "utrillo": {
+   "n": 112,
+   "median": 1,
+   "within50_pct": 75.0
+  }
+ },
+ "colls": [
+  {
+   "name": "Nationalmuseum",
+   "n": 566,
+   "pct": 6.63,
+   "top_place": "Lofoten",
+   "top_place_n": 93,
+   "top_painter": "Anna Boberg",
+   "top_painter_n": 222,
+   "top_painter_pct": 39.22
+  },
+  {
+   "name": "Musée d'Orsay",
+   "n": 429,
+   "pct": 5.03,
+   "top_place": "Seine",
+   "top_place_n": 73,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 48,
+   "top_painter_pct": 11.19
+  },
+  {
+   "name": "National Trust",
+   "n": 355,
+   "pct": 4.16,
+   "top_place": "Windsor Castle",
+   "top_place_n": 50,
+   "top_painter": "J. M. W. Turner",
+   "top_painter_n": 12,
+   "top_painter_pct": 3.38
+  },
+  {
+   "name": "National Library of Wales",
+   "n": 228,
+   "pct": 2.67,
+   "top_place": "Snowdon",
+   "top_place_n": 10,
+   "top_painter": "Christopher Williams",
+   "top_painter_n": 16,
+   "top_painter_pct": 7.02
+  },
+  {
+   "name": "National Library of Wales Framed works of art collection",
+   "n": 218,
+   "pct": 2.55,
+   "top_place": "Snowdon",
+   "top_place_n": 10,
+   "top_painter": "Christopher Williams",
+   "top_painter_n": 16,
+   "top_painter_pct": 7.34
+  },
+  {
+   "name": "Musée Carnavalet",
+   "n": 200,
+   "pct": 2.34,
+   "top_place": "Seine",
+   "top_place_n": 15,
+   "top_painter": "Nicolas-Jean-Baptiste Raguenet",
+   "top_painter_n": 9,
+   "top_painter_pct": 4.5
+  },
+  {
+   "name": "National Museum of Art, Architecture and Design",
+   "n": 193,
+   "pct": 2.26,
+   "top_place": "Elbe",
+   "top_place_n": 12,
+   "top_painter": "Johan Christian Dahl",
+   "top_painter_n": 42,
+   "top_painter_pct": 21.76
+  },
+  {
+   "name": "Rijksmuseum",
+   "n": 144,
+   "pct": 1.69,
+   "top_place": "Dam Square",
+   "top_place_n": 8,
+   "top_painter": "Gerrit Adriaenszoon Berckheyde",
+   "top_painter_n": 11,
+   "top_painter_pct": 7.64
+  },
+  {
+   "name": "Brasiliana Iconográfica",
+   "n": 117,
+   "pct": 1.37,
+   "top_place": "Rio de Janeiro",
+   "top_place_n": 68,
+   "top_painter": "Harro Harring",
+   "top_painter_n": 17,
+   "top_painter_pct": 14.53
+  },
+  {
+   "name": "Department of Paintings of the Louvre",
+   "n": 111,
+   "pct": 1.3,
+   "top_place": "Italy",
+   "top_place_n": 7,
+   "top_painter": "Joseph Vernet",
+   "top_painter_n": 14,
+   "top_painter_pct": 12.61
+  },
+  {
+   "name": "Statens Museum for Kunst",
+   "n": 103,
+   "pct": 1.21,
+   "top_place": "Øresund",
+   "top_place_n": 7,
+   "top_painter": "Christoffer Wilhelm Eckersberg",
+   "top_painter_n": 11,
+   "top_painter_pct": 10.68
+  },
+  {
+   "name": "National Museum in Warsaw",
+   "n": 100,
+   "pct": 1.17,
+   "top_place": "Tatra Mountains",
+   "top_place_n": 7,
+   "top_painter": "Aleksander Gierymski",
+   "top_painter_n": 6,
+   "top_painter_pct": 6.0
+  },
+  {
+   "name": "Amsterdam Museum",
+   "n": 93,
+   "pct": 1.09,
+   "top_place": "Dam Square",
+   "top_place_n": 10,
+   "top_painter": "Gerrit Adriaenszoon Berckheyde",
+   "top_painter_n": 6,
+   "top_painter_pct": 6.45
+  },
+  {
+   "name": "Metropolitan Museum of Art",
+   "n": 92,
+   "pct": 1.08,
+   "top_place": "Atlantic Ocean",
+   "top_place_n": 5,
+   "top_painter": "Claude Monet",
+   "top_painter_n": 7,
+   "top_painter_pct": 7.61
+  },
+  {
+   "name": "Pinacoteca de São Paulo",
+   "n": 88,
+   "pct": 1.03,
+   "top_place": "Rio de Janeiro",
+   "top_place_n": 46,
+   "top_painter": "Miguelzinho Dutra",
+   "top_painter_n": 11,
+   "top_painter_pct": 12.5
+  },
+  {
+   "name": "Marianne North Gallery",
+   "n": 87,
+   "pct": 1.02,
+   "top_place": "Sarawak",
+   "top_place_n": 5,
+   "top_painter": "Marianne North",
+   "top_painter_n": 87,
+   "top_painter_pct": 100.0
+  },
+  {
+   "name": "National Gallery",
+   "n": 82,
+   "pct": 0.96,
+   "top_place": "Venice",
+   "top_place_n": 6,
+   "top_painter": "J. M. W. Turner",
+   "top_painter_n": 10,
+   "top_painter_pct": 12.2
+  },
+  {
+   "name": "Oslo Museum",
+   "n": 77,
+   "pct": 0.9,
+   "top_place": "Akerselva",
+   "top_place_n": 9,
+   "top_painter": "Axel Stephansen",
+   "top_painter_n": 11,
+   "top_painter_pct": 14.29
+  },
+  {
+   "name": "Fundação Estudar collection",
+   "n": 73,
+   "pct": 0.86,
+   "top_place": "Rio de Janeiro",
+   "top_place_n": 44,
+   "top_painter": "Jules Marie Vincent de Sinety",
+   "top_painter_n": 9,
+   "top_painter_pct": 12.33
+  },
+  {
+   "name": "Musée Blanche Hoschedé-Monet",
+   "n": 63,
+   "pct": 0.74,
+   "top_place": "Vernon",
+   "top_place_n": 22,
+   "top_painter": "Pierre Maubert",
+   "top_painter_n": 10,
+   "top_painter_pct": 15.87
+  },
+  {
+   "name": "Musée Fabre",
+   "n": 59,
+   "pct": 0.69,
+   "top_place": "Tivoli",
+   "top_place_n": 6,
+   "top_painter": "Louis Gauffier",
+   "top_painter_n": 5,
+   "top_painter_pct": 8.47
+  },
+  {
+   "name": "Staatliche Kunstsammlungen Dresden",
+   "n": 59,
+   "pct": 0.69,
+   "top_place": "Dresden",
+   "top_place_n": 5,
+   "top_painter": "Bernardo Bellotto",
+   "top_painter_n": 10,
+   "top_painter_pct": 16.95
+  },
+  {
+   "name": "Condé Museum",
+   "n": 56,
+   "pct": 0.66,
+   "top_place": "Mount Vesuvius",
+   "top_place_n": 9,
+   "top_painter": "Josef Rebell",
+   "top_painter_n": 7,
+   "top_painter_pct": 12.5
+  },
+  {
+   "name": "Tate",
+   "n": 54,
+   "pct": 0.63,
+   "top_place": "Venice",
+   "top_place_n": 6,
+   "top_painter": "J. M. W. Turner",
+   "top_painter_n": 15,
+   "top_painter_pct": 27.78
+  },
+  {
+   "name": "Groeningemuseum",
+   "n": 54,
+   "pct": 0.63,
+   "top_place": "Bruges",
+   "top_place_n": 26,
+   "top_painter": "Théodore Fourmois",
+   "top_painter_n": 6,
+   "top_painter_pct": 11.11
+  }
+ ],
+ "coll": {
+  "n": 1019,
+  "none": 1275,
+  "none_pct": 14.94,
+  "top1_pct": 6.63,
+  "top10_pct": 30.01,
+  "top20_pct": 40.07,
+  "half_k": 37,
+  "one_painting": 488,
+  "one_painting_pct": 47.89,
+  "with_coll": 7258,
+  "half_k_pct": 3.63
+ },
+ "boberg": {
+  "n": 223,
+  "pct": 2.61,
+  "nm": 222,
+  "lof_nord": 192,
+  "nm_share_of_nm": 39.22
+ },
+ "windsor": {
+  "anon": 28,
+  "nt": 50,
+  "n": 56
+ },
+ "moses": {
+  "n": 175,
+  "cambridge": 28,
+  "checkered": 26
+ },
+ "painter_share": {
+  "top10": 16.93,
+  "top1": 2.61
+ },
+ "excluded_top": [
+  [
+   "Moon",
+   "not a point on the Earth (another globe or an unknown value)",
+   138
+  ],
+  [
+   "HMS Prince Royal",
+   "vessel",
+   7
+  ],
+  [
+   "Four Days' Battle",
+   "event",
+   6
+  ],
+  [
+   "Bombardment of Algiers",
+   "event",
+   5
+  ],
+  [
+   "Battle of Solebay",
+   "event",
+   5
+  ],
+  [
+   "Battle of Texel",
+   "event",
+   5
+  ],
+  [
+   "Spanish Armada",
+   "event",
+   4
+  ],
+  [
+   "Battles of Barfleur and La Hougue",
+   "event",
+   4
+  ],
+  [
+   "Titanic",
+   "vessel",
+   3
+  ],
+  [
+   "Raid on the Medway",
+   "event",
+   3
+  ]
+ ],
+ "meta": {
+  "page": "https://maps.tristanhotham.com/painted-places/",
+  "repo": "https://github.com/Tristan-Hotham/painted-places",
+  "doi": "10.5281/zenodo.23873007",
+  "blog": "https://blog.tristanhotham.com/2026/10/31/painted-places/",
+  "slug": "painted-places"
+ }
+}
