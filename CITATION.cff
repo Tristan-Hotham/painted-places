@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this data or code, please cite it as below."
+title: "Painted Places: Where Catalogued Landscape, Marine and City Paintings Look, and How Far Painters Went from Home"
+type: dataset
+authors:
+  - family-names: Hotham
+    given-names: Tristan
+    orcid: "https://orcid.org/0000-0003-4931-9349"
+    affiliation: "Independent researcher"
+doi: "10.5281/zenodo.23873007"
+url: "https://maps.tristanhotham.com/painted-places/"
+repository-code: "https://github.com/Tristan-Hotham/painted-places"
+license: CC-BY-4.0
+keywords:
+  - "landscape painting"
+  - "marine painting"
+  - "cityscape"
+  - "Wikidata"
+  - "art geography"
+  - "painters"
+  - "museum collections"
+  - "cultural heritage data"
+  - "open data"
+  - "maps"
